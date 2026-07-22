@@ -1,0 +1,392 @@
+search_html = r'''<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISID – Evidence identikitů</title>
+  <style>
+    :root {
+      --navy: #102a43;
+      --navy-2: #163b63;
+      --blue: #1f6feb;
+      --blue-dark: #1557b0;
+      --bg: #eef3f8;
+      --panel: #ffffff;
+      --line: #d9e2ec;
+      --text: #1f2933;
+      --muted: #6b7c93;
+      --green: #127a4a;
+      --green-bg: #e7f6ee;
+      --shadow: 0 12px 30px rgba(16, 42, 67, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(238, 243, 248, .96), rgba(238, 243, 248, .96)),
+        repeating-linear-gradient(135deg, transparent 0 28px, rgba(16,42,67,.025) 28px 29px);
+    }
+
+    .topbar {
+      background: linear-gradient(105deg, var(--navy), var(--navy-2));
+      color: white;
+      border-bottom: 4px solid #58a6ff;
+      box-shadow: 0 5px 18px rgba(16, 42, 67, .28);
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      min-height: 86px;
+      padding: 15px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .emblem {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.08);
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .system-title {
+      font-size: 24px;
+      font-weight: 750;
+      letter-spacing: .02em;
+    }
+
+    .system-subtitle {
+      margin-top: 3px;
+      color: #d9e8f7;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 34px auto;
+      padding: 0 24px 48px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(16,42,67,.08);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 24px 26px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      color: var(--navy);
+    }
+
+    .lead {
+      margin: 7px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .security-label {
+      white-space: nowrap;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #f0f5fa;
+      color: #496581;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .search-area {
+      padding: 24px 26px 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 46px 15px 16px;
+      border: 1px solid #b9c7d5;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      transition: .2s ease;
+      background: #fbfdff;
+    }
+
+    input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(31,111,235,.12);
+      background: white;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #688199;
+      font-size: 20px;
+      pointer-events: none;
+    }
+
+    .hint {
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .results {
+      padding: 4px 26px 28px;
+    }
+
+    .results-meta {
+      display: none;
+      margin: 7px 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .record {
+      display: none;
+      grid-template-columns: minmax(220px, 1.5fr) minmax(140px, .8fr) minmax(130px, .7fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 17px 18px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blue);
+      border-radius: 10px;
+      background: linear-gradient(90deg, #f8fbff, white);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .record:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(16,42,67,.09);
+    }
+
+    .field-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .record-name {
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 750;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--green-bg);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #1ca66a;
+      box-shadow: 0 0 0 3px rgba(28,166,106,.13);
+    }
+
+    .open-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: white;
+      text-decoration: none;
+      font-weight: 750;
+      transition: background .18s ease, transform .18s ease;
+    }
+
+    .open-btn:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    .message {
+      display: none;
+      padding: 17px 18px;
+      border: 1px solid #e6c9c9;
+      border-radius: 10px;
+      background: #fff7f7;
+      color: #8a2e2e;
+      line-height: 1.5;
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: -22px auto 0;
+      padding: 0 24px 30px;
+      color: #7a8da1;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    @media (max-width: 760px) {
+      .system-title { font-size: 20px; }
+      .panel-header { display: block; }
+      .security-label { display: inline-flex; margin-top: 14px; }
+      .record { grid-template-columns: 1fr; }
+      .open-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="emblem">ISID</div>
+      <div>
+        <div class="system-title">Interní systém identifikace a identikitů</div>
+        <div class="system-subtitle">Evidence obrazových rekonstrukcí osob</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <h1>Vyhledávání identikitu</h1>
+          <p class="lead">Vyhledejte záznam podle jména autorky identikitu. Výsledky se zobrazí po zadání nejméně tří znaků.</p>
+        </div>
+        <div class="security-label">Interní přístup</div>
+      </div>
+
+      <div class="search-area">
+        <label for="authorSearch">Autorka identikitu</label>
+        <div class="search-wrap">
+          <input id="authorSearch" type="search" autocomplete="off" placeholder="Začněte psát jméno autorky…">
+          <span class="search-icon">⌕</span>
+        </div>
+        <p class="hint">Vyhledávání nerozlišuje velikost písmen ani diakritiku.</p>
+      </div>
+
+      <div class="results">
+        <div id="resultsMeta" class="results-meta">Nalezen 1 přístupný záznam.</div>
+
+        <article id="record" class="record">
+          <div>
+            <span class="field-label">Autorka identikitu</span>
+            <div class="record-name">Tamara Vrbová</div>
+          </div>
+          <div>
+            <span class="field-label">Datum vytvoření</span>
+            <strong>11. 6. 2026</strong>
+          </div>
+          <div>
+            <span class="field-label">Status</span>
+            <span class="badge">Přístupný</span>
+          </div>
+          <a class="open-btn" href="detail-identikitu.html?id=tamara-vrbova">Zobrazit</a>
+        </article>
+
+        <div id="message" class="message">
+          Nebyl nalezen žádný záznam, nebo k jeho zobrazení nemáte oprávnění.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>ISID · neveřejný informační systém</footer>
+
+  <script>
+    const records = [
+      {
+        author: "Tamara Vrbová",
+        date: "11. 6. 2026",
+        status: "Přístupný",
+        url: "detail-identikitu.html?id=tamara-vrbova"
+      }
+    ];
+
+    function normalizeText(text) {
+      return text
+        .toLocaleLowerCase("cs")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+    }
+
+    const input = document.getElementById("authorSearch");
+    const record = document.getElementById("record");
+    const message = document.getElementById("message");
+    const resultsMeta = document.getElementById("resultsMeta");
+
+    input.addEventListener("input", () => {
+      const query = normalizeText(input.value);
+
+      record.style.display = "none";
+      message.style.display = "none";
+      resultsMeta.style.display = "none";
+
+      if (query.length < 3) return;
+
+      const found = records.some(item =>
+        normalizeText(item.author).includes(query)
+      );
+
+      if (found) {
+        record.style.display = "grid";
+        resultsMeta.style.display = "block";
+      } else {
+        message.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
