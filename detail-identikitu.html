@@ -1,792 +1,297 @@
-detail_html = r'''<!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISID – Detail identikitu</title>
-  <style>
-    :root {
-      --navy: #102a43;
-      --navy-2: #163b63;
-      --blue: #1f6feb;
-      --blue-dark: #1557b0;
-      --bg: #eef3f8;
-      --panel: #ffffff;
-      --line: #d9e2ec;
-      --text: #1f2933;
-      --muted: #6b7c93;
-      --green: #127a4a;
-      --green-bg: #e7f6ee;
-      --amber: #9a6700;
-      --amber-bg: #fff7d6;
-      --danger: #b42318;
-      --shadow: 0 12px 30px rgba(16, 42, 67, .12);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      color: var(--text);
-      background:
-        linear-gradient(rgba(238, 243, 248, .96), rgba(238, 243, 248, .96)),
-        repeating-linear-gradient(135deg, transparent 0 28px, rgba(16,42,67,.025) 28px 29px);
-    }
-
-    button, input { font: inherit; }
-
-    .topbar {
-      background: linear-gradient(105deg, var(--navy), var(--navy-2));
-      color: white;
-      border-bottom: 4px solid #58a6ff;
-      box-shadow: 0 5px 18px rgba(16, 42, 67, .28);
-    }
-
-    .topbar-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      min-height: 86px;
-      padding: 15px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .emblem {
-      width: 52px;
-      height: 52px;
-      flex: 0 0 52px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(255,255,255,.45);
-      border-radius: 12px;
-      background: rgba(255,255,255,.08);
-      font-weight: 800;
-      letter-spacing: .08em;
-    }
-
-    .system-title {
-      font-size: 24px;
-      font-weight: 750;
-      letter-spacing: .02em;
-    }
-
-    .system-subtitle {
-      margin-top: 3px;
-      color: #d9e8f7;
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: 28px auto;
-      padding: 0 24px 48px;
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 16px;
-      color: var(--navy-2);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .back-link:hover { text-decoration: underline; }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid rgba(16,42,67,.08);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .panel-header {
-      padding: 22px 26px;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: center;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 24px;
-      color: var(--navy);
-    }
-
-    .meta {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--green-bg);
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 750;
-      white-space: nowrap;
-    }
-
-    .status::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #1ca66a;
-    }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: minmax(300px, 1.05fr) minmax(300px, .95fr);
-      gap: 28px;
-      padding: 28px;
-    }
-
-    .image-card {
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #f8fbff;
-    }
-
-    .main-image {
-      display: block;
-      width: 100%;
-      max-height: 650px;
-      object-fit: contain;
-      border-radius: 8px;
-      background: #dfe8f0;
-    }
-
-    .image-caption {
-      margin: 12px 3px 0;
-      color: var(--muted);
-      font-size: 12px;
-      text-align: center;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .comparison-card {
-      align-self: start;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: white;
-    }
-
-    .comparison-card h2 {
-      margin: 0 0 9px;
-      color: var(--navy);
-      font-size: 20px;
-    }
-
-    .comparison-card p {
-      margin: 0 0 20px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .compare-btn {
-      width: 100%;
-      min-height: 48px;
-      border: 0;
-      border-radius: 9px;
-      background: var(--blue);
-      color: white;
-      font-weight: 750;
-      cursor: pointer;
-      transition: .18s ease;
-    }
-
-    .compare-btn:hover { background: var(--blue-dark); }
-    .compare-btn:disabled { opacity: .58; cursor: default; }
-
-    .loading-box {
-      display: none;
-      margin-top: 22px;
-      padding: 17px;
-      border: 1px solid #c9d8e7;
-      border-radius: 10px;
-      background: #f7fbff;
-    }
-
-    .loading-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-      color: var(--navy);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 13px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: #dce7f1;
-    }
-
-    .progress-bar {
-      width: 0;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #1557b0, #58a6ff);
-      transition: width .12s linear;
-    }
-
-    .selected-banner {
-      display: none;
-      margin-top: 18px;
-      padding: 14px 15px;
-      border: 1px solid #a9d9c0;
-      border-radius: 9px;
-      background: var(--green-bg);
-      color: #0e633d;
-      line-height: 1.45;
-      font-weight: 650;
-    }
-
-    .matches-section {
-      display: none;
-      padding: 0 28px 32px;
-    }
-
-    .matches-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .matches-header h2 {
-      margin: 0;
-      color: var(--navy);
-      font-size: 21px;
-    }
-
-    .matches-header p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .match-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .match-card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      background: white;
-      box-shadow: 0 7px 18px rgba(16,42,67,.07);
-      cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-
-    .match-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 23px rgba(16,42,67,.12);
-      border-color: #a9bfd3;
-    }
-
-    .match-card.selected {
-      border: 2px solid #1ca66a;
-    }
-
-    .match-card img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      background: #e3eaf1;
-    }
-
-    .match-info {
-      padding: 14px 15px 16px;
-    }
-
-    .match-name {
-      margin: 0;
-      color: var(--navy);
-      font-size: 16px;
-      font-weight: 750;
-    }
-
-    .match-caption {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-    .match-percent {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(16,42,67,.92);
-      color: white;
-      font-size: 13px;
-      font-weight: 800;
-      box-shadow: 0 3px 9px rgba(0,0,0,.22);
-    }
-
-    .selected-mark {
-      display: none;
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 6px 9px;
-      border-radius: 999px;
-      background: #14814e;
-      color: white;
-      font-size: 12px;
-      font-weight: 750;
-    }
-
-    .match-card.selected .selected-mark { display: block; }
-
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      padding: 24px;
-      background: rgba(7, 20, 34, .78);
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(3px);
-    }
-
-    .modal.open { display: flex; }
-
-    .modal-dialog {
-      position: relative;
-      width: min(940px, 100%);
-      max-height: calc(100vh - 48px);
-      overflow: auto;
-      border-radius: 14px;
-      background: white;
-      box-shadow: 0 24px 70px rgba(0,0,0,.38);
-    }
-
-    .modal-close {
-      position: absolute;
-      z-index: 2;
-      right: 13px;
-      top: 13px;
-      width: 40px;
-      height: 40px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(16,42,67,.91);
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .modal-content {
-      display: grid;
-      grid-template-columns: minmax(280px, 1fr) minmax(280px, .85fr);
-    }
-
-    .modal-image-wrap {
-      min-height: 480px;
-      padding: 22px;
-      display: grid;
-      place-items: center;
-      background: #e7edf3;
-    }
-
-    .modal-image {
-      display: block;
-      max-width: 100%;
-      max-height: 72vh;
-      object-fit: contain;
-      border-radius: 8px;
-      background: #d8e1e9;
-    }
-
-    .modal-info {
-      padding: 34px 30px 30px;
-    }
-
-    .modal-kicker {
-      color: var(--blue-dark);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-    }
-
-    .modal-title {
-      margin: 8px 0 4px;
-      color: var(--navy);
-      font-size: 25px;
-    }
-
-    .modal-percent {
-      display: inline-flex;
-      margin: 6px 0 18px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--amber-bg);
-      color: var(--amber);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .modal-description {
-      margin: 0;
-      color: #4b6074;
-      line-height: 1.65;
-      white-space: pre-line;
-    }
-
-    .choose-btn {
-      width: 100%;
-      min-height: 48px;
-      margin-top: 24px;
-      border: 0;
-      border-radius: 9px;
-      background: #14814e;
-      color: white;
-      font-weight: 800;
-      cursor: pointer;
-      transition: background .18s ease;
-    }
-
-    .choose-btn:hover { background: #0e633d; }
-
-    .choose-btn.chosen {
-      background: #51697f;
-      cursor: default;
-    }
-
-    .modal-note {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    @media (max-width: 860px) {
-      .detail-grid { grid-template-columns: 1fr; }
-      .match-grid { grid-template-columns: 1fr; }
-      .modal-content { grid-template-columns: 1fr; }
-      .modal-image-wrap { min-height: 350px; }
-    }
-
-    @media (max-width: 600px) {
-      .system-title { font-size: 19px; }
-      .panel-header { align-items: flex-start; }
-      .detail-grid, .matches-section { padding-left: 18px; padding-right: 18px; }
-      .modal { padding: 10px; }
-    }
-  </style>
-</head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="emblem">ISID</div>
-      <div>
-        <div class="system-title">Interní systém identifikace a identikitů</div>
-        <div class="system-subtitle">Porovnání obrazové rekonstrukce s databází</div>
-      </div>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(rgba(238, 243, 248, .96), rgba(238, 243, 248, .96)),
+    repeating-linear-gradient(135deg, transparent 0 28px, rgba(16,42,67,.025) 28px 29px);
+}
+
+.topbar {
+  background: linear-gradient(105deg, var(--navy), var(--navy-2));
+  color: white;
+  border-bottom: 4px solid #58a6ff;
+  box-shadow: 0 5px 18px rgba(16, 42, 67, .28);
+}
+
+.topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: 86px;
+  padding: 15px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.emblem {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.system-title {
+  font-size: 24px;
+  font-weight: 750;
+  letter-spacing: .02em;
+}
+
+.system-subtitle {
+  margin-top: 3px;
+  color: #d9e8f7;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+main {
+  max-width: 1180px;
+  margin: 34px auto;
+  padding: 0 24px 48px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(16,42,67,.08);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 24px 26px 20px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--navy);
+}
+
+.lead {
+  margin: 7px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.security-label {
+  white-space: nowrap;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #f0f5fa;
+  color: #496581;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.search-area {
+  padding: 24px 26px 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.search-wrap {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 15px 46px 15px 16px;
+  border: 1px solid #b9c7d5;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: .2s ease;
+  background: #fbfdff;
+}
+
+input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(31,111,235,.12);
+  background: white;
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #688199;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.hint {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.results {
+  padding: 4px 26px 28px;
+}
+
+.results-meta {
+  display: none;
+  margin: 7px 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.record {
+  display: none;
+  grid-template-columns: minmax(220px, 1.5fr) minmax(140px, .8fr) minmax(130px, .7fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 17px 18px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f8fbff, white);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.record:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(16,42,67,.09);
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.record-name {
+  color: var(--navy);
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--green-bg);
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1ca66a;
+  box-shadow: 0 0 0 3px rgba(28,166,106,.13);
+}
+
+.open-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  text-decoration: none;
+  font-weight: 750;
+  transition: background .18s ease, transform .18s ease;
+}
+
+.open-btn:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.message {
+  display: none;
+  padding: 17px 18px;
+  border: 1px solid #e6c9c9;
+  border-radius: 10px;
+  background: #fff7f7;
+  color: #8a2e2e;
+  line-height: 1.5;
+}
+
+footer {
+  max-width: 1180px;
+  margin: -22px auto 0;
+  padding: 0 24px 30px;
+  color: #7a8da1;
+  font-size: 12px;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .system-title { font-size: 20px; }
+  .panel-header { display: block; }
+  .security-label { display: inline-flex; margin-top: 14px; }
+  .record { grid-template-columns: 1fr; }
+  .open-btn { width: 100%; }
+}
+
+  <div class="search-area">
+    <label for="authorSearch">Autorka identikitu</label>
+    <div class="search-wrap">
+      <input id="authorSearch" type="search" autocomplete="off" placeholder="Začněte psát jméno autorky…">
+      <span class="search-icon">⌕</span>
     </div>
-  </header>
-
-  <main>
-    <a class="back-link" href="identikity.html">← Zpět na vyhledávání</a>
-
-    <section class="panel">
-      <div class="panel-header">
-        <div>
-          <h1>Detail identikitu</h1>
-          <div class="meta">
-            <span><strong>Autorka:</strong> Tamara Vrbová</span>
-            <span><strong>Datum vytvoření:</strong> 11. 6. 2026</span>
-          </div>
-        </div>
-        <div class="status">Přístupný</div>
-      </div>
-
-      <div class="detail-grid">
-        <div class="image-card">
-          <img class="main-image" src="identikit.jpg" alt="Zobrazený identikit">
-          <div class="image-caption">Obrazová rekonstrukce hledané osoby</div>
-        </div>
-
-        <aside class="comparison-card">
-          <h2>Porovnání s databází</h2>
-          <p>Systém provede biometrické porovnání rysů obličeje s dostupnými fotografiemi osob vedených v interní evidenci.</p>
-          <button id="compareBtn" class="compare-btn" type="button">Spustit porovnání</button>
-
-          <div id="loadingBox" class="loading-box">
-            <div class="loading-line">
-              <span id="loadingText">Inicializace databáze…</span>
-              <span id="progressValue">0 %</span>
-            </div>
-            <div class="progress-track">
-              <div id="progressBar" class="progress-bar"></div>
-            </div>
-          </div>
-
-          <div id="selectedBanner" class="selected-banner"></div>
-        </aside>
-      </div>
-
-      <section id="matchesSection" class="matches-section">
-        <div class="matches-header">
-          <div>
-            <h2>Nejvyšší nalezené shody</h2>
-            <p>Kliknutím na fotografii zobrazíte detail osoby a můžete potvrdit svůj výběr.</p>
-          </div>
-        </div>
-        <div id="matchGrid" class="match-grid"></div>
-      </section>
-    </section>
-  </main>
-
-  <div id="personModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-dialog">
-      <button id="modalClose" class="modal-close" type="button" aria-label="Zavřít">×</button>
-      <div class="modal-content">
-        <div class="modal-image-wrap">
-          <img id="modalImage" class="modal-image" src="" alt="">
-        </div>
-        <div class="modal-info">
-          <div class="modal-kicker">Detail nalezené osoby</div>
-          <h2 id="modalTitle" class="modal-title"></h2>
-          <div id="modalPercent" class="modal-percent"></div>
-          <p id="modalDescription" class="modal-description"></p>
-          <button id="chooseBtn" class="choose-btn" type="button">Označit jako hledanou osobu</button>
-          <div class="modal-note">Výběr se uloží v tomto prohlížeči a lze jej změnit označením jiné osoby.</div>
-        </div>
-      </div>
-    </div>
+    <p class="hint">Vyhledávání nerozlišuje velikost písmen ani diakritiku.</p>
   </div>
 
-  <script>
-    /*
-      ZDE SI SNADNO UPRAVÍŠ ÚDAJE, POPISKY I PROCENTA SHODY.
-      U každé osoby můžeš změnit:
-      image       = název obrázku
-      name        = jméno nebo označení osoby
-      match       = procentuální shoda
-      shortText   = krátký text na kartě
-      description = podrobný popisek v otevřeném okně
-    */
-    const persons = [
-      {
-        id: "zena-1",
-        image: "žena1.jpg",
-        name: "Osoba č. 1",
-        match: 91,
-        shortText: "Nejvyšší míra shody v dostupné databázi.",
-        description: "Sem napište vlastní podrobný popis první osoby.\n\nMůže obsahovat například jméno, věk, bydliště, číslo spisu, poznávací znaky nebo další informace důležité pro vyšetřování."
-      },
-      {
-        id: "zena-2",
-        image: "žena2.jpg",
-        name: "Osoba č. 2",
-        match: 84,
-        shortText: "Výrazná shoda v oblasti očí a tvaru obličeje.",
-        description: "Sem napište vlastní podrobný popis druhé osoby.\n\nText lze libovolně prodloužit a rozdělit do více odstavců."
-      },
-      {
-        id: "zena-3",
-        image: "žena3.jpg",
-        name: "Osoba č. 3",
-        match: 76,
-        shortText: "Částečná shoda hlavních rozpoznávacích znaků.",
-        description: "Sem napište vlastní podrobný popis třetí osoby.\n\nLze zde uvést také důvod evidence nebo poslední známé místo pohybu."
-      }
-    ];
+  <div class="results">
+    <div id="resultsMeta" class="results-meta">Nalezen 1 přístupný záznam.</div>
 
-    const compareBtn = document.getElementById("compareBtn");
-    const loadingBox = document.getElementById("loadingBox");
-    const loadingText = document.getElementById("loadingText");
-    const progressValue = document.getElementById("progressValue");
-    const progressBar = document.getElementById("progressBar");
-    const matchesSection = document.getElementById("matchesSection");
-    const matchGrid = document.getElementById("matchGrid");
-    const selectedBanner = document.getElementById("selectedBanner");
+    <article id="record" class="record">
+      <div>
+        <span class="field-label">Autorka identikitu</span>
+        <div class="record-name">Tamara Vrbová</div>
+      </div>
+      <div>
+        <span class="field-label">Datum vytvoření</span>
+        <strong>11. 6. 2026</strong>
+      </div>
+      <div>
+        <span class="field-label">Status</span>
+        <span class="badge">Přístupný</span>
+      </div>
+      <a class="open-btn" href="detail-identikitu.html?id=tamara-vrbova">Zobrazit</a>
+    </article>
 
-    const modal = document.getElementById("personModal");
-    const modalClose = document.getElementById("modalClose");
-    const modalImage = document.getElementById("modalImage");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalPercent = document.getElementById("modalPercent");
-    const modalDescription = document.getElementById("modalDescription");
-    const chooseBtn = document.getElementById("chooseBtn");
-
-    let currentPerson = null;
-    let selectedPersonId = localStorage.getItem("isid-selected-person");
-
-    function renderMatches() {
-      matchGrid.innerHTML = "";
-
-      persons.forEach(person => {
-        const card = document.createElement("article");
-        card.className = "match-card";
-        card.dataset.personId = person.id;
-        card.tabIndex = 0;
-
-        if (person.id === selectedPersonId) {
-          card.classList.add("selected");
-        }
-
-        card.innerHTML = `
-          <span class="selected-mark">Vybráno</span>
-          <span class="match-percent">${person.match} % shoda</span>
-          <img src="${person.image}" alt="${person.name}">
-          <div class="match-info">
-            <h3 class="match-name">${person.name}</h3>
-            <p class="match-caption">${person.shortText}</p>
-          </div>
-        `;
-
-        card.addEventListener("click", () => openPerson(person));
-        card.addEventListener("keydown", event => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openPerson(person);
-          }
-        });
-
-        matchGrid.appendChild(card);
-      });
-
-      refreshSelectedBanner();
-    }
-
-    function openPerson(person) {
-      currentPerson = person;
-      modalImage.src = person.image;
-      modalImage.alt = person.name;
-      modalTitle.textContent = person.name;
-      modalPercent.textContent = `${person.match} % shoda`;
-      modalDescription.textContent = person.description;
-
-      const isSelected = selectedPersonId === person.id;
-      chooseBtn.textContent = isSelected
-        ? "Tato osoba je označena"
-        : "Označit jako hledanou osobu";
-      chooseBtn.classList.toggle("chosen", isSelected);
-      chooseBtn.disabled = isSelected;
-
-      modal.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeModal() {
-      modal.classList.remove("open");
-      document.body.style.overflow = "";
-      currentPerson = null;
-    }
-
-    function selectCurrentPerson() {
-      if (!currentPerson) return;
-
-      selectedPersonId = currentPerson.id;
-      localStorage.setItem("isid-selected-person", selectedPersonId);
-
-      renderMatches();
-      chooseBtn.textContent = "Tato osoba je označena";
-      chooseBtn.classList.add("chosen");
-      chooseBtn.disabled = true;
-    }
-
-    function refreshSelectedBanner() {
-      const selected = persons.find(person => person.id === selectedPersonId);
-
-      if (!selected) {
-        selectedBanner.style.display = "none";
-        selectedBanner.textContent = "";
-        return;
-      }
-
-      selectedBanner.style.display = "block";
-      selectedBanner.innerHTML = `Jako hledaná osoba byla označena: <strong>${selected.name}</strong> (${selected.match} % shoda).`;
-    }
-
-    compareBtn.addEventListener("click", () => {
-      compareBtn.disabled = true;
-      loadingBox.style.display = "block";
-      matchesSection.style.display = "none";
-
-      let progress = 0;
-      const stages = [
-        { at: 0, text: "Inicializace databáze…" },
-        { at: 18, text: "Načítání obrazových záznamů…" },
-        { at: 42, text: "Analýza geometrie obličeje…" },
-        { at: 68, text: "Porovnání rozpoznávacích znaků…" },
-        { at: 88, text: "Řazení výsledků podle shody…" }
-      ];
-
-      const interval = setInterval(() => {
-        progress += Math.floor(Math.random() * 4) + 1;
-        if (progress > 100) progress = 100;
-
-        const stage = [...stages].reverse().find(item => progress >= item.at);
-        loadingText.textContent = stage.text;
-        progressValue.textContent = `${progress} %`;
-        progressBar.style.width = `${progress}%`;
-
-        if (progress >= 100) {
-          clearInterval(interval);
-          loadingText.textContent = "Porovnání dokončeno";
-          compareBtn.textContent = "Porovnání dokončeno";
-          renderMatches();
-
-          setTimeout(() => {
-            matchesSection.style.display = "block";
-            matchesSection.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 350);
-        }
-      }, 90);
-    });
-
-    modalClose.addEventListener("click", closeModal);
-    chooseBtn.addEventListener("click", selectCurrentPerson);
-
-    modal.addEventListener("click", event => {
-      if (event.target === modal) closeModal();
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && modal.classList.contains("open")) {
-        closeModal();
-      }
-    });
-  </script>
-</body>
-</html>
+    <div id="message" class="message">
+      Nebyl nalezen žádný záznam, nebo k jeho zobrazení nemáte oprávnění.
+    </div>
+  </div>
+</section>
