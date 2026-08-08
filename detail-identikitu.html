@@ -1,297 +1,3372 @@
-* { box-sizing: border-box; }
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  color: var(--text);
-  background:
-    linear-gradient(rgba(238, 243, 248, .96), rgba(238, 243, 248, .96)),
-    repeating-linear-gradient(135deg, transparent 0 28px, rgba(16,42,67,.025) 28px 29px);
-}
+  <title>ISID – Detail identikitu</title>
 
-.topbar {
-  background: linear-gradient(105deg, var(--navy), var(--navy-2));
-  color: white;
-  border-bottom: 4px solid #58a6ff;
-  box-shadow: 0 5px 18px rgba(16, 42, 67, .28);
-}
+  <style>
+    :root {
+      --navy: #102a43;
+      --navy-2: #163b63;
+      --blue: #1f6feb;
+      --blue-dark: #1557b0;
+      --bg: #eef3f8;
+      --panel: #ffffff;
+      --line: #d9e2ec;
+      --text: #1f2933;
+      --muted: #6b7c93;
+      --green: #127a4a;
+      --green-bg: #e7f6ee;
+      --amber: #9a6700;
+      --amber-bg: #fff7d6;
+      --danger: #b42318;
+      --shadow: 0 12px 30px rgba(16, 42, 67, .12);
+    }
 
-.topbar-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-  min-height: 86px;
-  padding: 15px 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.emblem {
-  width: 52px;
-  height: 52px;
-  flex: 0 0 52px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255,255,255,.45);
-  border-radius: 12px;
-  background: rgba(255,255,255,.08);
-  font-weight: 800;
-  letter-spacing: .08em;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
 
-.system-title {
-  font-size: 24px;
-  font-weight: 750;
-  letter-spacing: .02em;
-}
+      background:
+        linear-gradient(rgba(238, 243, 248, .96), rgba(238, 243, 248, .96)),
+        repeating-linear-gradient(
+          135deg,
+          transparent 0 28px,
+          rgba(16,42,67,.025) 28px 29px
+        );
+    }
 
-.system-subtitle {
-  margin-top: 3px;
-  color: #d9e8f7;
-  font-size: 13px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
+    button,
+    input {
+      font: inherit;
+    }
 
-main {
-  max-width: 1180px;
-  margin: 34px auto;
-  padding: 0 24px 48px;
-}
 
-.panel {
-  background: var(--panel);
-  border: 1px solid rgba(16,42,67,.08);
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
+    /* =========================================================
+       HORNÍ LIŠTA
+       ========================================================= */
 
-.panel-header {
-  padding: 24px 26px 20px;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  align-items: flex-start;
-}
+    .topbar {
+      background:
+        linear-gradient(
+          105deg,
+          var(--navy),
+          var(--navy-2)
+        );
 
-h1 {
-  margin: 0;
-  font-size: 24px;
-  color: var(--navy);
-}
+      color: white;
 
-.lead {
-  margin: 7px 0 0;
-  color: var(--muted);
-  line-height: 1.55;
-}
+      border-bottom:
+        4px solid #58a6ff;
 
-.security-label {
-  white-space: nowrap;
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: #f0f5fa;
-  color: #496581;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-}
+      box-shadow:
+        0 5px 18px rgba(16, 42, 67, .28);
+    }
 
-.search-area {
-  padding: 24px 26px 18px;
-}
+    .topbar-inner {
+      max-width: 1180px;
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--navy);
-  font-size: 14px;
-  font-weight: 700;
-}
+      margin: 0 auto;
 
-.search-wrap {
-  position: relative;
-}
+      min-height: 86px;
 
-input {
-  width: 100%;
-  padding: 15px 46px 15px 16px;
-  border: 1px solid #b9c7d5;
-  border-radius: 10px;
-  font-size: 16px;
-  outline: none;
-  transition: .2s ease;
-  background: #fbfdff;
-}
+      padding:
+        15px 24px;
 
-input:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(31,111,235,.12);
-  background: white;
-}
+      display: flex;
+      align-items: center;
 
-.search-icon {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #688199;
-  font-size: 20px;
-  pointer-events: none;
-}
+      gap: 16px;
+    }
 
-.hint {
-  margin: 8px 0 0;
-  font-size: 13px;
-  color: var(--muted);
-}
+    .emblem {
+      width: 52px;
+      height: 52px;
 
-.results {
-  padding: 4px 26px 28px;
-}
+      flex: 0 0 52px;
 
-.results-meta {
-  display: none;
-  margin: 7px 0 12px;
-  color: var(--muted);
-  font-size: 13px;
-}
+      display: grid;
+      place-items: center;
 
-.record {
-  display: none;
-  grid-template-columns: minmax(220px, 1.5fr) minmax(140px, .8fr) minmax(130px, .7fr) auto;
-  gap: 16px;
-  align-items: center;
-  padding: 17px 18px;
-  border: 1px solid var(--line);
-  border-left: 5px solid var(--blue);
-  border-radius: 10px;
-  background: linear-gradient(90deg, #f8fbff, white);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
+      border:
+        1px solid rgba(255,255,255,.45);
 
-.record:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(16,42,67,.09);
-}
+      border-radius: 12px;
 
-.field-label {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
+      background:
+        rgba(255,255,255,.08);
 
-.record-name {
-  color: var(--navy);
-  font-size: 17px;
-  font-weight: 750;
-}
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--green-bg);
-  color: var(--green);
-  font-size: 13px;
-  font-weight: 750;
-}
+    .system-title {
+      font-size: 24px;
+      font-weight: 750;
+      letter-spacing: .02em;
+    }
 
-.badge::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #1ca66a;
-  box-shadow: 0 0 0 3px rgba(28,166,106,.13);
-}
+    .system-subtitle {
+      margin-top: 3px;
 
-.open-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0 18px;
-  border-radius: 8px;
-  background: var(--blue);
-  color: white;
-  text-decoration: none;
-  font-weight: 750;
-  transition: background .18s ease, transform .18s ease;
-}
+      color:
+        #d9e8f7;
 
-.open-btn:hover {
-  background: var(--blue-dark);
-  transform: translateY(-1px);
-}
+      font-size: 13px;
 
-.message {
-  display: none;
-  padding: 17px 18px;
-  border: 1px solid #e6c9c9;
-  border-radius: 10px;
-  background: #fff7f7;
-  color: #8a2e2e;
-  line-height: 1.5;
-}
+      letter-spacing: .08em;
 
-footer {
-  max-width: 1180px;
-  margin: -22px auto 0;
-  padding: 0 24px 30px;
-  color: #7a8da1;
-  font-size: 12px;
-  text-align: right;
-}
+      text-transform:
+        uppercase;
+    }
 
-@media (max-width: 760px) {
-  .system-title { font-size: 20px; }
-  .panel-header { display: block; }
-  .security-label { display: inline-flex; margin-top: 14px; }
-  .record { grid-template-columns: 1fr; }
-  .open-btn { width: 100%; }
-}
 
-  <div class="search-area">
-    <label for="authorSearch">Autorka identikitu</label>
-    <div class="search-wrap">
-      <input id="authorSearch" type="search" autocomplete="off" placeholder="Začněte psát jméno autorky…">
-      <span class="search-icon">⌕</span>
+    /* =========================================================
+       HLAVNÍ STRÁNKA
+       ========================================================= */
+
+    main {
+      max-width: 1180px;
+
+      margin:
+        28px auto;
+
+      padding:
+        0 24px 48px;
+    }
+
+    .back-link {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 16px;
+
+      color:
+        var(--navy-2);
+
+      text-decoration:
+        none;
+
+      font-weight:
+        700;
+    }
+
+    .back-link:hover {
+      text-decoration:
+        underline;
+    }
+
+    .panel {
+      background:
+        var(--panel);
+
+      border:
+        1px solid rgba(16,42,67,.08);
+
+      border-radius: 14px;
+
+      box-shadow:
+        var(--shadow);
+
+      overflow:
+        hidden;
+    }
+
+    .panel-header {
+      padding:
+        22px 26px;
+
+      border-bottom:
+        1px solid var(--line);
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      gap: 18px;
+
+      align-items:
+        center;
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: 24px;
+
+      color:
+        var(--navy);
+    }
+
+    .meta {
+      display: flex;
+
+      gap: 18px;
+
+      flex-wrap:
+        wrap;
+
+      margin-top: 8px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+    }
+
+    .status {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap: 7px;
+
+      padding:
+        7px 11px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--green-bg);
+
+      color:
+        var(--green);
+
+      font-size:
+        13px;
+
+      font-weight:
+        750;
+
+      white-space:
+        nowrap;
+    }
+
+    .status::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius:
+        50%;
+
+      background:
+        #1ca66a;
+    }
+
+
+    /* =========================================================
+       DETAIL
+       ========================================================= */
+
+    .detail-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(300px, 1.05fr)
+        minmax(300px, .95fr);
+
+      gap: 28px;
+
+      padding: 28px;
+    }
+
+
+    /* =========================================================
+       IDENTIKIT
+       ========================================================= */
+
+    .image-card {
+      padding: 14px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        12px;
+
+      background:
+        #f8fbff;
+    }
+
+    .image-stage {
+      position: relative;
+
+      width: 100%;
+
+      overflow: hidden;
+
+      border-radius: 8px;
+
+      background:
+        #dfe8f0;
+
+      isolation:
+        isolate;
+    }
+
+    .main-image {
+      position: relative;
+
+      z-index: 1;
+
+      display: block;
+
+      width: 100%;
+
+      max-height: 650px;
+
+      object-fit:
+        contain;
+
+      background:
+        #dfe8f0;
+
+      transition:
+        filter .45s ease,
+        transform .6s ease;
+    }
+
+    .image-caption {
+      margin:
+        12px 3px 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+
+      text-align:
+        center;
+
+      letter-spacing:
+        .04em;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    /* =========================================================
+       ANALYTICKÉ VRSTVY NAD IDENTIKITEM
+       ========================================================= */
+
+    .analysis-layer {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 5;
+
+      pointer-events: none;
+
+      opacity: 0;
+
+      transition:
+        opacity .35s ease;
+    }
+
+    .analysis-layer.visible {
+      opacity: 1;
+    }
+
+
+    /* SKENOVACÍ ČÁRA */
+
+    .scan-line {
+      position: absolute;
+
+      z-index: 10;
+
+      left: 0;
+      right: 0;
+
+      top: -4px;
+
+      height: 3px;
+
+      opacity: 0;
+
+      background:
+        #36a3ff;
+
+      box-shadow:
+        0 0 7px #36a3ff,
+        0 0 18px rgba(54,163,255,.8),
+        0 0 35px rgba(54,163,255,.4);
+    }
+
+    .image-stage.scanning .scan-line {
+      opacity: 1;
+
+      animation:
+        scanVertical 2.6s linear infinite;
+    }
+
+    @keyframes scanVertical {
+
+      0% {
+        top: 0;
+      }
+
+      50% {
+        top:
+          calc(100% - 3px);
+      }
+
+      100% {
+        top: 0;
+      }
+    }
+
+
+    /* MODRÉ ROHY */
+
+    .scanner-corner {
+      position: absolute;
+
+      width: 38px;
+      height: 38px;
+
+      opacity: 0;
+
+      z-index: 9;
+
+      transition:
+        opacity .3s ease;
+    }
+
+    .image-stage.analyzing .scanner-corner {
+      opacity: 1;
+    }
+
+    .corner-tl {
+      top: 14px;
+      left: 14px;
+
+      border-top:
+        2px solid #36a3ff;
+
+      border-left:
+        2px solid #36a3ff;
+    }
+
+    .corner-tr {
+      top: 14px;
+      right: 14px;
+
+      border-top:
+        2px solid #36a3ff;
+
+      border-right:
+        2px solid #36a3ff;
+    }
+
+    .corner-bl {
+      bottom: 14px;
+      left: 14px;
+
+      border-bottom:
+        2px solid #36a3ff;
+
+      border-left:
+        2px solid #36a3ff;
+    }
+
+    .corner-br {
+      bottom: 14px;
+      right: 14px;
+
+      border-bottom:
+        2px solid #36a3ff;
+
+      border-right:
+        2px solid #36a3ff;
+    }
+
+
+    /* =========================================================
+       ROZKOSTIČKOVÁNÍ / ANALYTICKÁ MŘÍŽKA
+       ========================================================= */
+
+    .pixel-grid {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 6;
+
+      opacity: 0;
+
+      background:
+        linear-gradient(
+          rgba(31,111,235,.27) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(31,111,235,.27) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        16px 16px;
+
+      transition:
+        opacity .35s ease;
+    }
+
+    .image-stage.pixel-mode .pixel-grid {
+      opacity: .68;
+    }
+
+    .image-stage.pixel-mode .main-image {
+      filter:
+        grayscale(.95)
+        contrast(1.25)
+        brightness(.96);
+
+      transform:
+        scale(1.012);
+    }
+
+
+    /* DOPLŇUJÍCÍ „DATOVÉ BLOKY“ */
+
+    .mosaic-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 5;
+
+      opacity: 0;
+
+      background:
+
+        repeating-conic-gradient(
+          from 45deg,
+          rgba(31,111,235,.11) 0 25%,
+          transparent 0 50%
+        )
+        0 0 / 22px 22px;
+
+      mix-blend-mode:
+        multiply;
+
+      transition:
+        opacity .3s ease;
+    }
+
+    .image-stage.pixel-mode .mosaic-overlay {
+      opacity: .75;
+    }
+
+
+    /* =========================================================
+       ZAMĚŘENÍ OBLIČEJE
+       ========================================================= */
+
+    .face-target {
+      position: absolute;
+
+      z-index: 8;
+
+      left: 28%;
+      top: 13%;
+
+      width: 44%;
+      height: 61%;
+
+      opacity: 0;
+
+      border:
+        2px solid #30a0ff;
+
+      box-shadow:
+        0 0 0 999px rgba(8,28,47,.13),
+        0 0 16px rgba(48,160,255,.55);
+
+      transition:
+        opacity .35s ease,
+        transform .45s ease;
+    }
+
+    .face-target::before,
+    .face-target::after {
+      position: absolute;
+
+      padding:
+        3px 5px;
+
+      background:
+        rgba(11,53,91,.88);
+
+      color:
+        #dff1ff;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:
+        9px;
+    }
+
+    .face-target::before {
+      content:
+        "FACE REGION";
+
+      left: -2px;
+      top: -20px;
+    }
+
+    .face-target::after {
+      content:
+        "LOCKED";
+
+      right: -2px;
+      bottom: -20px;
+    }
+
+    .image-stage.face-mode .face-target,
+    .image-stage.landmark-mode .face-target,
+    .image-stage.detail-mode .face-target {
+      opacity: 1;
+    }
+
+
+    /* =========================================================
+       BIOMETRICKÉ BODY
+       ========================================================= */
+
+    .landmark-layer {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 9;
+
+      opacity: 0;
+
+      transition:
+        opacity .35s ease;
+    }
+
+    .image-stage.landmark-mode .landmark-layer,
+    .image-stage.detail-mode .landmark-layer {
+      opacity: 1;
+    }
+
+    .landmark {
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      margin:
+        -3.5px 0 0 -3.5px;
+
+      border-radius:
+        50%;
+
+      background:
+        #53c4ff;
+
+      border:
+        1px solid white;
+
+      box-shadow:
+        0 0 0 4px rgba(83,196,255,.15),
+        0 0 8px rgba(83,196,255,.8);
+    }
+
+    .landmark::after {
+      content: "";
+
+      position: absolute;
+
+      left: 3px;
+      top: 3px;
+
+      width: 45px;
+      height: 1px;
+
+      background:
+        rgba(83,196,255,.33);
+
+      transform-origin:
+        left center;
+    }
+
+    .landmark:nth-child(odd)::after {
+      transform:
+        rotate(18deg);
+    }
+
+    .landmark:nth-child(even)::after {
+      transform:
+        rotate(-18deg);
+    }
+
+
+    /* =========================================================
+       DETAIL OBLIČEJE
+       ========================================================= */
+
+    .face-detail {
+      position: absolute;
+
+      z-index: 12;
+
+      right: 12px;
+      bottom: 12px;
+
+      width: 128px;
+
+      padding: 7px;
+
+      opacity: 0;
+
+      transform:
+        translateY(10px) scale(.97);
+
+      border:
+        1px solid rgba(255,255,255,.8);
+
+      border-radius: 7px;
+
+      background:
+        rgba(12,36,57,.93);
+
+      box-shadow:
+        0 11px 28px rgba(0,0,0,.32);
+
+      transition:
+        opacity .35s ease,
+        transform .35s ease;
+    }
+
+    .image-stage.detail-mode .face-detail {
+      opacity: 1;
+
+      transform:
+        translateY(0) scale(1);
+    }
+
+    .face-detail-label {
+      margin-bottom: 5px;
+
+      color:
+        #acd9ff;
+
+      font-size: 9px;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      text-transform:
+        uppercase;
+    }
+
+    .face-detail-image {
+      position: relative;
+
+      height: 130px;
+
+      overflow: hidden;
+
+      border-radius: 4px;
+
+      background:
+        #dbe5ed;
+    }
+
+    .face-detail-image img {
+      position: absolute;
+
+      width: 220%;
+      height: 220%;
+
+      left: -60%;
+      top: -22%;
+
+      object-fit:
+        contain;
+
+      filter:
+        grayscale(1)
+        contrast(1.2);
+    }
+
+    .detail-crosshair {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 42px;
+      height: 42px;
+
+      transform:
+        translate(-50%, -50%);
+
+      border:
+        1px solid #42b3ff;
+
+      border-radius:
+        50%;
+    }
+
+    .detail-crosshair::before,
+    .detail-crosshair::after {
+      content: "";
+
+      position: absolute;
+
+      background:
+        #42b3ff;
+    }
+
+    .detail-crosshair::before {
+      width: 60px;
+      height: 1px;
+
+      left: -10px;
+      top: 20px;
+    }
+
+    .detail-crosshair::after {
+      width: 1px;
+      height: 60px;
+
+      left: 20px;
+      top: -10px;
+    }
+
+
+    /* =========================================================
+       POROVNÁNÍ
+       ========================================================= */
+
+    .comparison-card {
+      align-self:
+        start;
+
+      padding: 22px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        12px;
+
+      background:
+        white;
+    }
+
+    .comparison-card h2 {
+      margin:
+        0 0 9px;
+
+      color:
+        var(--navy);
+
+      font-size:
+        20px;
+    }
+
+    .comparison-card > p {
+      margin:
+        0 0 20px;
+
+      color:
+        var(--muted);
+
+      line-height:
+        1.55;
+    }
+
+    .compare-btn {
+      width: 100%;
+
+      min-height: 48px;
+
+      border: 0;
+
+      border-radius:
+        9px;
+
+      background:
+        var(--blue);
+
+      color:
+        white;
+
+      font-weight:
+        750;
+
+      cursor:
+        pointer;
+
+      transition:
+        .18s ease;
+    }
+
+    .compare-btn:hover {
+      background:
+        var(--blue-dark);
+    }
+
+    .compare-btn:disabled {
+      opacity: .58;
+
+      cursor:
+        default;
+    }
+
+
+    /* =========================================================
+       PRŮBĚH ANALÝZY
+       ========================================================= */
+
+    .loading-box {
+      display: none;
+
+      margin-top: 22px;
+
+      padding: 17px;
+
+      border:
+        1px solid #c9d8e7;
+
+      border-radius:
+        10px;
+
+      background:
+        #f7fbff;
+    }
+
+    .loading-line {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      gap: 12px;
+
+      margin-bottom: 7px;
+
+      color:
+        var(--navy);
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+    }
+
+    .loading-detail {
+      min-height: 38px;
+
+      margin-bottom: 12px;
+
+      color:
+        #647b90;
+
+      font-size:
+        12px;
+
+      line-height:
+        1.5;
+    }
+
+    .progress-track {
+      width: 100%;
+
+      height: 13px;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        999px;
+
+      background:
+        #dce7f1;
+    }
+
+    .progress-bar {
+      width: 0;
+
+      height: 100%;
+
+      border-radius:
+        inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #1557b0,
+          #58a6ff
+        );
+
+      transition:
+        width .18s linear;
+    }
+
+
+    /* =========================================================
+       ANALYTICKÝ LOG
+       ========================================================= */
+
+    .analysis-log {
+      height: 102px;
+
+      margin-top: 15px;
+
+      padding:
+        10px 11px;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        7px;
+
+      background:
+        #102535;
+
+      color:
+        #9fd0fb;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:
+        10px;
+
+      line-height:
+        1.55;
+    }
+
+    .log-line {
+      white-space:
+        nowrap;
+
+      overflow:
+        hidden;
+
+      text-overflow:
+        ellipsis;
+    }
+
+    .log-line::before {
+      content: "> ";
+
+      color:
+        #56e5a0;
+    }
+
+
+    /* =========================================================
+       VÝBĚR
+       ========================================================= */
+
+    .selected-banner {
+      display: none;
+
+      margin-top: 18px;
+
+      padding:
+        14px 15px;
+
+      border:
+        1px solid #a9d9c0;
+
+      border-radius:
+        9px;
+
+      background:
+        var(--green-bg);
+
+      color:
+        #0e633d;
+
+      line-height:
+        1.45;
+
+      font-weight:
+        650;
+    }
+
+
+    /* =========================================================
+       VÝSLEDKY
+       ========================================================= */
+
+    .matches-section {
+      display: none;
+
+      padding:
+        0 28px 32px;
+    }
+
+    .matches-header {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        end;
+
+      gap: 15px;
+
+      margin-bottom:
+        15px;
+    }
+
+    .matches-header h2 {
+      margin: 0;
+
+      color:
+        var(--navy);
+
+      font-size:
+        21px;
+    }
+
+    .matches-header p {
+      margin:
+        5px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+    }
+
+    .match-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .match-card {
+      position: relative;
+
+      overflow:
+        hidden;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        11px;
+
+      background:
+        white;
+
+      box-shadow:
+        0 7px 18px rgba(16,42,67,.07);
+
+      cursor:
+        pointer;
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease;
+    }
+
+    .match-card:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 12px 23px rgba(16,42,67,.12);
+
+      border-color:
+        #a9bfd3;
+    }
+
+    .match-card.selected {
+      border:
+        2px solid #1ca66a;
+    }
+
+    .match-card img {
+      display: block;
+
+      width: 100%;
+
+      aspect-ratio:
+        4 / 5;
+
+      object-fit:
+        cover;
+
+      background:
+        #e3eaf1;
+    }
+
+    .match-info {
+      padding:
+        14px 15px 16px;
+    }
+
+    .match-name {
+      margin: 0;
+
+      color:
+        var(--navy);
+
+      font-size:
+        16px;
+
+      font-weight:
+        750;
+    }
+
+    .match-caption {
+      margin:
+        5px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.45;
+    }
+
+    .match-percent {
+      position: absolute;
+
+      top: 12px;
+      right: 12px;
+
+      padding:
+        7px 10px;
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(16,42,67,.92);
+
+      color:
+        white;
+
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+
+      box-shadow:
+        0 3px 9px rgba(0,0,0,.22);
+    }
+
+    .selected-mark {
+      display: none;
+
+      position: absolute;
+
+      top: 12px;
+      left: 12px;
+
+      padding:
+        6px 9px;
+
+      border-radius:
+        999px;
+
+      background:
+        #14814e;
+
+      color:
+        white;
+
+      font-size:
+        12px;
+
+      font-weight:
+        750;
+    }
+
+    .match-card.selected .selected-mark {
+      display:
+        block;
+    }
+
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    .modal {
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 1000;
+
+      padding: 24px;
+
+      background:
+        rgba(7, 20, 34, .78);
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      backdrop-filter:
+        blur(3px);
+    }
+
+    .modal.open {
+      display:
+        flex;
+    }
+
+    .modal-dialog {
+      position:
+        relative;
+
+      width:
+        min(940px, 100%);
+
+      max-height:
+        calc(100vh - 48px);
+
+      overflow:
+        auto;
+
+      border-radius:
+        14px;
+
+      background:
+        white;
+
+      box-shadow:
+        0 24px 70px rgba(0,0,0,.38);
+    }
+
+    .modal-close {
+      position:
+        absolute;
+
+      z-index: 2;
+
+      right: 13px;
+      top: 13px;
+
+      width: 40px;
+      height: 40px;
+
+      border: 0;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(16,42,67,.91);
+
+      color:
+        white;
+
+      font-size:
+        24px;
+
+      cursor:
+        pointer;
+    }
+
+    .modal-content {
+      display: grid;
+
+      grid-template-columns:
+        minmax(280px, 1fr)
+        minmax(280px, .85fr);
+    }
+
+    .modal-image-wrap {
+      min-height:
+        480px;
+
+      padding: 22px;
+
+      display: grid;
+
+      place-items:
+        center;
+
+      background:
+        #e7edf3;
+    }
+
+    .modal-image {
+      display: block;
+
+      max-width:
+        100%;
+
+      max-height:
+        72vh;
+
+      object-fit:
+        contain;
+
+      border-radius:
+        8px;
+
+      background:
+        #d8e1e9;
+    }
+
+    .modal-info {
+      padding:
+        34px 30px 30px;
+    }
+
+    .modal-kicker {
+      color:
+        var(--blue-dark);
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        .07em;
+
+      text-transform:
+        uppercase;
+    }
+
+    .modal-title {
+      margin:
+        8px 0 4px;
+
+      color:
+        var(--navy);
+
+      font-size:
+        25px;
+    }
+
+    .modal-percent {
+      display:
+        inline-flex;
+
+      margin:
+        6px 0 18px;
+
+      padding:
+        7px 10px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--amber-bg);
+
+      color:
+        var(--amber);
+
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+    }
+
+    .modal-description {
+      margin: 0;
+
+      color:
+        #4b6074;
+
+      line-height:
+        1.65;
+
+      white-space:
+        pre-line;
+    }
+
+    .choose-btn {
+      width: 100%;
+
+      min-height: 48px;
+
+      margin-top: 24px;
+
+      border: 0;
+
+      border-radius:
+        9px;
+
+      background:
+        #14814e;
+
+      color:
+        white;
+
+      font-weight:
+        800;
+
+      cursor:
+        pointer;
+
+      transition:
+        background .18s ease;
+    }
+
+    .choose-btn:hover {
+      background:
+        #0e633d;
+    }
+
+    .choose-btn.chosen {
+      background:
+        #51697f;
+
+      cursor:
+        default;
+    }
+
+    .modal-note {
+      margin-top:
+        10px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+
+      line-height:
+        1.45;
+    }
+
+
+    /* =========================================================
+       MOBIL
+       ========================================================= */
+
+    @media (max-width: 860px) {
+
+      .detail-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .match-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .modal-content {
+        grid-template-columns:
+          1fr;
+      }
+
+      .modal-image-wrap {
+        min-height:
+          350px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .system-title {
+        font-size:
+          19px;
+      }
+
+      .panel-header {
+        align-items:
+          flex-start;
+      }
+
+      .detail-grid,
+      .matches-section {
+        padding-left:
+          18px;
+
+        padding-right:
+          18px;
+      }
+
+      .modal {
+        padding:
+          10px;
+      }
+
+      .face-detail {
+        width:
+          100px;
+      }
+
+      .face-detail-image {
+        height:
+          100px;
+      }
+
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+  <div class="topbar-inner">
+
+    <div class="emblem">
+      ISID
     </div>
-    <p class="hint">Vyhledávání nerozlišuje velikost písmen ani diakritiku.</p>
+
+    <div>
+
+      <div class="system-title">
+        Interní systém identifikace a identikitů
+      </div>
+
+      <div class="system-subtitle">
+        Porovnání obrazové rekonstrukce s databází
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="results">
-    <div id="resultsMeta" class="results-meta">Nalezen 1 přístupný záznam.</div>
+</header>
 
-    <article id="record" class="record">
-      <div>
-        <span class="field-label">Autorka identikitu</span>
-        <div class="record-name">Tamara Vrbová</div>
-      </div>
-      <div>
-        <span class="field-label">Datum vytvoření</span>
-        <strong>11. 6. 2026</strong>
-      </div>
-      <div>
-        <span class="field-label">Status</span>
-        <span class="badge">Přístupný</span>
-      </div>
-      <a class="open-btn" href="detail-identikitu.html?id=tamara-vrbova">Zobrazit</a>
-    </article>
 
-    <div id="message" class="message">
-      Nebyl nalezen žádný záznam, nebo k jeho zobrazení nemáte oprávnění.
+
+<main>
+
+
+  <a
+    class="back-link"
+    href="identikity.html"
+  >
+    ← Zpět na vyhledávání
+  </a>
+
+
+
+  <section class="panel">
+
+
+    <!-- HLAVIČKA -->
+
+    <div class="panel-header">
+
+      <div>
+
+        <h1>
+          Detail identikitu
+        </h1>
+
+        <div class="meta">
+
+          <span>
+            <strong>Autorka:</strong>
+            Tamara Vrbová
+          </span>
+
+          <span>
+            <strong>Datum vytvoření:</strong>
+            11. 6. 2026
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="status">
+        Přístupný
+      </div>
+
     </div>
+
+
+
+    <!-- =======================================================
+         DETAIL IDENTIKITU + POROVNÁNÍ
+         ======================================================= -->
+
+    <div class="detail-grid">
+
+
+      <!-- =====================================================
+           IDENTIKIT
+           ===================================================== -->
+
+      <div class="image-card">
+
+
+        <div
+          class="image-stage"
+          id="imageStage"
+        >
+
+
+          <!--
+            HLAVNÍ IDENTIKIT
+
+            TADY MŮŽEŠ POZDĚJI ZMĚNIT OBRÁZEK:
+            src="identikit.jpg"
+          -->
+
+          <img
+            class="main-image"
+            id="mainIdentikit"
+            src="identikit.jpg"
+            alt="Zobrazený identikit"
+          >
+
+
+
+          <!-- ROZKOSTIČKOVÁNÍ -->
+
+          <div
+            class="mosaic-overlay"
+          ></div>
+
+          <div
+            class="pixel-grid"
+          ></div>
+
+
+
+          <!-- ZAMĚŘENÍ OBLIČEJE -->
+
+          <div
+            class="face-target"
+          ></div>
+
+
+
+          <!-- BIOMETRICKÉ BODY -->
+
+          <div class="landmark-layer">
+
+            <!-- oči -->
+
+            <span
+              class="landmark"
+              style="left:41%; top:31%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:59%; top:31%;"
+            ></span>
+
+
+            <!-- nos -->
+
+            <span
+              class="landmark"
+              style="left:50%; top:43%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:50%; top:51%;"
+            ></span>
+
+
+            <!-- ústa -->
+
+            <span
+              class="landmark"
+              style="left:43%; top:59%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:50%; top:61%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:57%; top:59%;"
+            ></span>
+
+
+            <!-- čelist -->
+
+            <span
+              class="landmark"
+              style="left:36%; top:67%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:50%; top:73%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:64%; top:67%;"
+            ></span>
+
+          </div>
+
+
+
+          <!-- DETAIL OBLIČEJE -->
+
+          <div
+            class="face-detail"
+          >
+
+            <div class="face-detail-label">
+              Facial region / detail
+            </div>
+
+            <div class="face-detail-image">
+
+              <img
+                src="identikit.jpg"
+                alt=""
+              >
+
+              <div class="detail-crosshair"></div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- SKENOVACÍ ČÁRA -->
+
+          <div class="scan-line"></div>
+
+
+
+          <!-- ROHY SKENERU -->
+
+          <div class="scanner-corner corner-tl"></div>
+          <div class="scanner-corner corner-tr"></div>
+          <div class="scanner-corner corner-bl"></div>
+          <div class="scanner-corner corner-br"></div>
+
+
+        </div>
+
+
+        <div class="image-caption">
+          Obrazová rekonstrukce hledané osoby
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================================================
+           POROVNÁNÍ
+           ===================================================== -->
+
+      <aside class="comparison-card">
+
+
+        <h2>
+          Porovnání s databází
+        </h2>
+
+
+        <p>
+          Systém provede biometrické porovnání rysů obličeje
+          s dostupnými fotografiemi osob vedených v interní evidenci.
+        </p>
+
+
+        <button
+          id="compareBtn"
+          class="compare-btn"
+          type="button"
+        >
+          Spustit porovnání
+        </button>
+
+
+
+        <!-- ===================================================
+             PRŮBĚH ANALÝZY
+             =================================================== -->
+
+        <div
+          id="loadingBox"
+          class="loading-box"
+        >
+
+
+          <div class="loading-line">
+
+            <span id="loadingText">
+              Inicializace…
+            </span>
+
+            <span id="progressValue">
+              0 %
+            </span>
+
+          </div>
+
+
+          <div
+            id="loadingDetail"
+            class="loading-detail"
+          >
+            Příprava biometrického modulu.
+          </div>
+
+
+          <div class="progress-track">
+
+            <div
+              id="progressBar"
+              class="progress-bar"
+            ></div>
+
+          </div>
+
+
+          <div
+            id="analysisLog"
+            class="analysis-log"
+          ></div>
+
+
+        </div>
+
+
+
+        <div
+          id="selectedBanner"
+          class="selected-banner"
+        ></div>
+
+
+      </aside>
+
+
+    </div>
+
+
+
+    <!-- =======================================================
+         VÝSLEDKY
+         ======================================================= -->
+
+    <section
+      id="matchesSection"
+      class="matches-section"
+    >
+
+
+      <div class="matches-header">
+
+        <div>
+
+          <h2>
+            Nejvyšší nalezené shody
+          </h2>
+
+          <p>
+            Kliknutím na fotografii zobrazíte detail osoby
+            a můžete potvrdit svůj výběr.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="matchGrid"
+        class="match-grid"
+      ></div>
+
+
+    </section>
+
+
+  </section>
+
+</main>
+
+
+
+<!-- ===========================================================
+     DETAIL NALEZENÉ OSOBY
+     =========================================================== -->
+
+<div
+  id="personModal"
+  class="modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalTitle"
+>
+
+
+  <div class="modal-dialog">
+
+
+    <button
+      id="modalClose"
+      class="modal-close"
+      type="button"
+      aria-label="Zavřít"
+    >
+      ×
+    </button>
+
+
+    <div class="modal-content">
+
+
+      <div class="modal-image-wrap">
+
+        <img
+          id="modalImage"
+          class="modal-image"
+          src=""
+          alt=""
+        >
+
+      </div>
+
+
+
+      <div class="modal-info">
+
+
+        <div class="modal-kicker">
+          Detail nalezené osoby
+        </div>
+
+
+        <h2
+          id="modalTitle"
+          class="modal-title"
+        ></h2>
+
+
+        <div
+          id="modalPercent"
+          class="modal-percent"
+        ></div>
+
+
+        <p
+          id="modalDescription"
+          class="modal-description"
+        ></p>
+
+
+        <button
+          id="chooseBtn"
+          class="choose-btn"
+          type="button"
+        >
+          Označit jako hledanou osobu
+        </button>
+
+
+        <div class="modal-note">
+          Výběr se uloží v tomto prohlížeči
+          a lze jej změnit označením jiné osoby.
+        </div>
+
+
+      </div>
+
+
+    </div>
+
   </div>
-</section>
+
+</div>
+
+
+
+<script>
+
+
+/* =============================================================
+   NALEZENÉ OSOBY
+
+   TUTO ČÁST SI MŮŽEŠ POZDĚJI LIBOVOLNĚ UPRAVIT.
+   ============================================================= */
+
+const persons = [
+
+  {
+    id:
+      "zena-1",
+
+    image:
+      "žena1.jpg",
+
+    name:
+      "Osoba č. 1",
+
+    match:
+      91,
+
+    shortText:
+      "Nejvyšší míra shody v dostupné databázi.",
+
+    description:
+      "Sem napište vlastní podrobný popis první osoby.\n\nMůže obsahovat například jméno, věk, bydliště, číslo spisu, poznávací znaky nebo další informace důležité pro vyšetřování."
+  },
+
+
+  {
+    id:
+      "zena-2",
+
+    image:
+      "žena2.jpg",
+
+    name:
+      "Osoba č. 2",
+
+    match:
+      84,
+
+    shortText:
+      "Výrazná shoda v oblasti očí a tvaru obličeje.",
+
+    description:
+      "Sem napište vlastní podrobný popis druhé osoby.\n\nText lze libovolně prodloužit a rozdělit do více odstavců."
+  },
+
+
+  {
+    id:
+      "zena-3",
+
+    image:
+      "žena3.jpg",
+
+    name:
+      "Osoba č. 3",
+
+    match:
+      76,
+
+    shortText:
+      "Částečná shoda hlavních rozpoznávacích znaků.",
+
+    description:
+      "Sem napište vlastní podrobný popis třetí osoby.\n\nLze zde uvést také důvod evidence nebo poslední známé místo pohybu."
+  }
+
+];
+
+
+
+/* =============================================================
+   FÁZE ANALÝZY
+
+   Celková doba je přibližně 20 sekund.
+   ============================================================= */
+
+const ANALYSIS_STEPS = [
+
+  {
+    target: 5,
+    duration: 1100,
+
+    title:
+      "Inicializace biometrického modulu…",
+
+    detail:
+      "Načítání identikitu a příprava obrazových dat.",
+
+    log:
+      "IDENTIKIT_IMAGE loaded",
+
+    visual:
+      "scan"
+  },
+
+
+  {
+    target: 13,
+    duration: 1400,
+
+    title:
+      "Kontrola obrazové kvality…",
+
+    detail:
+      "Vyhodnocení kontrastu, hran a použitelnosti obrazové rekonstrukce.",
+
+    log:
+      "IMAGE_QUALITY score = 0.874",
+
+    visual:
+      "scan"
+  },
+
+
+  {
+    target: 22,
+    duration: 1700,
+
+    title:
+      "Skenování identikitu…",
+
+    detail:
+      "Probíhá plošné skenování obrazové rekonstrukce.",
+
+    log:
+      "SCAN_MATRIX generated",
+
+    visual:
+      "pixel"
+  },
+
+
+  {
+    target: 31,
+    duration: 1700,
+
+    title:
+      "Lokalizace obličeje…",
+
+    detail:
+      "Systém vyhledává oblast obličeje a stanovuje její hranice.",
+
+    log:
+      "FACE_REGION detected",
+
+    visual:
+      "face"
+  },
+
+
+  {
+    target: 41,
+    duration: 1800,
+
+    title:
+      "Detekce referenčních bodů…",
+
+    detail:
+      "Určování polohy očí, nosu, úst, čelisti a dalších charakteristických bodů.",
+
+    log:
+      "FACIAL_LANDMARKS mapped",
+
+    visual:
+      "landmarks"
+  },
+
+
+  {
+    target: 51,
+    duration: 1700,
+
+    title:
+      "Analýza geometrie obličeje…",
+
+    detail:
+      "Výpočet vzdáleností a poměrů mezi jednotlivými částmi obličeje.",
+
+    log:
+      "GEOMETRY_MATRIX computed",
+
+    visual:
+      "detail"
+  },
+
+
+  {
+    target: 60,
+    duration: 1500,
+
+    title:
+      "Normalizace obrazové rekonstrukce…",
+
+    detail:
+      "Korekce odchylek vzniklých při sestavení identikitu.",
+
+    log:
+      "NORMALIZATION pass 1/1",
+
+    visual:
+      "pixel"
+  },
+
+
+  {
+    target: 69,
+    duration: 1700,
+
+    title:
+      "Načítání interní databáze…",
+
+    detail:
+      "Příprava dostupných obrazových záznamů pro porovnání.",
+
+    log:
+      "DATABASE records indexed",
+
+    visual:
+      "face"
+  },
+
+
+  {
+    target: 79,
+    duration: 2100,
+
+    title:
+      "Biometrické porovnávání…",
+
+    detail:
+      "Identikit je porovnáván s dostupnými fotografiemi osob.",
+
+    log:
+      "MATCHING batch 01 processing",
+
+    visual:
+      "detail"
+  },
+
+
+  {
+    target: 88,
+    duration: 1800,
+
+    title:
+      "Prověřování možných shod…",
+
+    detail:
+      "Podrobná kontrola kandidátů s nejvyšší mírou podobnosti.",
+
+    log:
+      "TOP_CANDIDATES shortlisted",
+
+    visual:
+      "landmarks"
+  },
+
+
+  {
+    target: 95,
+    duration: 1400,
+
+    title:
+      "Výpočet procentuální shody…",
+
+    detail:
+      "Výpočet výsledného skóre podobnosti jednotlivých kandidátů.",
+
+    log:
+      "SIMILARITY_SCORE calculated",
+
+    visual:
+      "detail"
+  },
+
+
+  {
+    target: 100,
+    duration: 1100,
+
+    title:
+      "Kontrola a řazení výsledků…",
+
+    detail:
+      "Ověření výsledků a seřazení nalezených osob podle míry shody.",
+
+    log:
+      "RESULT_VALIDATION passed",
+
+    visual:
+      "complete"
+  }
+
+];
+
+
+
+/* =============================================================
+   ELEMENTY
+   ============================================================= */
+
+const compareBtn =
+  document.getElementById(
+    "compareBtn"
+  );
+
+const loadingBox =
+  document.getElementById(
+    "loadingBox"
+  );
+
+const loadingText =
+  document.getElementById(
+    "loadingText"
+  );
+
+const loadingDetail =
+  document.getElementById(
+    "loadingDetail"
+  );
+
+const progressValue =
+  document.getElementById(
+    "progressValue"
+  );
+
+const progressBar =
+  document.getElementById(
+    "progressBar"
+  );
+
+const analysisLog =
+  document.getElementById(
+    "analysisLog"
+  );
+
+const imageStage =
+  document.getElementById(
+    "imageStage"
+  );
+
+const matchesSection =
+  document.getElementById(
+    "matchesSection"
+  );
+
+const matchGrid =
+  document.getElementById(
+    "matchGrid"
+  );
+
+const selectedBanner =
+  document.getElementById(
+    "selectedBanner"
+  );
+
+
+const modal =
+  document.getElementById(
+    "personModal"
+  );
+
+const modalClose =
+  document.getElementById(
+    "modalClose"
+  );
+
+const modalImage =
+  document.getElementById(
+    "modalImage"
+  );
+
+const modalTitle =
+  document.getElementById(
+    "modalTitle"
+  );
+
+const modalPercent =
+  document.getElementById(
+    "modalPercent"
+  );
+
+const modalDescription =
+  document.getElementById(
+    "modalDescription"
+  );
+
+const chooseBtn =
+  document.getElementById(
+    "chooseBtn"
+  );
+
+
+let currentPerson =
+  null;
+
+
+let selectedPersonId =
+
+  localStorage.getItem(
+    "isid-selected-person"
+  );
+
+
+
+/* =============================================================
+   POMOCNÉ FUNKCE
+   ============================================================= */
+
+function wait(ms) {
+
+  return new Promise(
+
+    resolve =>
+      setTimeout(
+        resolve,
+        ms
+      )
+
+  );
+
+}
+
+
+
+function addLog(text) {
+
+
+  const row =
+    document.createElement(
+      "div"
+    );
+
+
+  row.className =
+    "log-line";
+
+
+  row.textContent =
+    text;
+
+
+  analysisLog.appendChild(
+    row
+  );
+
+
+  /*
+    Necháme vidět jen několik
+    posledních operací.
+  */
+
+  while (
+    analysisLog.children.length > 6
+  ) {
+
+    analysisLog.removeChild(
+      analysisLog.firstChild
+    );
+
+  }
+
+}
+
+
+
+/* =============================================================
+   VIZUÁLNÍ FÁZE IDENTIKITU
+   ============================================================= */
+
+function setVisualMode(mode) {
+
+
+  imageStage.classList.remove(
+
+    "scanning",
+    "analyzing",
+    "pixel-mode",
+    "face-mode",
+    "landmark-mode",
+    "detail-mode"
+
+  );
+
+
+  /*
+    V každé aktivní fázi
+    zobrazíme rohové značky.
+  */
+
+  if (
+    mode !== "complete"
+  ) {
+
+    imageStage.classList.add(
+      "analyzing"
+    );
+
+  }
+
+
+
+  if (
+    mode === "scan"
+  ) {
+
+    imageStage.classList.add(
+      "scanning"
+    );
+
+  }
+
+
+
+  if (
+    mode === "pixel"
+  ) {
+
+    imageStage.classList.add(
+      "scanning",
+      "pixel-mode"
+    );
+
+  }
+
+
+
+  if (
+    mode === "face"
+  ) {
+
+    imageStage.classList.add(
+      "scanning",
+      "face-mode"
+    );
+
+  }
+
+
+
+  if (
+    mode === "landmarks"
+  ) {
+
+    imageStage.classList.add(
+      "face-mode",
+      "landmark-mode"
+    );
+
+  }
+
+
+
+  if (
+    mode === "detail"
+  ) {
+
+    imageStage.classList.add(
+      "scanning",
+      "face-mode",
+      "landmark-mode",
+      "detail-mode"
+    );
+
+  }
+
+
+
+  if (
+    mode === "complete"
+  ) {
+
+    imageStage.classList.add(
+      "face-mode",
+      "landmark-mode"
+    );
+
+  }
+
+}
+
+
+
+/* =============================================================
+   PLYNULÝ POSUN PROGRESS BARU
+   ============================================================= */
+
+async function animateProgress(
+
+  from,
+  to,
+  duration
+
+) {
+
+
+  const steps =
+
+    Math.max(
+      8,
+      Math.round(
+        duration / 100
+      )
+    );
+
+
+  for (
+    let i = 1;
+    i <= steps;
+    i++
+  ) {
+
+
+    const fraction =
+      i / steps;
+
+
+    /*
+      Mírně nepravidelný pohyb
+      působí přirozeněji než
+      dokonale lineární bar.
+    */
+
+    let value =
+
+      from +
+      (
+        to - from
+      ) *
+      fraction;
+
+
+    value +=
+      (Math.random() - .5) * .35;
+
+
+    value =
+      Math.max(
+        from,
+        Math.min(
+          to,
+          value
+        )
+      );
+
+
+    progressBar.style.width =
+      value + "%";
+
+
+    progressValue.textContent =
+      Math.round(value) + " %";
+
+
+    await wait(
+      duration / steps
+    );
+
+  }
+
+
+  progressBar.style.width =
+    to + "%";
+
+
+  progressValue.textContent =
+    to + " %";
+
+}
+
+
+
+/* =============================================================
+   SPUŠTĚNÍ ANALÝZY
+   ============================================================= */
+
+async function runComparison() {
+
+
+  compareBtn.disabled =
+    true;
+
+
+  compareBtn.textContent =
+    "Probíhá porovnání…";
+
+
+  loadingBox.style.display =
+    "block";
+
+
+  matchesSection.style.display =
+    "none";
+
+
+  progressBar.style.width =
+    "0%";
+
+
+  progressValue.textContent =
+    "0 %";
+
+
+  analysisLog.innerHTML =
+    "";
+
+
+  addLog(
+    "BIOMETRIC_ENGINE initializing"
+  );
+
+
+  let currentProgress =
+    0;
+
+
+  for (
+    const stage of ANALYSIS_STEPS
+  ) {
+
+
+    loadingText.textContent =
+      stage.title;
+
+
+    loadingDetail.textContent =
+      stage.detail;
+
+
+    addLog(
+      stage.log
+    );
+
+
+    setVisualMode(
+      stage.visual
+    );
+
+
+    await animateProgress(
+
+      currentProgress,
+      stage.target,
+      stage.duration
+
+    );
+
+
+    currentProgress =
+      stage.target;
+
+  }
+
+
+
+  /* ===========================================================
+     HOTOVO
+     =========================================================== */
+
+
+  loadingText.textContent =
+    "Porovnání dokončeno";
+
+
+  loadingDetail.textContent =
+    "Analýza byla dokončena. Byly nalezeny tři záznamy s nejvyšší mírou podobnosti.";
+
+
+  progressValue.textContent =
+    "100 %";
+
+
+  progressBar.style.width =
+    "100%";
+
+
+  addLog(
+    "ANALYSIS_COMPLETE"
+  );
+
+
+  addLog(
+    "3 MATCHES returned"
+  );
+
+
+  compareBtn.textContent =
+    "Porovnání dokončeno";
+
+
+  setVisualMode(
+    "complete"
+  );
+
+
+  renderMatches();
+
+
+  /*
+    Krátká pauza po 100 %,
+    aby hráč dokončení viděl.
+  */
+
+  await wait(
+    1000
+  );
+
+
+  matchesSection.style.display =
+    "block";
+
+
+  matchesSection.scrollIntoView({
+
+    behavior:
+      "smooth",
+
+    block:
+      "start"
+
+  });
+
+}
+
+
+
+/* =============================================================
+   VYKRESLENÍ SHOD
+   ============================================================= */
+
+function renderMatches() {
+
+
+  matchGrid.innerHTML =
+    "";
+
+
+  persons.forEach(
+
+    person => {
+
+
+      const card =
+        document.createElement(
+          "article"
+        );
+
+
+      card.className =
+        "match-card";
+
+
+      card.dataset.personId =
+        person.id;
+
+
+      card.tabIndex =
+        0;
+
+
+
+      if (
+        person.id ===
+        selectedPersonId
+      ) {
+
+        card.classList.add(
+          "selected"
+        );
+
+      }
+
+
+
+      card.innerHTML = `
+
+        <span class="selected-mark">
+          Vybráno
+        </span>
+
+        <span class="match-percent">
+          ${person.match} % shoda
+        </span>
+
+        <img
+          src="${person.image}"
+          alt="${person.name}"
+        >
+
+        <div class="match-info">
+
+          <h3 class="match-name">
+            ${person.name}
+          </h3>
+
+          <p class="match-caption">
+            ${person.shortText}
+          </p>
+
+        </div>
+
+      `;
+
+
+
+      card.addEventListener(
+
+        "click",
+
+        () =>
+          openPerson(
+            person
+          )
+
+      );
+
+
+
+      card.addEventListener(
+
+        "keydown",
+
+        event => {
+
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+
+            event.preventDefault();
+
+            openPerson(
+              person
+            );
+
+          }
+
+        }
+
+      );
+
+
+      matchGrid.appendChild(
+        card
+      );
+
+    }
+
+  );
+
+
+  refreshSelectedBanner();
+
+}
+
+
+
+/* =============================================================
+   DETAIL OSOBY
+   ============================================================= */
+
+function openPerson(person) {
+
+
+  currentPerson =
+    person;
+
+
+  modalImage.src =
+    person.image;
+
+
+  modalImage.alt =
+    person.name;
+
+
+  modalTitle.textContent =
+    person.name;
+
+
+  modalPercent.textContent =
+    `${person.match} % shoda`;
+
+
+  modalDescription.textContent =
+    person.description;
+
+
+
+  const isSelected =
+
+    selectedPersonId ===
+    person.id;
+
+
+
+  chooseBtn.textContent =
+
+    isSelected
+      ? "Tato osoba je označena"
+      : "Označit jako hledanou osobu";
+
+
+  chooseBtn.classList.toggle(
+
+    "chosen",
+
+    isSelected
+
+  );
+
+
+  chooseBtn.disabled =
+    isSelected;
+
+
+  modal.classList.add(
+    "open"
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+
+/* =============================================================
+   ZAVŘENÍ DETAILU
+   ============================================================= */
+
+function closeModal() {
+
+
+  modal.classList.remove(
+    "open"
+  );
+
+
+  document.body.style.overflow =
+    "";
+
+
+  currentPerson =
+    null;
+
+}
+
+
+
+/* =============================================================
+   VÝBĚR OSOBY
+   ============================================================= */
+
+function selectCurrentPerson() {
+
+
+  if (
+    !currentPerson
+  ) {
+    return;
+  }
+
+
+  selectedPersonId =
+    currentPerson.id;
+
+
+  localStorage.setItem(
+
+    "isid-selected-person",
+
+    selectedPersonId
+
+  );
+
+
+  renderMatches();
+
+
+  chooseBtn.textContent =
+    "Tato osoba je označena";
+
+
+  chooseBtn.classList.add(
+    "chosen"
+  );
+
+
+  chooseBtn.disabled =
+    true;
+
+}
+
+
+
+/* =============================================================
+   BANNER VYBRANÉ OSOBY
+   ============================================================= */
+
+function refreshSelectedBanner() {
+
+
+  const selected =
+
+    persons.find(
+
+      person =>
+        person.id ===
+        selectedPersonId
+
+    );
+
+
+  if (
+    !selected
+  ) {
+
+
+    selectedBanner.style.display =
+      "none";
+
+
+    selectedBanner.textContent =
+      "";
+
+
+    return;
+
+  }
+
+
+  selectedBanner.style.display =
+    "block";
+
+
+  selectedBanner.innerHTML =
+
+    `Jako hledaná osoba byla označena:
+    <strong>${selected.name}</strong>
+    (${selected.match} % shoda).`;
+
+}
+
+
+
+/* =============================================================
+   UDÁLOSTI
+   ============================================================= */
+
+compareBtn.addEventListener(
+
+  "click",
+
+  runComparison
+
+);
+
+
+modalClose.addEventListener(
+
+  "click",
+
+  closeModal
+
+);
+
+
+chooseBtn.addEventListener(
+
+  "click",
+
+  selectCurrentPerson
+
+);
+
+
+modal.addEventListener(
+
+  "click",
+
+  event => {
+
+
+    if (
+      event.target ===
+      modal
+    ) {
+
+      closeModal();
+
+    }
+
+  }
+
+);
+
+
+document.addEventListener(
+
+  "keydown",
+
+  event => {
+
+
+    if (
+      event.key === "Escape" &&
+      modal.classList.contains("open")
+    ) {
+
+      closeModal();
+
+    }
+
+  }
+
+);
+
+</script>
+
+
+</body>
+</html>
