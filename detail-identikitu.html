@@ -35,7 +35,6 @@
       min-height: 100vh;
       font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--text);
-
       background:
         linear-gradient(rgba(238, 243, 248, .96), rgba(238, 243, 248, .96)),
         repeating-linear-gradient(
@@ -50,61 +49,36 @@
       font: inherit;
     }
 
-
     /* =========================================================
        HORNÍ LIŠTA
        ========================================================= */
 
     .topbar {
-      background:
-        linear-gradient(
-          105deg,
-          var(--navy),
-          var(--navy-2)
-        );
-
+      background: linear-gradient(105deg, var(--navy), var(--navy-2));
       color: white;
-
-      border-bottom:
-        4px solid #58a6ff;
-
-      box-shadow:
-        0 5px 18px rgba(16, 42, 67, .28);
+      border-bottom: 4px solid #58a6ff;
+      box-shadow: 0 5px 18px rgba(16, 42, 67, .28);
     }
 
     .topbar-inner {
       max-width: 1180px;
-
       margin: 0 auto;
-
       min-height: 86px;
-
-      padding:
-        15px 24px;
-
+      padding: 15px 24px;
       display: flex;
       align-items: center;
-
       gap: 16px;
     }
 
     .emblem {
       width: 52px;
       height: 52px;
-
       flex: 0 0 52px;
-
       display: grid;
       place-items: center;
-
-      border:
-        1px solid rgba(255,255,255,.45);
-
+      border: 1px solid rgba(255,255,255,.45);
       border-radius: 12px;
-
-      background:
-        rgba(255,255,255,.08);
-
+      background: rgba(255,255,255,.08);
       font-weight: 800;
       letter-spacing: .08em;
     }
@@ -117,18 +91,11 @@
 
     .system-subtitle {
       margin-top: 3px;
-
-      color:
-        #d9e8f7;
-
+      color: #d9e8f7;
       font-size: 13px;
-
       letter-spacing: .08em;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
-
 
     /* =========================================================
        HLAVNÍ STRÁNKA
@@ -136,142 +103,76 @@
 
     main {
       max-width: 1180px;
-
-      margin:
-        28px auto;
-
-      padding:
-        0 24px 48px;
+      margin: 28px auto;
+      padding: 0 24px 48px;
     }
 
     .back-link {
       display: inline-flex;
-
       align-items: center;
-
       gap: 8px;
-
       margin-bottom: 16px;
-
-      color:
-        var(--navy-2);
-
-      text-decoration:
-        none;
-
-      font-weight:
-        700;
+      color: var(--navy-2);
+      text-decoration: none;
+      font-weight: 700;
     }
 
     .back-link:hover {
-      text-decoration:
-        underline;
+      text-decoration: underline;
     }
 
     .panel {
-      background:
-        var(--panel);
-
-      border:
-        1px solid rgba(16,42,67,.08);
-
+      background: var(--panel);
+      border: 1px solid rgba(16,42,67,.08);
       border-radius: 14px;
-
-      box-shadow:
-        var(--shadow);
-
-      overflow:
-        hidden;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
     .panel-header {
-      padding:
-        22px 26px;
-
-      border-bottom:
-        1px solid var(--line);
-
+      padding: 22px 26px;
+      border-bottom: 1px solid var(--line);
       display: flex;
-
-      justify-content:
-        space-between;
-
+      justify-content: space-between;
       gap: 18px;
-
-      align-items:
-        center;
+      align-items: center;
     }
 
     h1 {
       margin: 0;
-
       font-size: 24px;
-
-      color:
-        var(--navy);
+      color: var(--navy);
     }
 
     .meta {
       display: flex;
-
       gap: 18px;
-
-      flex-wrap:
-        wrap;
-
+      flex-wrap: wrap;
       margin-top: 8px;
-
-      color:
-        var(--muted);
-
-      font-size:
-        13px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .status {
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
+      display: inline-flex;
+      align-items: center;
       gap: 7px;
-
-      padding:
-        7px 11px;
-
-      border-radius:
-        999px;
-
-      background:
-        var(--green-bg);
-
-      color:
-        var(--green);
-
-      font-size:
-        13px;
-
-      font-weight:
-        750;
-
-      white-space:
-        nowrap;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--green-bg);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 750;
+      white-space: nowrap;
     }
 
     .status::before {
       content: "";
-
       width: 7px;
       height: 7px;
-
-      border-radius:
-        50%;
-
-      background:
-        #1ca66a;
+      border-radius: 50%;
+      background: #1ca66a;
     }
-
 
     /* =========================================================
        DETAIL
@@ -279,16 +180,12 @@
 
     .detail-grid {
       display: grid;
-
       grid-template-columns:
         minmax(300px, 1.05fr)
         minmax(300px, .95fr);
-
       gap: 28px;
-
       padding: 28px;
     }
-
 
     /* =========================================================
        IDENTIKIT
@@ -296,141 +193,85 @@
 
     .image-card {
       padding: 14px;
-
-      border:
-        1px solid var(--line);
-
-      border-radius:
-        12px;
-
-      background:
-        #f8fbff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #f8fbff;
     }
 
     .image-stage {
       position: relative;
-
       width: 100%;
-
       overflow: hidden;
-
       border-radius: 8px;
-
-      background:
-        #dfe8f0;
-
-      isolation:
-        isolate;
+      background: #dfe8f0;
+      isolation: isolate;
     }
 
     .main-image {
       position: relative;
-
       z-index: 1;
-
       display: block;
-
       width: 100%;
-
       max-height: 650px;
+      object-fit: contain;
+      background: #dfe8f0;
 
-      object-fit:
-        contain;
-
-      background:
-        #dfe8f0;
+      /*
+        Po odstranění analytických tříd
+        se obrázek vždy vrátí na tyto
+        výchozí hodnoty.
+      */
+      filter: none;
+      transform: none;
 
       transition:
-        filter .45s ease,
-        transform .6s ease;
+        filter .4s ease,
+        transform .5s ease;
     }
 
     .image-caption {
-      margin:
-        12px 3px 0;
-
-      color:
-        var(--muted);
-
-      font-size:
-        12px;
-
-      text-align:
-        center;
-
-      letter-spacing:
-        .04em;
-
-      text-transform:
-        uppercase;
+      margin: 12px 3px 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: .04em;
+      text-transform: uppercase;
     }
-
 
     /* =========================================================
-       ANALYTICKÉ VRSTVY NAD IDENTIKITEM
+       SKENOVACÍ ČÁRA
        ========================================================= */
-
-    .analysis-layer {
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 5;
-
-      pointer-events: none;
-
-      opacity: 0;
-
-      transition:
-        opacity .35s ease;
-    }
-
-    .analysis-layer.visible {
-      opacity: 1;
-    }
-
-
-    /* SKENOVACÍ ČÁRA */
 
     .scan-line {
       position: absolute;
-
-      z-index: 10;
-
+      z-index: 20;
       left: 0;
       right: 0;
-
       top: -4px;
-
       height: 3px;
-
       opacity: 0;
-
-      background:
-        #36a3ff;
+      background: #36a3ff;
 
       box-shadow:
         0 0 7px #36a3ff,
         0 0 18px rgba(54,163,255,.8),
         0 0 35px rgba(54,163,255,.4);
+
+      pointer-events: none;
     }
 
     .image-stage.scanning .scan-line {
       opacity: 1;
-
-      animation:
-        scanVertical 2.6s linear infinite;
+      animation: scanVertical 2.6s linear infinite;
     }
 
     @keyframes scanVertical {
-
       0% {
         top: 0;
       }
 
       50% {
-        top:
-          calc(100% - 3px);
+        top: calc(100% - 3px);
       }
 
       100% {
@@ -438,21 +279,18 @@
       }
     }
 
-
-    /* MODRÉ ROHY */
+    /* =========================================================
+       ROHY SKENERU
+       ========================================================= */
 
     .scanner-corner {
       position: absolute;
-
+      z-index: 19;
       width: 38px;
       height: 38px;
-
       opacity: 0;
-
-      z-index: 9;
-
-      transition:
-        opacity .3s ease;
+      pointer-events: none;
+      transition: opacity .25s ease;
     }
 
     .image-stage.analyzing .scanner-corner {
@@ -462,81 +300,82 @@
     .corner-tl {
       top: 14px;
       left: 14px;
-
-      border-top:
-        2px solid #36a3ff;
-
-      border-left:
-        2px solid #36a3ff;
+      border-top: 2px solid #36a3ff;
+      border-left: 2px solid #36a3ff;
     }
 
     .corner-tr {
       top: 14px;
       right: 14px;
-
-      border-top:
-        2px solid #36a3ff;
-
-      border-right:
-        2px solid #36a3ff;
+      border-top: 2px solid #36a3ff;
+      border-right: 2px solid #36a3ff;
     }
 
     .corner-bl {
       bottom: 14px;
       left: 14px;
-
-      border-bottom:
-        2px solid #36a3ff;
-
-      border-left:
-        2px solid #36a3ff;
+      border-bottom: 2px solid #36a3ff;
+      border-left: 2px solid #36a3ff;
     }
 
     .corner-br {
       bottom: 14px;
       right: 14px;
-
-      border-bottom:
-        2px solid #36a3ff;
-
-      border-right:
-        2px solid #36a3ff;
+      border-bottom: 2px solid #36a3ff;
+      border-right: 2px solid #36a3ff;
     }
 
-
     /* =========================================================
-       ROZKOSTIČKOVÁNÍ / ANALYTICKÁ MŘÍŽKA
+       ROZKOSTIČKOVÁNÍ
        ========================================================= */
 
     .pixel-grid {
       position: absolute;
-
       inset: 0;
-
-      z-index: 6;
-
+      z-index: 8;
       opacity: 0;
+      pointer-events: none;
 
       background:
         linear-gradient(
-          rgba(31,111,235,.27) 1px,
+          rgba(31,111,235,.28) 1px,
           transparent 1px
         ),
         linear-gradient(
           90deg,
-          rgba(31,111,235,.27) 1px,
+          rgba(31,111,235,.28) 1px,
           transparent 1px
         );
 
-      background-size:
-        16px 16px;
+      background-size: 16px 16px;
+      transition: opacity .3s ease;
+    }
 
-      transition:
-        opacity .35s ease;
+    .mosaic-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+      opacity: 0;
+      pointer-events: none;
+
+      background:
+        repeating-conic-gradient(
+          from 45deg,
+          rgba(31,111,235,.11) 0 25%,
+          transparent 0 50%
+        )
+        0 0 / 22px 22px;
+
+      mix-blend-mode: multiply;
+      transition: opacity .3s ease;
     }
 
     .image-stage.pixel-mode .pixel-grid {
       opacity: .68;
+    }
+
+    .image-stage.pixel-mode .mosaic-overlay {
+      opacity: .75;
     }
 
     .image-stage.pixel-mode .main-image {
@@ -545,42 +384,8 @@
         contrast(1.25)
         brightness(.96);
 
-      transform:
-        scale(1.012);
+      transform: scale(1.012);
     }
-
-
-    /* DOPLŇUJÍCÍ „DATOVÉ BLOKY“ */
-
-    .mosaic-overlay {
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 5;
-
-      opacity: 0;
-
-      background:
-
-        repeating-conic-gradient(
-          from 45deg,
-          rgba(31,111,235,.11) 0 25%,
-          transparent 0 50%
-        )
-        0 0 / 22px 22px;
-
-      mix-blend-mode:
-        multiply;
-
-      transition:
-        opacity .3s ease;
-    }
-
-    .image-stage.pixel-mode .mosaic-overlay {
-      opacity: .75;
-    }
-
 
     /* =========================================================
        ZAMĚŘENÍ OBLIČEJE
@@ -588,8 +393,7 @@
 
     .face-target {
       position: absolute;
-
-      z-index: 8;
+      z-index: 12;
 
       left: 28%;
       top: 13%;
@@ -599,51 +403,37 @@
 
       opacity: 0;
 
-      border:
-        2px solid #30a0ff;
+      border: 2px solid #30a0ff;
 
       box-shadow:
         0 0 0 999px rgba(8,28,47,.13),
         0 0 16px rgba(48,160,255,.55);
 
+      pointer-events: none;
+
       transition:
-        opacity .35s ease,
-        transform .45s ease;
+        opacity .3s ease,
+        transform .4s ease;
     }
 
     .face-target::before,
     .face-target::after {
       position: absolute;
-
-      padding:
-        3px 5px;
-
-      background:
-        rgba(11,53,91,.88);
-
-      color:
-        #dff1ff;
-
-      font-family:
-        "Courier New",
-        monospace;
-
-      font-size:
-        9px;
+      padding: 3px 5px;
+      background: rgba(11,53,91,.88);
+      color: #dff1ff;
+      font-family: "Courier New", monospace;
+      font-size: 9px;
     }
 
     .face-target::before {
-      content:
-        "FACE REGION";
-
+      content: "FACE REGION";
       left: -2px;
       top: -20px;
     }
 
     .face-target::after {
-      content:
-        "LOCKED";
-
+      content: "LOCKED";
       right: -2px;
       bottom: -20px;
     }
@@ -654,22 +444,17 @@
       opacity: 1;
     }
 
-
     /* =========================================================
        BIOMETRICKÉ BODY
        ========================================================= */
 
     .landmark-layer {
       position: absolute;
-
       inset: 0;
-
-      z-index: 9;
-
+      z-index: 14;
       opacity: 0;
-
-      transition:
-        opacity .35s ease;
+      pointer-events: none;
+      transition: opacity .3s ease;
     }
 
     .image-stage.landmark-mode .landmark-layer,
@@ -686,11 +471,9 @@
       margin:
         -3.5px 0 0 -3.5px;
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
-      background:
-        #53c4ff;
+      background: #53c4ff;
 
       border:
         1px solid white;
@@ -708,26 +491,23 @@
       left: 3px;
       top: 3px;
 
-      width: 45px;
+      width: 42px;
       height: 1px;
 
       background:
-        rgba(83,196,255,.33);
+        rgba(83,196,255,.32);
 
       transform-origin:
         left center;
     }
 
     .landmark:nth-child(odd)::after {
-      transform:
-        rotate(18deg);
+      transform: rotate(18deg);
     }
 
     .landmark:nth-child(even)::after {
-      transform:
-        rotate(-18deg);
+      transform: rotate(-18deg);
     }
-
 
     /* =========================================================
        DETAIL OBLIČEJE
@@ -736,7 +516,7 @@
     .face-detail {
       position: absolute;
 
-      z-index: 12;
+      z-index: 18;
 
       right: 12px;
       bottom: 12px;
@@ -748,7 +528,8 @@
       opacity: 0;
 
       transform:
-        translateY(10px) scale(.97);
+        translateY(10px)
+        scale(.97);
 
       border:
         1px solid rgba(255,255,255,.8);
@@ -761,16 +542,19 @@
       box-shadow:
         0 11px 28px rgba(0,0,0,.32);
 
+      pointer-events: none;
+
       transition:
-        opacity .35s ease,
-        transform .35s ease;
+        opacity .3s ease,
+        transform .3s ease;
     }
 
     .image-stage.detail-mode .face-detail {
       opacity: 1;
 
       transform:
-        translateY(0) scale(1);
+        translateY(0)
+        scale(1);
     }
 
     .face-detail-label {
@@ -811,8 +595,7 @@
       left: -60%;
       top: -22%;
 
-      object-fit:
-        contain;
+      object-fit: contain;
 
       filter:
         grayscale(1)
@@ -834,8 +617,7 @@
       border:
         1px solid #42b3ff;
 
-      border-radius:
-        50%;
+      border-radius: 50%;
     }
 
     .detail-crosshair::before,
@@ -864,25 +646,21 @@
       top: -10px;
     }
 
-
     /* =========================================================
        POROVNÁNÍ
        ========================================================= */
 
     .comparison-card {
-      align-self:
-        start;
+      align-self: start;
 
       padding: 22px;
 
       border:
         1px solid var(--line);
 
-      border-radius:
-        12px;
+      border-radius: 12px;
 
-      background:
-        white;
+      background: white;
     }
 
     .comparison-card h2 {
@@ -914,23 +692,18 @@
 
       border: 0;
 
-      border-radius:
-        9px;
+      border-radius: 9px;
 
       background:
         var(--blue);
 
-      color:
-        white;
+      color: white;
 
-      font-weight:
-        750;
+      font-weight: 750;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      transition:
-        .18s ease;
+      transition: .18s ease;
     }
 
     .compare-btn:hover {
@@ -940,11 +713,8 @@
 
     .compare-btn:disabled {
       opacity: .58;
-
-      cursor:
-        default;
+      cursor: default;
     }
-
 
     /* =========================================================
        PRŮBĚH ANALÝZY
@@ -960,8 +730,7 @@
       border:
         1px solid #c9d8e7;
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
       background:
         #f7fbff;
@@ -980,11 +749,9 @@
       color:
         var(--navy);
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      font-weight:
-        700;
+      font-weight: 700;
     }
 
     .loading-detail {
@@ -995,11 +762,9 @@
       color:
         #647b90;
 
-      font-size:
-        12px;
+      font-size: 12px;
 
-      line-height:
-        1.5;
+      line-height: 1.5;
     }
 
     .progress-track {
@@ -1007,8 +772,7 @@
 
       height: 13px;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
       border-radius:
         999px;
@@ -1036,9 +800,8 @@
         width .18s linear;
     }
 
-
     /* =========================================================
-       ANALYTICKÝ LOG
+       LOG
        ========================================================= */
 
     .analysis-log {
@@ -1049,11 +812,9 @@
       padding:
         10px 11px;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
-      border-radius:
-        7px;
+      border-radius: 7px;
 
       background:
         #102535;
@@ -1065,34 +826,24 @@
         "Courier New",
         monospace;
 
-      font-size:
-        10px;
+      font-size: 10px;
 
-      line-height:
-        1.55;
+      line-height: 1.55;
     }
 
     .log-line {
-      white-space:
-        nowrap;
-
-      overflow:
-        hidden;
-
-      text-overflow:
-        ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .log-line::before {
       content: "> ";
-
-      color:
-        #56e5a0;
+      color: #56e5a0;
     }
 
-
     /* =========================================================
-       VÝBĚR
+       VYBRANÁ OSOBA
        ========================================================= */
 
     .selected-banner {
@@ -1106,8 +857,7 @@
       border:
         1px solid #a9d9c0;
 
-      border-radius:
-        9px;
+      border-radius: 9px;
 
       background:
         var(--green-bg);
@@ -1121,7 +871,6 @@
       font-weight:
         650;
     }
-
 
     /* =========================================================
        VÝSLEDKY
@@ -1140,13 +889,11 @@
       justify-content:
         space-between;
 
-      align-items:
-        end;
+      align-items: end;
 
       gap: 15px;
 
-      margin-bottom:
-        15px;
+      margin-bottom: 15px;
     }
 
     .matches-header h2 {
@@ -1155,8 +902,7 @@
       color:
         var(--navy);
 
-      font-size:
-        21px;
+      font-size: 21px;
     }
 
     .matches-header p {
@@ -1166,8 +912,7 @@
       color:
         var(--muted);
 
-      font-size:
-        13px;
+      font-size: 13px;
     }
 
     .match-grid {
@@ -1182,23 +927,19 @@
     .match-card {
       position: relative;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
       border:
         1px solid var(--line);
 
-      border-radius:
-        11px;
+      border-radius: 11px;
 
-      background:
-        white;
+      background: white;
 
       box-shadow:
         0 7px 18px rgba(16,42,67,.07);
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
       transition:
         transform .18s ease,
@@ -1230,8 +971,7 @@
       aspect-ratio:
         4 / 5;
 
-      object-fit:
-        cover;
+      object-fit: cover;
 
       background:
         #e3eaf1;
@@ -1262,8 +1002,7 @@
       color:
         var(--muted);
 
-      font-size:
-        13px;
+      font-size: 13px;
 
       line-height:
         1.45;
@@ -1284,14 +1023,11 @@
       background:
         rgba(16,42,67,.92);
 
-      color:
-        white;
+      color: white;
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
       box-shadow:
         0 3px 9px rgba(0,0,0,.22);
@@ -1314,24 +1050,19 @@
       background:
         #14814e;
 
-      color:
-        white;
+      color: white;
 
-      font-size:
-        12px;
+      font-size: 12px;
 
-      font-weight:
-        750;
+      font-weight: 750;
     }
 
     .match-card.selected .selected-mark {
-      display:
-        block;
+      display: block;
     }
 
-
     /* =========================================================
-       MODAL
+       DETAIL NALEZENÉ OSOBY
        ========================================================= */
 
     .modal {
@@ -1348,24 +1079,19 @@
       background:
         rgba(7, 20, 34, .78);
 
-      align-items:
-        center;
-
-      justify-content:
-        center;
+      align-items: center;
+      justify-content: center;
 
       backdrop-filter:
         blur(3px);
     }
 
     .modal.open {
-      display:
-        flex;
+      display: flex;
     }
 
     .modal-dialog {
-      position:
-        relative;
+      position: relative;
 
       width:
         min(940px, 100%);
@@ -1373,22 +1099,18 @@
       max-height:
         calc(100vh - 48px);
 
-      overflow:
-        auto;
+      overflow: auto;
 
-      border-radius:
-        14px;
+      border-radius: 14px;
 
-      background:
-        white;
+      background: white;
 
       box-shadow:
         0 24px 70px rgba(0,0,0,.38);
     }
 
     .modal-close {
-      position:
-        absolute;
+      position: absolute;
 
       z-index: 2;
 
@@ -1400,20 +1122,16 @@
 
       border: 0;
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
         rgba(16,42,67,.91);
 
-      color:
-        white;
+      color: white;
 
-      font-size:
-        24px;
+      font-size: 24px;
 
-      cursor:
-        pointer;
+      cursor: pointer;
     }
 
     .modal-content {
@@ -1425,15 +1143,12 @@
     }
 
     .modal-image-wrap {
-      min-height:
-        480px;
+      min-height: 480px;
 
       padding: 22px;
 
       display: grid;
-
-      place-items:
-        center;
+      place-items: center;
 
       background:
         #e7edf3;
@@ -1442,17 +1157,13 @@
     .modal-image {
       display: block;
 
-      max-width:
-        100%;
+      max-width: 100%;
 
-      max-height:
-        72vh;
+      max-height: 72vh;
 
-      object-fit:
-        contain;
+      object-fit: contain;
 
-      border-radius:
-        8px;
+      border-radius: 8px;
 
       background:
         #d8e1e9;
@@ -1467,11 +1178,9 @@
       color:
         var(--blue-dark);
 
-      font-size:
-        12px;
+      font-size: 12px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
       letter-spacing:
         .07em;
@@ -1510,11 +1219,9 @@
       color:
         var(--amber);
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      font-weight:
-        800;
+      font-weight: 800;
     }
 
     .modal-description {
@@ -1539,20 +1246,16 @@
 
       border: 0;
 
-      border-radius:
-        9px;
+      border-radius: 9px;
 
       background:
         #14814e;
 
-      color:
-        white;
+      color: white;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
       transition:
         background .18s ease;
@@ -1578,20 +1281,17 @@
       color:
         var(--muted);
 
-      font-size:
-        12px;
+      font-size: 12px;
 
       line-height:
         1.45;
     }
-
 
     /* =========================================================
        MOBIL
        ========================================================= */
 
     @media (max-width: 860px) {
-
       .detail-grid {
         grid-template-columns:
           1fr;
@@ -1611,11 +1311,9 @@
         min-height:
           350px;
       }
-
     }
 
     @media (max-width: 600px) {
-
       .system-title {
         font-size:
           19px;
@@ -1649,14 +1347,12 @@
         height:
           100px;
       }
-
     }
   </style>
 </head>
 
 
 <body>
-
 
 <header class="topbar">
 
@@ -1683,9 +1379,7 @@
 </header>
 
 
-
 <main>
-
 
   <a
     class="back-link"
@@ -1695,11 +1389,7 @@
   </a>
 
 
-
   <section class="panel">
-
-
-    <!-- HLAVIČKA -->
 
     <div class="panel-header">
 
@@ -1725,7 +1415,6 @@
 
       </div>
 
-
       <div class="status">
         Přístupný
       </div>
@@ -1733,13 +1422,7 @@
     </div>
 
 
-
-    <!-- =======================================================
-         DETAIL IDENTIKITU + POROVNÁNÍ
-         ======================================================= -->
-
     <div class="detail-grid">
-
 
       <!-- =====================================================
            IDENTIKIT
@@ -1747,18 +1430,13 @@
 
       <div class="image-card">
 
-
         <div
           class="image-stage"
           id="imageStage"
         >
 
-
           <!--
             HLAVNÍ IDENTIKIT
-
-            TADY MŮŽEŠ POZDĚJI ZMĚNIT OBRÁZEK:
-            src="identikit.jpg"
           -->
 
           <img
@@ -1769,32 +1447,26 @@
           >
 
 
+          <!--
+            ANALYTICKÁ MŘÍŽKA
+          -->
 
-          <!-- ROZKOSTIČKOVÁNÍ -->
-
-          <div
-            class="mosaic-overlay"
-          ></div>
-
-          <div
-            class="pixel-grid"
-          ></div>
+          <div class="mosaic-overlay"></div>
+          <div class="pixel-grid"></div>
 
 
+          <!--
+            RÁMEČEK OBLIČEJE
+          -->
 
-          <!-- ZAMĚŘENÍ OBLIČEJE -->
-
-          <div
-            class="face-target"
-          ></div>
-
+          <div class="face-target"></div>
 
 
-          <!-- BIOMETRICKÉ BODY -->
+          <!--
+            BIOMETRICKÉ BODY
+          -->
 
           <div class="landmark-layer">
-
-            <!-- oči -->
 
             <span
               class="landmark"
@@ -1806,9 +1478,6 @@
               style="left:59%; top:31%;"
             ></span>
 
-
-            <!-- nos -->
-
             <span
               class="landmark"
               style="left:50%; top:43%;"
@@ -1818,9 +1487,6 @@
               class="landmark"
               style="left:50%; top:51%;"
             ></span>
-
-
-            <!-- ústa -->
 
             <span
               class="landmark"
@@ -1836,9 +1502,6 @@
               class="landmark"
               style="left:57%; top:59%;"
             ></span>
-
-
-            <!-- čelist -->
 
             <span
               class="landmark"
@@ -1858,12 +1521,11 @@
           </div>
 
 
+          <!--
+            ZVĚTŠENÝ DETAIL OBLIČEJE
+          -->
 
-          <!-- DETAIL OBLIČEJE -->
-
-          <div
-            class="face-detail"
-          >
+          <div class="face-detail">
 
             <div class="face-detail-label">
               Facial region / detail
@@ -1883,20 +1545,21 @@
           </div>
 
 
-
-          <!-- SKENOVACÍ ČÁRA -->
+          <!--
+            SKENOVACÍ ČÁRA
+          -->
 
           <div class="scan-line"></div>
 
 
-
-          <!-- ROHY SKENERU -->
+          <!--
+            ROHOVÉ ZNAČKY
+          -->
 
           <div class="scanner-corner corner-tl"></div>
           <div class="scanner-corner corner-tr"></div>
           <div class="scanner-corner corner-bl"></div>
           <div class="scanner-corner corner-br"></div>
-
 
         </div>
 
@@ -1908,24 +1571,20 @@
       </div>
 
 
-
       <!-- =====================================================
            POROVNÁNÍ
            ===================================================== -->
 
       <aside class="comparison-card">
 
-
         <h2>
           Porovnání s databází
         </h2>
-
 
         <p>
           Systém provede biometrické porovnání rysů obličeje
           s dostupnými fotografiemi osob vedených v interní evidenci.
         </p>
-
 
         <button
           id="compareBtn"
@@ -1936,16 +1595,10 @@
         </button>
 
 
-
-        <!-- ===================================================
-             PRŮBĚH ANALÝZY
-             =================================================== -->
-
         <div
           id="loadingBox"
           class="loading-box"
         >
-
 
           <div class="loading-line">
 
@@ -1983,9 +1636,7 @@
             class="analysis-log"
           ></div>
 
-
         </div>
-
 
 
         <div
@@ -1993,23 +1644,19 @@
           class="selected-banner"
         ></div>
 
-
       </aside>
-
 
     </div>
 
 
-
     <!-- =======================================================
-         VÝSLEDKY
+         VÝSLEDKY POROVNÁNÍ
          ======================================================= -->
 
     <section
       id="matchesSection"
       class="matches-section"
     >
-
 
       <div class="matches-header">
 
@@ -2034,14 +1681,11 @@
         class="match-grid"
       ></div>
 
-
     </section>
-
 
   </section>
 
 </main>
-
 
 
 <!-- ===========================================================
@@ -2056,9 +1700,7 @@
   aria-labelledby="modalTitle"
 >
 
-
   <div class="modal-dialog">
-
 
     <button
       id="modalClose"
@@ -2072,7 +1714,6 @@
 
     <div class="modal-content">
 
-
       <div class="modal-image-wrap">
 
         <img
@@ -2085,32 +1726,26 @@
       </div>
 
 
-
       <div class="modal-info">
-
 
         <div class="modal-kicker">
           Detail nalezené osoby
         </div>
-
 
         <h2
           id="modalTitle"
           class="modal-title"
         ></h2>
 
-
         <div
           id="modalPercent"
           class="modal-percent"
         ></div>
 
-
         <p
           id="modalDescription"
           class="modal-description"
         ></p>
-
 
         <button
           id="chooseBtn"
@@ -2120,15 +1755,12 @@
           Označit jako hledanou osobu
         </button>
 
-
         <div class="modal-note">
           Výběr se uloží v tomto prohlížeči
           a lze jej změnit označením jiné osoby.
         </div>
 
-
       </div>
-
 
     </div>
 
@@ -2137,14 +1769,10 @@
 </div>
 
 
-
 <script>
-
 
 /* =============================================================
    NALEZENÉ OSOBY
-
-   TUTO ČÁST SI MŮŽEŠ POZDĚJI LIBOVOLNĚ UPRAVIT.
    ============================================================= */
 
 const persons = [
@@ -2214,11 +1842,10 @@ const persons = [
 ];
 
 
-
 /* =============================================================
    FÁZE ANALÝZY
 
-   Celková doba je přibližně 20 sekund.
+   Přibližně 20 sekund.
    ============================================================= */
 
 const ANALYSIS_STEPS = [
@@ -2435,11 +2062,10 @@ const ANALYSIS_STEPS = [
       "RESULT_VALIDATION passed",
 
     visual:
-      "complete"
+      "final"
   }
 
 ];
-
 
 
 /* =============================================================
@@ -2549,9 +2175,8 @@ let selectedPersonId =
   );
 
 
-
 /* =============================================================
-   POMOCNÉ FUNKCE
+   ČEKÁNÍ
    ============================================================= */
 
 function wait(ms) {
@@ -2569,33 +2194,27 @@ function wait(ms) {
 }
 
 
+/* =============================================================
+   LOG
+   ============================================================= */
 
 function addLog(text) {
-
 
   const row =
     document.createElement(
       "div"
     );
 
-
   row.className =
     "log-line";
 
-
   row.textContent =
     text;
-
 
   analysisLog.appendChild(
     row
   );
 
-
-  /*
-    Necháme vidět jen několik
-    posledních operací.
-  */
 
   while (
     analysisLog.children.length > 6
@@ -2610,41 +2229,64 @@ function addLog(text) {
 }
 
 
-
 /* =============================================================
-   VIZUÁLNÍ FÁZE IDENTIKITU
+   ÚPLNÉ VYČIŠTĚNÍ IDENTIKITU
+
+   Tato funkce odstraní VŠECHNY analytické efekty.
    ============================================================= */
 
-function setVisualMode(mode) {
-
+function clearIdentikitAnalysis() {
 
   imageStage.classList.remove(
-
     "scanning",
     "analyzing",
     "pixel-mode",
     "face-mode",
     "landmark-mode",
     "detail-mode"
-
   );
+
+}
+
+
+/* =============================================================
+   VIZUÁLNÍ FÁZE ANALÝZY
+   ============================================================= */
+
+function setVisualMode(mode) {
+
+  /*
+    Před každou další fází odstraníme
+    efekty z předchozí fáze.
+  */
+
+  clearIdentikitAnalysis();
 
 
   /*
-    V každé aktivní fázi
-    zobrazíme rohové značky.
+    FINAL znamená:
+    analýza skončila.
+
+    NEZAPÍNÁME UŽ VŮBEC NIC.
+    Identikit tedy zůstane zcela čistý.
   */
 
   if (
-    mode !== "complete"
+    mode === "final"
   ) {
 
-    imageStage.classList.add(
-      "analyzing"
-    );
+    return;
 
   }
 
+
+  /*
+    Rohové značky během aktivní analýzy.
+  */
+
+  imageStage.classList.add(
+    "analyzing"
+  );
 
 
   if (
@@ -2656,7 +2298,6 @@ function setVisualMode(mode) {
     );
 
   }
-
 
 
   if (
@@ -2671,7 +2312,6 @@ function setVisualMode(mode) {
   }
 
 
-
   if (
     mode === "face"
   ) {
@@ -2684,7 +2324,6 @@ function setVisualMode(mode) {
   }
 
 
-
   if (
     mode === "landmarks"
   ) {
@@ -2695,7 +2334,6 @@ function setVisualMode(mode) {
     );
 
   }
-
 
 
   if (
@@ -2711,38 +2349,20 @@ function setVisualMode(mode) {
 
   }
 
-
-
-  if (
-    mode === "complete"
-  ) {
-
-    imageStage.classList.add(
-      "face-mode",
-      "landmark-mode"
-    );
-
-  }
-
 }
 
 
-
 /* =============================================================
-   PLYNULÝ POSUN PROGRESS BARU
+   PLYNULÝ PROGRESS
    ============================================================= */
 
 async function animateProgress(
-
   from,
   to,
   duration
-
 ) {
 
-
   const steps =
-
     Math.max(
       8,
       Math.round(
@@ -2757,19 +2377,11 @@ async function animateProgress(
     i++
   ) {
 
-
     const fraction =
       i / steps;
 
 
-    /*
-      Mírně nepravidelný pohyb
-      působí přirozeněji než
-      dokonale lineární bar.
-    */
-
     let value =
-
       from +
       (
         to - from
@@ -2777,8 +2389,14 @@ async function animateProgress(
       fraction;
 
 
+    /*
+      Velmi malá nepravidelnost,
+      aby pohyb nebyl dokonale mechanický.
+    */
+
     value +=
-      (Math.random() - .5) * .35;
+      (Math.random() - .5) *
+      .25;
 
 
     value =
@@ -2816,12 +2434,18 @@ async function animateProgress(
 }
 
 
-
 /* =============================================================
-   SPUŠTĚNÍ ANALÝZY
+   SPUŠTĚNÍ POROVNÁNÍ
    ============================================================= */
 
 async function runComparison() {
+
+  /*
+    Pro jistotu začneme vždy
+    s úplně čistým identikitem.
+  */
+
+  clearIdentikitAnalysis();
 
 
   compareBtn.disabled =
@@ -2865,7 +2489,6 @@ async function runComparison() {
     const stage of ANALYSIS_STEPS
   ) {
 
-
     loadingText.textContent =
       stage.title;
 
@@ -2885,11 +2508,9 @@ async function runComparison() {
 
 
     await animateProgress(
-
       currentProgress,
       stage.target,
       stage.duration
-
     );
 
 
@@ -2899,10 +2520,13 @@ async function runComparison() {
   }
 
 
-
   /* ===========================================================
-     HOTOVO
+     ANALÝZA JE HOTOVÁ
+
+     NYNÍ SE IDENTIKIT OKAMŽITĚ VYČISTÍ.
      =========================================================== */
+
+  clearIdentikitAnalysis();
 
 
   loadingText.textContent =
@@ -2935,23 +2559,29 @@ async function runComparison() {
     "Porovnání dokončeno";
 
 
-  setVisualMode(
-    "complete"
-  );
-
+  /*
+    Výsledky připravíme,
+    ale ještě je okamžitě neukážeme.
+  */
 
   renderMatches();
 
 
   /*
-    Krátká pauza po 100 %,
-    aby hráč dokončení viděl.
+    Jednu sekundu hráč vidí:
+    - 100 %
+    - čistý identikit
+    - text Porovnání dokončeno
   */
 
   await wait(
     1000
   );
 
+
+  /*
+    A teprve potom zobrazíme tři výsledky.
+  */
 
   matchesSection.style.display =
     "block";
@@ -2970,13 +2600,11 @@ async function runComparison() {
 }
 
 
-
 /* =============================================================
    VYKRESLENÍ SHOD
    ============================================================= */
 
 function renderMatches() {
-
 
   matchGrid.innerHTML =
     "";
@@ -2985,7 +2613,6 @@ function renderMatches() {
   persons.forEach(
 
     person => {
-
 
       const card =
         document.createElement(
@@ -3005,7 +2632,6 @@ function renderMatches() {
         0;
 
 
-
       if (
         person.id ===
         selectedPersonId
@@ -3016,7 +2642,6 @@ function renderMatches() {
         );
 
       }
-
 
 
       card.innerHTML = `
@@ -3049,7 +2674,6 @@ function renderMatches() {
       `;
 
 
-
       card.addEventListener(
 
         "click",
@@ -3062,13 +2686,11 @@ function renderMatches() {
       );
 
 
-
       card.addEventListener(
 
         "keydown",
 
         event => {
-
 
           if (
             event.key === "Enter" ||
@@ -3102,13 +2724,11 @@ function renderMatches() {
 }
 
 
-
 /* =============================================================
    DETAIL OSOBY
    ============================================================= */
 
 function openPerson(person) {
-
 
   currentPerson =
     person;
@@ -3134,12 +2754,9 @@ function openPerson(person) {
     person.description;
 
 
-
   const isSelected =
-
     selectedPersonId ===
     person.id;
-
 
 
   chooseBtn.textContent =
@@ -3150,11 +2767,8 @@ function openPerson(person) {
 
 
   chooseBtn.classList.toggle(
-
     "chosen",
-
     isSelected
-
   );
 
 
@@ -3173,13 +2787,11 @@ function openPerson(person) {
 }
 
 
-
 /* =============================================================
    ZAVŘENÍ DETAILU
    ============================================================= */
 
 function closeModal() {
-
 
   modal.classList.remove(
     "open"
@@ -3196,13 +2808,11 @@ function closeModal() {
 }
 
 
-
 /* =============================================================
    VÝBĚR OSOBY
    ============================================================= */
 
 function selectCurrentPerson() {
-
 
   if (
     !currentPerson
@@ -3216,11 +2826,8 @@ function selectCurrentPerson() {
 
 
   localStorage.setItem(
-
     "isid-selected-person",
-
     selectedPersonId
-
   );
 
 
@@ -3242,16 +2849,13 @@ function selectCurrentPerson() {
 }
 
 
-
 /* =============================================================
    BANNER VYBRANÉ OSOBY
    ============================================================= */
 
 function refreshSelectedBanner() {
 
-
   const selected =
-
     persons.find(
 
       person =>
@@ -3264,7 +2868,6 @@ function refreshSelectedBanner() {
   if (
     !selected
   ) {
-
 
     selectedBanner.style.display =
       "none";
@@ -3284,7 +2887,6 @@ function refreshSelectedBanner() {
 
 
   selectedBanner.innerHTML =
-
     `Jako hledaná osoba byla označena:
     <strong>${selected.name}</strong>
     (${selected.match} % shoda).`;
@@ -3292,35 +2894,25 @@ function refreshSelectedBanner() {
 }
 
 
-
 /* =============================================================
    UDÁLOSTI
    ============================================================= */
 
 compareBtn.addEventListener(
-
   "click",
-
   runComparison
-
 );
 
 
 modalClose.addEventListener(
-
   "click",
-
   closeModal
-
 );
 
 
 chooseBtn.addEventListener(
-
   "click",
-
   selectCurrentPerson
-
 );
 
 
@@ -3329,7 +2921,6 @@ modal.addEventListener(
   "click",
 
   event => {
-
 
     if (
       event.target ===
@@ -3351,10 +2942,11 @@ document.addEventListener(
 
   event => {
 
-
     if (
       event.key === "Escape" &&
-      modal.classList.contains("open")
+      modal.classList.contains(
+        "open"
+      )
     ) {
 
       closeModal();
@@ -3366,7 +2958,6 @@ document.addEventListener(
 );
 
 </script>
-
 
 </body>
 </html>
