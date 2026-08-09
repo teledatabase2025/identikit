@@ -23,6 +23,7 @@
       --amber: #9a6700;
       --amber-bg: #fff7d6;
       --danger: #b42318;
+      --danger-bg: #fff1f0;
       --shadow: 0 12px 30px rgba(16, 42, 67, .12);
     }
 
@@ -35,8 +36,9 @@
       min-height: 100vh;
       font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--text);
+
       background:
-        linear-gradient(rgba(238, 243, 248, .96), rgba(238, 243, 248, .96)),
+        linear-gradient(rgba(238,243,248,.96), rgba(238,243,248,.96)),
         repeating-linear-gradient(
           135deg,
           transparent 0 28px,
@@ -54,10 +56,20 @@
        ========================================================= */
 
     .topbar {
-      background: linear-gradient(105deg, var(--navy), var(--navy-2));
+      background:
+        linear-gradient(
+          105deg,
+          var(--navy),
+          var(--navy-2)
+        );
+
       color: white;
-      border-bottom: 4px solid #58a6ff;
-      box-shadow: 0 5px 18px rgba(16, 42, 67, .28);
+
+      border-bottom:
+        4px solid #58a6ff;
+
+      box-shadow:
+        0 5px 18px rgba(16,42,67,.28);
     }
 
     .topbar-inner {
@@ -65,6 +77,7 @@
       margin: 0 auto;
       min-height: 86px;
       padding: 15px 24px;
+
       display: flex;
       align-items: center;
       gap: 16px;
@@ -74,11 +87,18 @@
       width: 52px;
       height: 52px;
       flex: 0 0 52px;
+
       display: grid;
       place-items: center;
-      border: 1px solid rgba(255,255,255,.45);
+
+      border:
+        1px solid rgba(255,255,255,.45);
+
       border-radius: 12px;
-      background: rgba(255,255,255,.08);
+
+      background:
+        rgba(255,255,255,.08);
+
       font-weight: 800;
       letter-spacing: .08em;
     }
@@ -91,10 +111,16 @@
 
     .system-subtitle {
       margin-top: 3px;
-      color: #d9e8f7;
+
+      color:
+        #d9e8f7;
+
       font-size: 13px;
+
       letter-spacing: .08em;
-      text-transform: uppercase;
+
+      text-transform:
+        uppercase;
     }
 
     /* =========================================================
@@ -103,75 +129,138 @@
 
     main {
       max-width: 1180px;
-      margin: 28px auto;
-      padding: 0 24px 48px;
+
+      margin:
+        28px auto;
+
+      padding:
+        0 24px 48px;
     }
 
     .back-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+
       margin-bottom: 16px;
-      color: var(--navy-2);
-      text-decoration: none;
-      font-weight: 700;
+
+      color:
+        var(--navy-2);
+
+      text-decoration:
+        none;
+
+      font-weight:
+        700;
     }
 
     .back-link:hover {
-      text-decoration: underline;
+      text-decoration:
+        underline;
     }
 
     .panel {
-      background: var(--panel);
-      border: 1px solid rgba(16,42,67,.08);
+      background:
+        var(--panel);
+
+      border:
+        1px solid rgba(16,42,67,.08);
+
       border-radius: 14px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
+
+      box-shadow:
+        var(--shadow);
+
+      overflow:
+        hidden;
     }
 
     .panel-header {
-      padding: 22px 26px;
-      border-bottom: 1px solid var(--line);
+      padding:
+        22px 26px;
+
+      border-bottom:
+        1px solid var(--line);
+
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       gap: 18px;
-      align-items: center;
+
+      align-items:
+        center;
     }
 
     h1 {
       margin: 0;
+
       font-size: 24px;
-      color: var(--navy);
+
+      color:
+        var(--navy);
     }
 
     .meta {
       display: flex;
+
       gap: 18px;
-      flex-wrap: wrap;
+
+      flex-wrap:
+        wrap;
+
       margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
     }
 
     .status {
-      display: inline-flex;
-      align-items: center;
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
       gap: 7px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--green-bg);
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 750;
-      white-space: nowrap;
+
+      padding:
+        7px 11px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--green-bg);
+
+      color:
+        var(--green);
+
+      font-size:
+        13px;
+
+      font-weight:
+        750;
+
+      white-space:
+        nowrap;
     }
 
     .status::before {
       content: "";
+
       width: 7px;
       height: 7px;
-      border-radius: 50%;
-      background: #1ca66a;
+
+      border-radius:
+        50%;
+
+      background:
+        #1ca66a;
     }
 
     /* =========================================================
@@ -180,10 +269,13 @@
 
     .detail-grid {
       display: grid;
+
       grid-template-columns:
-        minmax(300px, 1.05fr)
-        minmax(300px, .95fr);
+        minmax(300px,1.05fr)
+        minmax(300px,.95fr);
+
       gap: 28px;
+
       padding: 28px;
     }
 
@@ -193,36 +285,54 @@
 
     .image-card {
       padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #f8fbff;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        12px;
+
+      background:
+        #f8fbff;
     }
 
     .image-stage {
       position: relative;
+
       width: 100%;
+
       overflow: hidden;
+
       border-radius: 8px;
-      background: #dfe8f0;
-      isolation: isolate;
+
+      background:
+        #dfe8f0;
+
+      isolation:
+        isolate;
     }
 
     .main-image {
       position: relative;
-      z-index: 1;
-      display: block;
-      width: 100%;
-      max-height: 650px;
-      object-fit: contain;
-      background: #dfe8f0;
 
-      /*
-        Po odstranění analytických tříd
-        se obrázek vždy vrátí na tyto
-        výchozí hodnoty.
-      */
+      z-index: 1;
+
+      display: block;
+
+      width: 100%;
+
+      max-height: 650px;
+
+      object-fit:
+        contain;
+
+      background:
+        #dfe8f0;
+
       filter: none;
-      transform: none;
+
+      transform:
+        none;
 
       transition:
         filter .4s ease,
@@ -230,39 +340,60 @@
     }
 
     .image-caption {
-      margin: 12px 3px 0;
-      color: var(--muted);
-      font-size: 12px;
-      text-align: center;
-      letter-spacing: .04em;
-      text-transform: uppercase;
+      margin:
+        12px 3px 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+
+      text-align:
+        center;
+
+      letter-spacing:
+        .04em;
+
+      text-transform:
+        uppercase;
     }
 
     /* =========================================================
-       SKENOVACÍ ČÁRA
+       SKEN IDENTIKITU
        ========================================================= */
 
     .scan-line {
       position: absolute;
+
       z-index: 20;
+
       left: 0;
       right: 0;
+
       top: -4px;
+
       height: 3px;
+
       opacity: 0;
-      background: #36a3ff;
+
+      background:
+        #36a3ff;
 
       box-shadow:
         0 0 7px #36a3ff,
         0 0 18px rgba(54,163,255,.8),
         0 0 35px rgba(54,163,255,.4);
 
-      pointer-events: none;
+      pointer-events:
+        none;
     }
 
     .image-stage.scanning .scan-line {
       opacity: 1;
-      animation: scanVertical 2.6s linear infinite;
+
+      animation:
+        scanVertical 2.6s linear infinite;
     }
 
     @keyframes scanVertical {
@@ -271,7 +402,8 @@
       }
 
       50% {
-        top: calc(100% - 3px);
+        top:
+          calc(100% - 3px);
       }
 
       100% {
@@ -279,18 +411,21 @@
       }
     }
 
-    /* =========================================================
-       ROHY SKENERU
-       ========================================================= */
-
     .scanner-corner {
       position: absolute;
+
       z-index: 19;
+
       width: 38px;
       height: 38px;
+
       opacity: 0;
-      pointer-events: none;
-      transition: opacity .25s ease;
+
+      pointer-events:
+        none;
+
+      transition:
+        opacity .25s ease;
     }
 
     .image-stage.analyzing .scanner-corner {
@@ -300,29 +435,45 @@
     .corner-tl {
       top: 14px;
       left: 14px;
-      border-top: 2px solid #36a3ff;
-      border-left: 2px solid #36a3ff;
+
+      border-top:
+        2px solid #36a3ff;
+
+      border-left:
+        2px solid #36a3ff;
     }
 
     .corner-tr {
       top: 14px;
       right: 14px;
-      border-top: 2px solid #36a3ff;
-      border-right: 2px solid #36a3ff;
+
+      border-top:
+        2px solid #36a3ff;
+
+      border-right:
+        2px solid #36a3ff;
     }
 
     .corner-bl {
       bottom: 14px;
       left: 14px;
-      border-bottom: 2px solid #36a3ff;
-      border-left: 2px solid #36a3ff;
+
+      border-bottom:
+        2px solid #36a3ff;
+
+      border-left:
+        2px solid #36a3ff;
     }
 
     .corner-br {
       bottom: 14px;
       right: 14px;
-      border-bottom: 2px solid #36a3ff;
-      border-right: 2px solid #36a3ff;
+
+      border-bottom:
+        2px solid #36a3ff;
+
+      border-right:
+        2px solid #36a3ff;
     }
 
     /* =========================================================
@@ -331,10 +482,15 @@
 
     .pixel-grid {
       position: absolute;
+
       inset: 0;
+
       z-index: 8;
+
       opacity: 0;
-      pointer-events: none;
+
+      pointer-events:
+        none;
 
       background:
         linear-gradient(
@@ -347,16 +503,24 @@
           transparent 1px
         );
 
-      background-size: 16px 16px;
-      transition: opacity .3s ease;
+      background-size:
+        16px 16px;
+
+      transition:
+        opacity .3s ease;
     }
 
     .mosaic-overlay {
       position: absolute;
+
       inset: 0;
+
       z-index: 7;
+
       opacity: 0;
-      pointer-events: none;
+
+      pointer-events:
+        none;
 
       background:
         repeating-conic-gradient(
@@ -366,8 +530,11 @@
         )
         0 0 / 22px 22px;
 
-      mix-blend-mode: multiply;
-      transition: opacity .3s ease;
+      mix-blend-mode:
+        multiply;
+
+      transition:
+        opacity .3s ease;
     }
 
     .image-stage.pixel-mode .pixel-grid {
@@ -384,7 +551,8 @@
         contrast(1.25)
         brightness(.96);
 
-      transform: scale(1.012);
+      transform:
+        scale(1.012);
     }
 
     /* =========================================================
@@ -393,6 +561,7 @@
 
     .face-target {
       position: absolute;
+
       z-index: 12;
 
       left: 28%;
@@ -403,13 +572,15 @@
 
       opacity: 0;
 
-      border: 2px solid #30a0ff;
+      border:
+        2px solid #30a0ff;
 
       box-shadow:
         0 0 0 999px rgba(8,28,47,.13),
         0 0 16px rgba(48,160,255,.55);
 
-      pointer-events: none;
+      pointer-events:
+        none;
 
       transition:
         opacity .3s ease,
@@ -419,21 +590,36 @@
     .face-target::before,
     .face-target::after {
       position: absolute;
-      padding: 3px 5px;
-      background: rgba(11,53,91,.88);
-      color: #dff1ff;
-      font-family: "Courier New", monospace;
-      font-size: 9px;
+
+      padding:
+        3px 5px;
+
+      background:
+        rgba(11,53,91,.88);
+
+      color:
+        #dff1ff;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:
+        9px;
     }
 
     .face-target::before {
-      content: "FACE REGION";
+      content:
+        "FACE REGION";
+
       left: -2px;
       top: -20px;
     }
 
     .face-target::after {
-      content: "LOCKED";
+      content:
+        "LOCKED";
+
       right: -2px;
       bottom: -20px;
     }
@@ -450,11 +636,18 @@
 
     .landmark-layer {
       position: absolute;
+
       inset: 0;
+
       z-index: 14;
+
       opacity: 0;
-      pointer-events: none;
-      transition: opacity .3s ease;
+
+      pointer-events:
+        none;
+
+      transition:
+        opacity .3s ease;
     }
 
     .image-stage.landmark-mode .landmark-layer,
@@ -471,9 +664,11 @@
       margin:
         -3.5px 0 0 -3.5px;
 
-      border-radius: 50%;
+      border-radius:
+        50%;
 
-      background: #53c4ff;
+      background:
+        #53c4ff;
 
       border:
         1px solid white;
@@ -502,11 +697,13 @@
     }
 
     .landmark:nth-child(odd)::after {
-      transform: rotate(18deg);
+      transform:
+        rotate(18deg);
     }
 
     .landmark:nth-child(even)::after {
-      transform: rotate(-18deg);
+      transform:
+        rotate(-18deg);
     }
 
     /* =========================================================
@@ -528,13 +725,13 @@
       opacity: 0;
 
       transform:
-        translateY(10px)
-        scale(.97);
+        translateY(10px) scale(.97);
 
       border:
         1px solid rgba(255,255,255,.8);
 
-      border-radius: 7px;
+      border-radius:
+        7px;
 
       background:
         rgba(12,36,57,.93);
@@ -542,7 +739,8 @@
       box-shadow:
         0 11px 28px rgba(0,0,0,.32);
 
-      pointer-events: none;
+      pointer-events:
+        none;
 
       transition:
         opacity .3s ease,
@@ -553,8 +751,7 @@
       opacity: 1;
 
       transform:
-        translateY(0)
-        scale(1);
+        translateY(0) scale(1);
     }
 
     .face-detail-label {
@@ -563,7 +760,8 @@
       color:
         #acd9ff;
 
-      font-size: 9px;
+      font-size:
+        9px;
 
       font-family:
         "Courier New",
@@ -580,7 +778,8 @@
 
       overflow: hidden;
 
-      border-radius: 4px;
+      border-radius:
+        4px;
 
       background:
         #dbe5ed;
@@ -595,7 +794,8 @@
       left: -60%;
       top: -22%;
 
-      object-fit: contain;
+      object-fit:
+        contain;
 
       filter:
         grayscale(1)
@@ -612,12 +812,13 @@
       height: 42px;
 
       transform:
-        translate(-50%, -50%);
+        translate(-50%,-50%);
 
       border:
         1px solid #42b3ff;
 
-      border-radius: 50%;
+      border-radius:
+        50%;
     }
 
     .detail-crosshair::before,
@@ -651,16 +852,19 @@
        ========================================================= */
 
     .comparison-card {
-      align-self: start;
+      align-self:
+        start;
 
       padding: 22px;
 
       border:
         1px solid var(--line);
 
-      border-radius: 12px;
+      border-radius:
+        12px;
 
-      background: white;
+      background:
+        white;
     }
 
     .comparison-card h2 {
@@ -692,18 +896,23 @@
 
       border: 0;
 
-      border-radius: 9px;
+      border-radius:
+        9px;
 
       background:
         var(--blue);
 
-      color: white;
+      color:
+        white;
 
-      font-weight: 750;
+      font-weight:
+        750;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      transition: .18s ease;
+      transition:
+        .18s ease;
     }
 
     .compare-btn:hover {
@@ -713,11 +922,13 @@
 
     .compare-btn:disabled {
       opacity: .58;
-      cursor: default;
+
+      cursor:
+        default;
     }
 
     /* =========================================================
-       PRŮBĚH ANALÝZY
+       HLAVNÍ NAČÍTÁNÍ
        ========================================================= */
 
     .loading-box {
@@ -730,7 +941,8 @@
       border:
         1px solid #c9d8e7;
 
-      border-radius: 10px;
+      border-radius:
+        10px;
 
       background:
         #f7fbff;
@@ -749,9 +961,11 @@
       color:
         var(--navy);
 
-      font-size: 13px;
+      font-size:
+        13px;
 
-      font-weight: 700;
+      font-weight:
+        700;
     }
 
     .loading-detail {
@@ -762,9 +976,11 @@
       color:
         #647b90;
 
-      font-size: 12px;
+      font-size:
+        12px;
 
-      line-height: 1.5;
+      line-height:
+        1.5;
     }
 
     .progress-track {
@@ -772,7 +988,8 @@
 
       height: 13px;
 
-      overflow: hidden;
+      overflow:
+        hidden;
 
       border-radius:
         999px;
@@ -800,10 +1017,6 @@
         width .18s linear;
     }
 
-    /* =========================================================
-       LOG
-       ========================================================= */
-
     .analysis-log {
       height: 102px;
 
@@ -812,9 +1025,11 @@
       padding:
         10px 11px;
 
-      overflow: hidden;
+      overflow:
+        hidden;
 
-      border-radius: 7px;
+      border-radius:
+        7px;
 
       background:
         #102535;
@@ -826,50 +1041,29 @@
         "Courier New",
         monospace;
 
-      font-size: 10px;
+      font-size:
+        10px;
 
-      line-height: 1.55;
+      line-height:
+        1.55;
     }
 
     .log-line {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space:
+        nowrap;
+
+      overflow:
+        hidden;
+
+      text-overflow:
+        ellipsis;
     }
 
     .log-line::before {
       content: "> ";
-      color: #56e5a0;
-    }
-
-    /* =========================================================
-       VYBRANÁ OSOBA
-       ========================================================= */
-
-    .selected-banner {
-      display: none;
-
-      margin-top: 18px;
-
-      padding:
-        14px 15px;
-
-      border:
-        1px solid #a9d9c0;
-
-      border-radius: 9px;
-
-      background:
-        var(--green-bg);
 
       color:
-        #0e633d;
-
-      line-height:
-        1.45;
-
-      font-weight:
-        650;
+        #56e5a0;
     }
 
     /* =========================================================
@@ -889,11 +1083,13 @@
       justify-content:
         space-between;
 
-      align-items: end;
+      align-items:
+        end;
 
       gap: 15px;
 
-      margin-bottom: 15px;
+      margin-bottom:
+        15px;
     }
 
     .matches-header h2 {
@@ -902,7 +1098,8 @@
       color:
         var(--navy);
 
-      font-size: 21px;
+      font-size:
+        21px;
     }
 
     .matches-header p {
@@ -912,14 +1109,15 @@
       color:
         var(--muted);
 
-      font-size: 13px;
+      font-size:
+        13px;
     }
 
     .match-grid {
       display: grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
       gap: 18px;
     }
@@ -932,14 +1130,17 @@
       border:
         1px solid var(--line);
 
-      border-radius: 11px;
+      border-radius:
+        11px;
 
-      background: white;
+      background:
+        white;
 
       box-shadow:
         0 7px 18px rgba(16,42,67,.07);
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
       transition:
         transform .18s ease,
@@ -971,7 +1172,8 @@
       aspect-ratio:
         4 / 5;
 
-      object-fit: cover;
+      object-fit:
+        cover;
 
       background:
         #e3eaf1;
@@ -979,33 +1181,43 @@
 
     .match-info {
       padding:
-        14px 15px 16px;
+        14px 15px 17px;
     }
 
     .match-name {
-      margin: 0;
+      margin:
+        0 0 10px;
 
       color:
         var(--navy);
 
       font-size:
-        16px;
+        18px;
 
       font-weight:
-        750;
+        800;
     }
 
-    .match-caption {
-      margin:
-        5px 0 0;
+    .person-data {
+      display: grid;
+
+      gap: 7px;
+
+      margin-top: 10px;
 
       color:
-        var(--muted);
+        #445b70;
 
-      font-size: 13px;
+      font-size:
+        13px;
 
       line-height:
         1.45;
+    }
+
+    .person-data-row strong {
+      color:
+        var(--navy);
     }
 
     .match-percent {
@@ -1021,13 +1233,16 @@
         999px;
 
       background:
-        rgba(16,42,67,.92);
+        rgba(16,42,67,.93);
 
-      color: white;
+      color:
+        white;
 
-      font-size: 13px;
+      font-size:
+        13px;
 
-      font-weight: 800;
+      font-weight:
+        800;
 
       box-shadow:
         0 3px 9px rgba(0,0,0,.22);
@@ -1050,19 +1265,350 @@
       background:
         #14814e;
 
-      color: white;
+      color:
+        white;
 
-      font-size: 12px;
+      font-size:
+        12px;
 
-      font-weight: 750;
+      font-weight:
+        750;
     }
 
     .match-card.selected .selected-mark {
-      display: block;
+      display:
+        block;
     }
 
     /* =========================================================
-       DETAIL NALEZENÉ OSOBY
+       TLAČÍTKO SOUVISLOSTI
+       ========================================================= */
+
+    .relation-btn {
+      width: 100%;
+
+      min-height: 46px;
+
+      margin-top: 16px;
+
+      padding:
+        10px 12px;
+
+      border:
+        1px solid #aac4de;
+
+      border-radius:
+        8px;
+
+      background:
+        #f0f7ff;
+
+      color:
+        #124d86;
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
+
+      cursor:
+        pointer;
+
+      line-height:
+        1.35;
+
+      transition:
+        .18s ease;
+    }
+
+    .relation-btn:hover {
+      background:
+        #e3f1ff;
+
+      border-color:
+        #7ca8d2;
+    }
+
+    .relation-btn:disabled {
+      opacity: .65;
+
+      cursor:
+        default;
+    }
+
+    /* =========================================================
+       PROVĚŘOVÁNÍ DATABÁZE
+       ========================================================= */
+
+    .relation-check {
+      display: none;
+
+      margin-top: 12px;
+
+      padding: 12px;
+
+      border:
+        1px solid #cbd9e6;
+
+      border-radius:
+        8px;
+
+      background:
+        #f8fbfe;
+
+      cursor:
+        default;
+    }
+
+    .relation-check.visible {
+      display: block;
+    }
+
+    .relation-status {
+      margin-bottom: 8px;
+
+      color:
+        var(--navy);
+
+      font-size:
+        11px;
+
+      font-weight:
+        750;
+
+      line-height:
+        1.4;
+    }
+
+    .relation-progress-track {
+      width: 100%;
+
+      height: 9px;
+
+      overflow: hidden;
+
+      border-radius:
+        999px;
+
+      background:
+        #dce7f1;
+    }
+
+    .relation-progress-bar {
+      width: 0;
+
+      height: 100%;
+
+      border-radius:
+        inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #1557b0,
+          #58a6ff
+        );
+
+      transition:
+        width .16s linear;
+    }
+
+    .relation-small {
+      margin-top: 7px;
+
+      color:
+        #708398;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:
+        9px;
+
+      line-height:
+        1.4;
+    }
+
+    /* =========================================================
+       VÝSLEDEK SOUVISLOSTI
+       ========================================================= */
+
+    .relation-result {
+      display: none;
+
+      margin-top: 12px;
+
+      padding: 13px;
+
+      border-radius:
+        8px;
+
+      cursor:
+        default;
+
+      font-size:
+        12px;
+
+      line-height:
+        1.5;
+    }
+
+    .relation-result.visible {
+      display: block;
+    }
+
+    .relation-result-title {
+      margin-bottom: 7px;
+
+      font-size:
+        12px;
+
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        .04em;
+    }
+
+    .relation-result strong {
+      font-weight:
+        800;
+    }
+
+    .relation-arrow {
+      display: block;
+
+      margin:
+        9px 0 6px;
+
+      color:
+        inherit;
+
+      font-size:
+        20px;
+
+      font-weight:
+        900;
+    }
+
+    /* VÝRAZNÁ SOUVISLOST */
+
+    .relation-result.danger {
+      border:
+        2px solid #d92d20;
+
+      background:
+        #fff1f0;
+
+      color:
+        #8f1d16;
+
+      box-shadow:
+        0 0 0 0 rgba(217,45,32,.28);
+
+      animation:
+        dangerPulse 1.15s infinite;
+    }
+
+    @keyframes dangerPulse {
+      0%,
+      100% {
+        border-color:
+          #d92d20;
+
+        box-shadow:
+          0 0 0 0 rgba(217,45,32,.20);
+      }
+
+      50% {
+        border-color:
+          #ff5c52;
+
+        box-shadow:
+          0 0 0 6px rgba(217,45,32,.10);
+
+        background:
+          #ffe8e6;
+      }
+    }
+
+    /* STŘEDNÍ SOUVISLOST */
+
+    .relation-result.warning {
+      border:
+        1px solid #dfbd72;
+
+      background:
+        #fff9e8;
+
+      color:
+        #75500b;
+    }
+
+    /* SLABÁ SOUVISLOST */
+
+    .relation-result.neutral {
+      border:
+        1px solid #b9ccdd;
+
+      background:
+        #f4f8fb;
+
+      color:
+        #405d77;
+    }
+
+    .location-list {
+      margin:
+        7px 0 0;
+
+      padding-left:
+        18px;
+    }
+
+    .location-list li {
+      margin:
+        5px 0;
+    }
+
+    /* =========================================================
+       VYBRANÁ OSOBA
+       ========================================================= */
+
+    .selected-banner {
+      display: none;
+
+      margin-top: 18px;
+
+      padding:
+        14px 15px;
+
+      border:
+        1px solid #a9d9c0;
+
+      border-radius:
+        9px;
+
+      background:
+        var(--green-bg);
+
+      color:
+        #0e633d;
+
+      line-height:
+        1.45;
+
+      font-weight:
+        650;
+    }
+
+    /* =========================================================
+       MODAL
        ========================================================= */
 
     .modal {
@@ -1077,33 +1623,40 @@
       padding: 24px;
 
       background:
-        rgba(7, 20, 34, .78);
+        rgba(7,20,34,.78);
 
-      align-items: center;
-      justify-content: center;
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       backdrop-filter:
         blur(3px);
     }
 
     .modal.open {
-      display: flex;
+      display:
+        flex;
     }
 
     .modal-dialog {
       position: relative;
 
       width:
-        min(940px, 100%);
+        min(940px,100%);
 
       max-height:
         calc(100vh - 48px);
 
-      overflow: auto;
+      overflow:
+        auto;
 
-      border-radius: 14px;
+      border-radius:
+        14px;
 
-      background: white;
+      background:
+        white;
 
       box-shadow:
         0 24px 70px rgba(0,0,0,.38);
@@ -1122,33 +1675,40 @@
 
       border: 0;
 
-      border-radius: 50%;
+      border-radius:
+        50%;
 
       background:
         rgba(16,42,67,.91);
 
-      color: white;
+      color:
+        white;
 
-      font-size: 24px;
+      font-size:
+        24px;
 
-      cursor: pointer;
+      cursor:
+        pointer;
     }
 
     .modal-content {
       display: grid;
 
       grid-template-columns:
-        minmax(280px, 1fr)
-        minmax(280px, .85fr);
+        minmax(280px,1fr)
+        minmax(280px,.85fr);
     }
 
     .modal-image-wrap {
-      min-height: 480px;
+      min-height:
+        480px;
 
       padding: 22px;
 
       display: grid;
-      place-items: center;
+
+      place-items:
+        center;
 
       background:
         #e7edf3;
@@ -1157,13 +1717,17 @@
     .modal-image {
       display: block;
 
-      max-width: 100%;
+      max-width:
+        100%;
 
-      max-height: 72vh;
+      max-height:
+        72vh;
 
-      object-fit: contain;
+      object-fit:
+        contain;
 
-      border-radius: 8px;
+      border-radius:
+        8px;
 
       background:
         #d8e1e9;
@@ -1178,9 +1742,11 @@
       color:
         var(--blue-dark);
 
-      font-size: 12px;
+      font-size:
+        12px;
 
-      font-weight: 800;
+      font-weight:
+        800;
 
       letter-spacing:
         .07em;
@@ -1219,9 +1785,11 @@
       color:
         var(--amber);
 
-      font-size: 13px;
+      font-size:
+        13px;
 
-      font-weight: 800;
+      font-weight:
+        800;
     }
 
     .modal-description {
@@ -1246,19 +1814,20 @@
 
       border: 0;
 
-      border-radius: 9px;
+      border-radius:
+        9px;
 
       background:
         #14814e;
 
-      color: white;
+      color:
+        white;
 
-      font-weight: 800;
+      font-weight:
+        800;
 
-      cursor: pointer;
-
-      transition:
-        background .18s ease;
+      cursor:
+        pointer;
     }
 
     .choose-btn:hover {
@@ -1281,7 +1850,8 @@
       color:
         var(--muted);
 
-      font-size: 12px;
+      font-size:
+        12px;
 
       line-height:
         1.45;
@@ -1292,6 +1862,7 @@
        ========================================================= */
 
     @media (max-width: 860px) {
+
       .detail-grid {
         grid-template-columns:
           1fr;
@@ -1311,9 +1882,11 @@
         min-height:
           350px;
       }
+
     }
 
     @media (max-width: 600px) {
+
       .system-title {
         font-size:
           19px;
@@ -1338,21 +1911,13 @@
           10px;
       }
 
-      .face-detail {
-        width:
-          100px;
-      }
-
-      .face-detail-image {
-        height:
-          100px;
-      }
     }
   </style>
 </head>
 
 
 <body>
+
 
 <header class="topbar">
 
@@ -1415,6 +1980,7 @@
 
       </div>
 
+
       <div class="status">
         Přístupný
       </div>
@@ -1423,6 +1989,7 @@
 
 
     <div class="detail-grid">
+
 
       <!-- =====================================================
            IDENTIKIT
@@ -1435,10 +2002,6 @@
           id="imageStage"
         >
 
-          <!--
-            HLAVNÍ IDENTIKIT
-          -->
-
           <img
             class="main-image"
             id="mainIdentikit"
@@ -1447,83 +2010,32 @@
           >
 
 
-          <!--
-            ANALYTICKÁ MŘÍŽKA
-          -->
-
           <div class="mosaic-overlay"></div>
+
           <div class="pixel-grid"></div>
 
-
-          <!--
-            RÁMEČEK OBLIČEJE
-          -->
 
           <div class="face-target"></div>
 
 
-          <!--
-            BIOMETRICKÉ BODY
-          -->
-
           <div class="landmark-layer">
 
-            <span
-              class="landmark"
-              style="left:41%; top:31%;"
-            ></span>
+            <span class="landmark" style="left:41%;top:31%;"></span>
+            <span class="landmark" style="left:59%;top:31%;"></span>
 
-            <span
-              class="landmark"
-              style="left:59%; top:31%;"
-            ></span>
+            <span class="landmark" style="left:50%;top:43%;"></span>
+            <span class="landmark" style="left:50%;top:51%;"></span>
 
-            <span
-              class="landmark"
-              style="left:50%; top:43%;"
-            ></span>
+            <span class="landmark" style="left:43%;top:59%;"></span>
+            <span class="landmark" style="left:50%;top:61%;"></span>
+            <span class="landmark" style="left:57%;top:59%;"></span>
 
-            <span
-              class="landmark"
-              style="left:50%; top:51%;"
-            ></span>
-
-            <span
-              class="landmark"
-              style="left:43%; top:59%;"
-            ></span>
-
-            <span
-              class="landmark"
-              style="left:50%; top:61%;"
-            ></span>
-
-            <span
-              class="landmark"
-              style="left:57%; top:59%;"
-            ></span>
-
-            <span
-              class="landmark"
-              style="left:36%; top:67%;"
-            ></span>
-
-            <span
-              class="landmark"
-              style="left:50%; top:73%;"
-            ></span>
-
-            <span
-              class="landmark"
-              style="left:64%; top:67%;"
-            ></span>
+            <span class="landmark" style="left:36%;top:67%;"></span>
+            <span class="landmark" style="left:50%;top:73%;"></span>
+            <span class="landmark" style="left:64%;top:67%;"></span>
 
           </div>
 
-
-          <!--
-            ZVĚTŠENÝ DETAIL OBLIČEJE
-          -->
 
           <div class="face-detail">
 
@@ -1545,16 +2057,8 @@
           </div>
 
 
-          <!--
-            SKENOVACÍ ČÁRA
-          -->
-
           <div class="scan-line"></div>
 
-
-          <!--
-            ROHOVÉ ZNAČKY
-          -->
 
           <div class="scanner-corner corner-tl"></div>
           <div class="scanner-corner corner-tr"></div>
@@ -1585,6 +2089,7 @@
           Systém provede biometrické porovnání rysů obličeje
           s dostupnými fotografiemi osob vedených v interní evidenci.
         </p>
+
 
         <button
           id="compareBtn"
@@ -1650,7 +2155,7 @@
 
 
     <!-- =======================================================
-         VÝSLEDKY POROVNÁNÍ
+         VÝSLEDKY
          ======================================================= -->
 
     <section
@@ -1667,8 +2172,9 @@
           </h2>
 
           <p>
-            Kliknutím na fotografii zobrazíte detail osoby
-            a můžete potvrdit svůj výběr.
+            Kliknutím na fotografii zobrazíte detail osoby.
+            U každého záznamu lze samostatně prověřit souvislost
+            s poškozenou Tamarou Vrbovou.
           </p>
 
         </div>
@@ -1689,7 +2195,7 @@
 
 
 <!-- ===========================================================
-     DETAIL NALEZENÉ OSOBY
+     MODAL OSOBY
      =========================================================== -->
 
 <div
@@ -1777,75 +2283,199 @@
 
 const persons = [
 
+  /* ===========================================================
+     1. KAMILA MARKOVÁ
+     =========================================================== */
+
   {
     id:
-      "zena-1",
+      "kamila-markova",
 
     image:
       "žena1.jpg",
 
     name:
-      "Osoba č. 1",
+      "Kamila Marková",
+
+    age:
+      26,
+
+    address:
+      "Boleslavská 18, Praha 3 – Vinohrady",
+
+    evidenceReason:
+      "Fyzické napadení manžela během rozvodového řízení.",
 
     match:
-      91,
-
-    shortText:
-      "Nejvyšší míra shody v dostupné databázi.",
+      92,
 
     description:
-      "Sem napište vlastní podrobný popis první osoby.\n\nMůže obsahovat například jméno, věk, bydliště, číslo spisu, poznávací znaky nebo další informace důležité pro vyšetřování."
+      "Věk: 26 let\nBydliště: Boleslavská 18, Praha 3 – Vinohrady\n\nDůvod evidence:\nFyzické napadení manžela během rozvodového řízení.",
+
+    relationClass:
+      "danger",
+
+    relationHtml:
+      `
+        <div class="relation-result-title">
+          Významná souvislost nalezena
+        </div>
+
+        <strong>
+          Za poslední 3 měsíce bylo zjištěno
+          6 shodných časoprostorových lokalizací.
+        </strong>
+
+        <span class="relation-arrow">
+          ↓
+        </span>
+
+        Kamila Marková pracuje v kosmetickém salónu
+        <strong>Beauty Care</strong>.
+
+        <br><br>
+
+        Záznamy klientského systému potvrzují,
+        že stejný kosmetický salón pravidelně navštěvuje
+        také poškozená <strong>Tamara Vrbová</strong>.
+      `
   },
 
 
+  /* ===========================================================
+     2. EMÍLIE HORÁKOVÁ
+     =========================================================== */
+
   {
     id:
-      "zena-2",
+      "emilie-horakova",
 
     image:
       "žena2.jpg",
 
     name:
-      "Osoba č. 2",
+      "Emílie Horáková",
+
+    age:
+      29,
+
+    address:
+      "Komunardů 46, Praha 7 – Holešovice",
+
+    evidenceReason:
+      "Opakované krádeže v zaměstnání.",
 
     match:
-      84,
-
-    shortText:
-      "Výrazná shoda v oblasti očí a tvaru obličeje.",
+      86,
 
     description:
-      "Sem napište vlastní podrobný popis druhé osoby.\n\nText lze libovolně prodloužit a rozdělit do více odstavců."
+      "Věk: 29 let\nBydliště: Komunardů 46, Praha 7 – Holešovice\n\nDůvod evidence:\nOpakované krádeže v zaměstnání.",
+
+    relationClass:
+      "warning",
+
+    relationHtml:
+      `
+        <div class="relation-result-title">
+          Nalezeny 2 časoprostorové shody
+        </div>
+
+        Za poslední 3 měsíce byly v dostupných záznamech
+        nalezeny dvě situace, kdy se obě osoby nacházely
+        ve stejné lokalitě v bezprostředně navazujícím čase.
+
+        <ul class="location-list">
+
+          <li>
+            <strong>18. 4. 2026, 17:42–17:49</strong><br>
+            Supermarket Jezevčík,
+            Jateční 22, Praha 7
+          </li>
+
+          <li>
+            <strong>23. 5. 2026, 18:08–18:16</strong><br>
+            Supermarket Jezevčík,
+            Jateční 22, Praha 7
+          </li>
+
+        </ul>
+
+        <span class="relation-arrow">
+          ↓
+        </span>
+
+        Evidované bydliště Emílie Horákové se navíc nachází
+        <strong>v bezprostředním okolí bydliště poškozené Tamary Vrbové</strong>;
+        obě adresy leží v sousedních ulicích.
+      `
   },
 
 
+  /* ===========================================================
+     3. LAURA VÁCHOVÁ
+     =========================================================== */
+
   {
     id:
-      "zena-3",
+      "laura-vachova",
 
     image:
       "žena3.jpg",
 
     name:
-      "Osoba č. 3",
+      "Laura Váchová",
+
+    age:
+      20,
+
+    address:
+      "Kodaňská 31, Praha 10 – Vršovice",
+
+    evidenceReason:
+      "Přestupkové řízení – neoprávněný vstup do uzavřeného objektu. Věc vyřízena napomenutím.",
 
     match:
-      76,
-
-    shortText:
-      "Částečná shoda hlavních rozpoznávacích znaků.",
+      83,
 
     description:
-      "Sem napište vlastní podrobný popis třetí osoby.\n\nLze zde uvést také důvod evidence nebo poslední známé místo pohybu."
+      "Věk: 20 let\nBydliště: Kodaňská 31, Praha 10 – Vršovice\n\nDůvod evidence:\nPřestupkové řízení – neoprávněný vstup do uzavřeného objektu. Věc vyřízena napomenutím.",
+
+    relationClass:
+      "neutral",
+
+    relationHtml:
+      `
+        <div class="relation-result-title">
+          Nalezena 1 časoprostorová shoda
+        </div>
+
+        V dostupných záznamech byla za poslední 3 měsíce
+        nalezena jediná společná lokalizace:
+
+        <ul class="location-list">
+
+          <li>
+            <strong>5. 6. 2026, 16:34–16:41</strong><br>
+            Korunní 428, Praha
+          </li>
+
+        </ul>
+
+        <span class="relation-arrow">
+          ↓
+        </span>
+
+        Další společné lokalizace ani evidované vazby
+        mezi Laurou Váchovou a Tamarou Vrbovou
+        <strong>nebyly nalezeny</strong>.
+      `
   }
 
 ];
 
 
 /* =============================================================
-   FÁZE ANALÝZY
-
-   Přibližně 20 sekund.
+   HLAVNÍ ANALÝZA IDENTIKITU
    ============================================================= */
 
 const ANALYSIS_STEPS = [
@@ -1853,216 +2483,109 @@ const ANALYSIS_STEPS = [
   {
     target: 5,
     duration: 1100,
-
-    title:
-      "Inicializace biometrického modulu…",
-
-    detail:
-      "Načítání identikitu a příprava obrazových dat.",
-
-    log:
-      "IDENTIKIT_IMAGE loaded",
-
-    visual:
-      "scan"
+    title: "Inicializace biometrického modulu…",
+    detail: "Načítání identikitu a příprava obrazových dat.",
+    log: "IDENTIKIT_IMAGE loaded",
+    visual: "scan"
   },
-
 
   {
     target: 13,
     duration: 1400,
-
-    title:
-      "Kontrola obrazové kvality…",
-
-    detail:
-      "Vyhodnocení kontrastu, hran a použitelnosti obrazové rekonstrukce.",
-
-    log:
-      "IMAGE_QUALITY score = 0.874",
-
-    visual:
-      "scan"
+    title: "Kontrola obrazové kvality…",
+    detail: "Vyhodnocení kontrastu, hran a použitelnosti obrazové rekonstrukce.",
+    log: "IMAGE_QUALITY score = 0.874",
+    visual: "scan"
   },
-
 
   {
     target: 22,
     duration: 1700,
-
-    title:
-      "Skenování identikitu…",
-
-    detail:
-      "Probíhá plošné skenování obrazové rekonstrukce.",
-
-    log:
-      "SCAN_MATRIX generated",
-
-    visual:
-      "pixel"
+    title: "Skenování identikitu…",
+    detail: "Probíhá plošné skenování obrazové rekonstrukce.",
+    log: "SCAN_MATRIX generated",
+    visual: "pixel"
   },
-
 
   {
     target: 31,
     duration: 1700,
-
-    title:
-      "Lokalizace obličeje…",
-
-    detail:
-      "Systém vyhledává oblast obličeje a stanovuje její hranice.",
-
-    log:
-      "FACE_REGION detected",
-
-    visual:
-      "face"
+    title: "Lokalizace obličeje…",
+    detail: "Systém vyhledává oblast obličeje a stanovuje její hranice.",
+    log: "FACE_REGION detected",
+    visual: "face"
   },
-
 
   {
     target: 41,
     duration: 1800,
-
-    title:
-      "Detekce referenčních bodů…",
-
-    detail:
-      "Určování polohy očí, nosu, úst, čelisti a dalších charakteristických bodů.",
-
-    log:
-      "FACIAL_LANDMARKS mapped",
-
-    visual:
-      "landmarks"
+    title: "Detekce referenčních bodů…",
+    detail: "Určování polohy očí, nosu, úst, čelisti a dalších charakteristických bodů.",
+    log: "FACIAL_LANDMARKS mapped",
+    visual: "landmarks"
   },
-
 
   {
     target: 51,
     duration: 1700,
-
-    title:
-      "Analýza geometrie obličeje…",
-
-    detail:
-      "Výpočet vzdáleností a poměrů mezi jednotlivými částmi obličeje.",
-
-    log:
-      "GEOMETRY_MATRIX computed",
-
-    visual:
-      "detail"
+    title: "Analýza geometrie obličeje…",
+    detail: "Výpočet vzdáleností a poměrů mezi jednotlivými částmi obličeje.",
+    log: "GEOMETRY_MATRIX computed",
+    visual: "detail"
   },
-
 
   {
     target: 60,
     duration: 1500,
-
-    title:
-      "Normalizace obrazové rekonstrukce…",
-
-    detail:
-      "Korekce odchylek vzniklých při sestavení identikitu.",
-
-    log:
-      "NORMALIZATION pass 1/1",
-
-    visual:
-      "pixel"
+    title: "Normalizace obrazové rekonstrukce…",
+    detail: "Korekce odchylek vzniklých při sestavení identikitu.",
+    log: "NORMALIZATION pass 1/1",
+    visual: "pixel"
   },
-
 
   {
     target: 69,
     duration: 1700,
-
-    title:
-      "Načítání interní databáze…",
-
-    detail:
-      "Příprava dostupných obrazových záznamů pro porovnání.",
-
-    log:
-      "DATABASE records indexed",
-
-    visual:
-      "face"
+    title: "Načítání interní databáze…",
+    detail: "Příprava dostupných obrazových záznamů pro porovnání.",
+    log: "DATABASE records indexed",
+    visual: "face"
   },
-
 
   {
     target: 79,
     duration: 2100,
-
-    title:
-      "Biometrické porovnávání…",
-
-    detail:
-      "Identikit je porovnáván s dostupnými fotografiemi osob.",
-
-    log:
-      "MATCHING batch 01 processing",
-
-    visual:
-      "detail"
+    title: "Biometrické porovnávání…",
+    detail: "Identikit je porovnáván s dostupnými fotografiemi osob.",
+    log: "MATCHING batch 01 processing",
+    visual: "detail"
   },
-
 
   {
     target: 88,
     duration: 1800,
-
-    title:
-      "Prověřování možných shod…",
-
-    detail:
-      "Podrobná kontrola kandidátů s nejvyšší mírou podobnosti.",
-
-    log:
-      "TOP_CANDIDATES shortlisted",
-
-    visual:
-      "landmarks"
+    title: "Prověřování možných shod…",
+    detail: "Podrobná kontrola kandidátů s nejvyšší mírou podobnosti.",
+    log: "TOP_CANDIDATES shortlisted",
+    visual: "landmarks"
   },
-
 
   {
     target: 95,
     duration: 1400,
-
-    title:
-      "Výpočet procentuální shody…",
-
-    detail:
-      "Výpočet výsledného skóre podobnosti jednotlivých kandidátů.",
-
-    log:
-      "SIMILARITY_SCORE calculated",
-
-    visual:
-      "detail"
+    title: "Výpočet procentuální shody…",
+    detail: "Výpočet výsledného skóre podobnosti jednotlivých kandidátů.",
+    log: "SIMILARITY_SCORE calculated",
+    visual: "detail"
   },
-
 
   {
     target: 100,
     duration: 1100,
-
-    title:
-      "Kontrola a řazení výsledků…",
-
-    detail:
-      "Ověření výsledků a seřazení nalezených osob podle míry shody.",
-
-    log:
-      "RESULT_VALIDATION passed",
-
-    visual:
-      "final"
+    title: "Kontrola a řazení výsledků…",
+    detail: "Ověření výsledků a seřazení nalezených osob podle míry shody.",
+    log: "RESULT_VALIDATION passed",
+    visual: "final"
   }
 
 ];
@@ -2073,95 +2596,59 @@ const ANALYSIS_STEPS = [
    ============================================================= */
 
 const compareBtn =
-  document.getElementById(
-    "compareBtn"
-  );
+  document.getElementById("compareBtn");
 
 const loadingBox =
-  document.getElementById(
-    "loadingBox"
-  );
+  document.getElementById("loadingBox");
 
 const loadingText =
-  document.getElementById(
-    "loadingText"
-  );
+  document.getElementById("loadingText");
 
 const loadingDetail =
-  document.getElementById(
-    "loadingDetail"
-  );
+  document.getElementById("loadingDetail");
 
 const progressValue =
-  document.getElementById(
-    "progressValue"
-  );
+  document.getElementById("progressValue");
 
 const progressBar =
-  document.getElementById(
-    "progressBar"
-  );
+  document.getElementById("progressBar");
 
 const analysisLog =
-  document.getElementById(
-    "analysisLog"
-  );
+  document.getElementById("analysisLog");
 
 const imageStage =
-  document.getElementById(
-    "imageStage"
-  );
+  document.getElementById("imageStage");
 
 const matchesSection =
-  document.getElementById(
-    "matchesSection"
-  );
+  document.getElementById("matchesSection");
 
 const matchGrid =
-  document.getElementById(
-    "matchGrid"
-  );
+  document.getElementById("matchGrid");
 
 const selectedBanner =
-  document.getElementById(
-    "selectedBanner"
-  );
+  document.getElementById("selectedBanner");
 
 
 const modal =
-  document.getElementById(
-    "personModal"
-  );
+  document.getElementById("personModal");
 
 const modalClose =
-  document.getElementById(
-    "modalClose"
-  );
+  document.getElementById("modalClose");
 
 const modalImage =
-  document.getElementById(
-    "modalImage"
-  );
+  document.getElementById("modalImage");
 
 const modalTitle =
-  document.getElementById(
-    "modalTitle"
-  );
+  document.getElementById("modalTitle");
 
 const modalPercent =
-  document.getElementById(
-    "modalPercent"
-  );
+  document.getElementById("modalPercent");
 
 const modalDescription =
-  document.getElementById(
-    "modalDescription"
-  );
+  document.getElementById("modalDescription");
 
 const chooseBtn =
-  document.getElementById(
-    "chooseBtn"
-  );
+  document.getElementById("chooseBtn");
 
 
 let currentPerson =
@@ -2169,41 +2656,27 @@ let currentPerson =
 
 
 let selectedPersonId =
-
   localStorage.getItem(
     "isid-selected-person"
   );
 
 
 /* =============================================================
-   ČEKÁNÍ
+   POMOCNÉ FUNKCE
    ============================================================= */
 
 function wait(ms) {
-
   return new Promise(
-
     resolve =>
-      setTimeout(
-        resolve,
-        ms
-      )
-
+      setTimeout(resolve, ms)
   );
-
 }
 
-
-/* =============================================================
-   LOG
-   ============================================================= */
 
 function addLog(text) {
 
   const row =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
   row.className =
     "log-line";
@@ -2211,28 +2684,21 @@ function addLog(text) {
   row.textContent =
     text;
 
-  analysisLog.appendChild(
-    row
-  );
+  analysisLog.appendChild(row);
 
 
   while (
     analysisLog.children.length > 6
   ) {
-
     analysisLog.removeChild(
       analysisLog.firstChild
     );
-
   }
-
 }
 
 
 /* =============================================================
-   ÚPLNÉ VYČIŠTĚNÍ IDENTIKITU
-
-   Tato funkce odstraní VŠECHNY analytické efekty.
+   ČIŠTĚNÍ IDENTIKITU
    ============================================================= */
 
 function clearIdentikitAnalysis() {
@@ -2250,48 +2716,25 @@ function clearIdentikitAnalysis() {
 
 
 /* =============================================================
-   VIZUÁLNÍ FÁZE ANALÝZY
+   VIZUÁLNÍ REŽIM
    ============================================================= */
 
 function setVisualMode(mode) {
 
-  /*
-    Před každou další fází odstraníme
-    efekty z předchozí fáze.
-  */
-
   clearIdentikitAnalysis();
 
 
-  /*
-    FINAL znamená:
-    analýza skončila.
-
-    NEZAPÍNÁME UŽ VŮBEC NIC.
-    Identikit tedy zůstane zcela čistý.
-  */
-
-  if (
-    mode === "final"
-  ) {
-
+  if (mode === "final") {
     return;
-
   }
 
-
-  /*
-    Rohové značky během aktivní analýzy.
-  */
 
   imageStage.classList.add(
     "analyzing"
   );
 
 
-  if (
-    mode === "scan"
-  ) {
+  if (mode === "scan") {
 
     imageStage.classList.add(
       "scanning"
@@ -2300,9 +2743,7 @@ function setVisualMode(mode) {
   }
 
 
-  if (
-    mode === "pixel"
-  ) {
+  if (mode === "pixel") {
 
     imageStage.classList.add(
       "scanning",
@@ -2312,9 +2753,7 @@ function setVisualMode(mode) {
   }
 
 
-  if (
-    mode === "face"
-  ) {
+  if (mode === "face") {
 
     imageStage.classList.add(
       "scanning",
@@ -2324,9 +2763,7 @@ function setVisualMode(mode) {
   }
 
 
-  if (
-    mode === "landmarks"
-  ) {
+  if (mode === "landmarks") {
 
     imageStage.classList.add(
       "face-mode",
@@ -2336,9 +2773,7 @@ function setVisualMode(mode) {
   }
 
 
-  if (
-    mode === "detail"
-  ) {
+  if (mode === "detail") {
 
     imageStage.classList.add(
       "scanning",
@@ -2353,7 +2788,7 @@ function setVisualMode(mode) {
 
 
 /* =============================================================
-   PLYNULÝ PROGRESS
+   HLAVNÍ PROGRESS
    ============================================================= */
 
 async function animateProgress(
@@ -2365,9 +2800,7 @@ async function animateProgress(
   const steps =
     Math.max(
       8,
-      Math.round(
-        duration / 100
-      )
+      Math.round(duration / 100)
     );
 
 
@@ -2383,16 +2816,9 @@ async function animateProgress(
 
     let value =
       from +
-      (
-        to - from
-      ) *
+      (to - from) *
       fraction;
 
-
-    /*
-      Velmi malá nepravidelnost,
-      aby pohyb nebyl dokonale mechanický.
-    */
 
     value +=
       (Math.random() - .5) *
@@ -2402,10 +2828,7 @@ async function animateProgress(
     value =
       Math.max(
         from,
-        Math.min(
-          to,
-          value
-        )
+        Math.min(to, value)
       );
 
 
@@ -2435,15 +2858,10 @@ async function animateProgress(
 
 
 /* =============================================================
-   SPUŠTĚNÍ POROVNÁNÍ
+   SPUŠTĚNÍ BIOMETRICKÉHO POROVNÁNÍ
    ============================================================= */
 
 async function runComparison() {
-
-  /*
-    Pro jistotu začneme vždy
-    s úplně čistým identikitem.
-  */
 
   clearIdentikitAnalysis();
 
@@ -2520,11 +2938,10 @@ async function runComparison() {
   }
 
 
-  /* ===========================================================
-     ANALÝZA JE HOTOVÁ
-
-     NYNÍ SE IDENTIKIT OKAMŽITĚ VYČISTÍ.
-     =========================================================== */
+  /*
+    IDENTIKIT SE PO SKONČENÍ
+    OKAMŽITĚ VRÁTÍ DO ČISTÉHO STAVU.
+  */
 
   clearIdentikitAnalysis();
 
@@ -2559,49 +2976,28 @@ async function runComparison() {
     "Porovnání dokončeno";
 
 
-  /*
-    Výsledky připravíme,
-    ale ještě je okamžitě neukážeme.
-  */
-
   renderMatches();
 
 
-  /*
-    Jednu sekundu hráč vidí:
-    - 100 %
-    - čistý identikit
-    - text Porovnání dokončeno
-  */
-
   await wait(
-    1000
+    900
   );
 
-
-  /*
-    A teprve potom zobrazíme tři výsledky.
-  */
 
   matchesSection.style.display =
     "block";
 
 
   matchesSection.scrollIntoView({
-
-    behavior:
-      "smooth",
-
-    block:
-      "start"
-
+    behavior: "smooth",
+    block: "start"
   });
 
 }
 
 
 /* =============================================================
-   VYKRESLENÍ SHOD
+   VYKRESLENÍ TŘÍ OSOB
    ============================================================= */
 
 function renderMatches() {
@@ -2610,116 +3006,421 @@ function renderMatches() {
     "";
 
 
-  persons.forEach(
+  persons.forEach(person => {
 
-    person => {
-
-      const card =
-        document.createElement(
-          "article"
-        );
-
-
-      card.className =
-        "match-card";
-
-
-      card.dataset.personId =
-        person.id;
-
-
-      card.tabIndex =
-        0;
-
-
-      if (
-        person.id ===
-        selectedPersonId
-      ) {
-
-        card.classList.add(
-          "selected"
-        );
-
-      }
-
-
-      card.innerHTML = `
-
-        <span class="selected-mark">
-          Vybráno
-        </span>
-
-        <span class="match-percent">
-          ${person.match} % shoda
-        </span>
-
-        <img
-          src="${person.image}"
-          alt="${person.name}"
-        >
-
-        <div class="match-info">
-
-          <h3 class="match-name">
-            ${person.name}
-          </h3>
-
-          <p class="match-caption">
-            ${person.shortText}
-          </p>
-
-        </div>
-
-      `;
-
-
-      card.addEventListener(
-
-        "click",
-
-        () =>
-          openPerson(
-            person
-          )
-
+    const card =
+      document.createElement(
+        "article"
       );
 
 
-      card.addEventListener(
-
-        "keydown",
-
-        event => {
-
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
-
-            event.preventDefault();
-
-            openPerson(
-              person
-            );
-
-          }
-
-        }
-
-      );
+    card.className =
+      "match-card";
 
 
-      matchGrid.appendChild(
-        card
+    card.dataset.personId =
+      person.id;
+
+
+    card.tabIndex =
+      0;
+
+
+    if (
+      person.id ===
+      selectedPersonId
+    ) {
+
+      card.classList.add(
+        "selected"
       );
 
     }
 
-  );
+
+    card.innerHTML = `
+
+      <span class="selected-mark">
+        Vybráno
+      </span>
+
+      <span class="match-percent">
+        ${person.match} % shoda
+      </span>
+
+      <img
+        src="${person.image}"
+        alt="${person.name}"
+      >
+
+      <div class="match-info">
+
+        <h3 class="match-name">
+          ${person.name}
+        </h3>
+
+        <div class="person-data">
+
+          <div class="person-data-row">
+            <strong>Věk:</strong>
+            ${person.age} let
+          </div>
+
+          <div class="person-data-row">
+            <strong>Bydliště:</strong>
+            ${person.address}
+          </div>
+
+          <div class="person-data-row">
+            <strong>Důvod evidence:</strong><br>
+            ${person.evidenceReason}
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="relation-btn"
+          data-person="${person.id}"
+        >
+          Zjistit souvislost s poškozenou Tamarou Vrbovou
+        </button>
+
+
+        <div
+          class="relation-check"
+          id="relation-check-${person.id}"
+        >
+
+          <div
+            class="relation-status"
+            id="relation-status-${person.id}"
+          >
+            Přístup k záznamovým databázím…
+          </div>
+
+
+          <div class="relation-progress-track">
+
+            <div
+              class="relation-progress-bar"
+              id="relation-progress-${person.id}"
+            ></div>
+
+          </div>
+
+
+          <div
+            class="relation-small"
+            id="relation-small-${person.id}"
+          >
+            QUERY_PERSON_RELATIONS
+          </div>
+
+        </div>
+
+
+        <div
+          class="relation-result ${person.relationClass}"
+          id="relation-result-${person.id}"
+        >
+          ${person.relationHtml}
+        </div>
+
+      </div>
+
+    `;
+
+
+    /*
+      Kliknutí na kartu otevře detail osoby.
+    */
+
+    card.addEventListener(
+      "click",
+      () => openPerson(person)
+    );
+
+
+    card.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          openPerson(person);
+
+        }
+
+      }
+    );
+
+
+    /*
+      TLAČÍTKO PROVĚŘENÍ SOUVISLOSTI.
+
+      stopPropagation zajistí,
+      že kliknutí neotevře modal osoby.
+    */
+
+    const relationButton =
+      card.querySelector(
+        ".relation-btn"
+      );
+
+
+    relationButton.addEventListener(
+      "click",
+      event => {
+
+        event.stopPropagation();
+
+        runRelationCheck(
+          person,
+          relationButton
+        );
+
+      }
+    );
+
+
+    /*
+      Aby klikání uvnitř výsledku
+      neotevíralo modal.
+    */
+
+    card
+      .querySelectorAll(
+        ".relation-check, .relation-result"
+      )
+      .forEach(element => {
+
+        element.addEventListener(
+          "click",
+          event => {
+            event.stopPropagation();
+          }
+        );
+
+      });
+
+
+    matchGrid.appendChild(card);
+
+  });
 
 
   refreshSelectedBanner();
+
+}
+
+
+/* =============================================================
+   DRUHÁ ANALÝZA:
+   VAZBA NA TAMARU VRBOVOU
+   ============================================================= */
+
+async function runRelationCheck(
+  person,
+  button
+) {
+
+  button.disabled =
+    true;
+
+
+  button.textContent =
+    "Prověřování souvislostí…";
+
+
+  const check =
+    document.getElementById(
+      `relation-check-${person.id}`
+    );
+
+
+  const status =
+    document.getElementById(
+      `relation-status-${person.id}`
+    );
+
+
+  const bar =
+    document.getElementById(
+      `relation-progress-${person.id}`
+    );
+
+
+  const small =
+    document.getElementById(
+      `relation-small-${person.id}`
+    );
+
+
+  const result =
+    document.getElementById(
+      `relation-result-${person.id}`
+    );
+
+
+  result.classList.remove(
+    "visible"
+  );
+
+
+  check.classList.add(
+    "visible"
+  );
+
+
+  bar.style.width =
+    "0%";
+
+
+  const stages = [
+
+    {
+      to: 17,
+      text:
+        "Vyhledávání osoby v interních registrech…",
+      log:
+        "PERSON_INDEX lookup"
+    },
+
+    {
+      to: 34,
+      text:
+        "Kontrola evidovaných adres a provozoven…",
+      log:
+        "ADDRESS_REGISTRY compare"
+    },
+
+    {
+      to: 53,
+      text:
+        "Prohledávání lokalizačních záznamů…",
+      log:
+        "LOCATION_HISTORY scan"
+    },
+
+    {
+      to: 71,
+      text:
+        "Porovnávání dat a časových stop…",
+      log:
+        "TEMPORAL_MATCH analysis"
+    },
+
+    {
+      to: 87,
+      text:
+        "Kontrola souvisejících záznamů poškozené…",
+      log:
+        "VICTIM_RELATIONS query"
+    },
+
+    {
+      to: 100,
+      text:
+        "Vyhodnocování nalezených souvislostí…",
+      log:
+        "RELATION_SCORE finalize"
+    }
+
+  ];
+
+
+  let current =
+    0;
+
+
+  for (
+    const stage of stages
+  ) {
+
+    status.textContent =
+      stage.text;
+
+
+    small.textContent =
+      stage.log;
+
+
+    const steps =
+      12;
+
+
+    for (
+      let i = 1;
+      i <= steps;
+      i++
+    ) {
+
+      const value =
+        current +
+        (
+          stage.to - current
+        ) *
+        (i / steps);
+
+
+      bar.style.width =
+        value + "%";
+
+
+      await wait(
+        75 + Math.random() * 45
+      );
+
+    }
+
+
+    current =
+      stage.to;
+
+  }
+
+
+  bar.style.width =
+    "100%";
+
+
+  status.textContent =
+    "Prověřování dokončeno";
+
+
+  small.textContent =
+    "RELATION_QUERY COMPLETE";
+
+
+  await wait(
+    550
+  );
+
+
+  /*
+    Načítací část zmizí
+    a objeví se výsledek.
+  */
+
+  check.classList.remove(
+    "visible"
+  );
+
+
+  result.classList.add(
+    "visible"
+  );
+
+
+  button.textContent =
+    "Souvislost prověřena";
 
 }
 
@@ -2760,7 +3461,6 @@ function openPerson(person) {
 
 
   chooseBtn.textContent =
-
     isSelected
       ? "Tato osoba je označena"
       : "Označit jako hledanou osobu";
@@ -2788,7 +3488,7 @@ function openPerson(person) {
 
 
 /* =============================================================
-   ZAVŘENÍ DETAILU
+   ZAVŘÍT MODAL
    ============================================================= */
 
 function closeModal() {
@@ -2814,9 +3514,7 @@ function closeModal() {
 
 function selectCurrentPerson() {
 
-  if (
-    !currentPerson
-  ) {
+  if (!currentPerson) {
     return;
   }
 
@@ -2850,32 +3548,25 @@ function selectCurrentPerson() {
 
 
 /* =============================================================
-   BANNER VYBRANÉ OSOBY
+   BANNER
    ============================================================= */
 
 function refreshSelectedBanner() {
 
   const selected =
     persons.find(
-
       person =>
-        person.id ===
-        selectedPersonId
-
+        person.id === selectedPersonId
     );
 
 
-  if (
-    !selected
-  ) {
+  if (!selected) {
 
     selectedBanner.style.display =
       "none";
 
-
     selectedBanner.textContent =
       "";
-
 
     return;
 
@@ -2917,14 +3608,11 @@ chooseBtn.addEventListener(
 
 
 modal.addEventListener(
-
   "click",
-
   event => {
 
     if (
-      event.target ===
-      modal
+      event.target === modal
     ) {
 
       closeModal();
@@ -2932,21 +3620,16 @@ modal.addEventListener(
     }
 
   }
-
 );
 
 
 document.addEventListener(
-
   "keydown",
-
   event => {
 
     if (
       event.key === "Escape" &&
-      modal.classList.contains(
-        "open"
-      )
+      modal.classList.contains("open")
     ) {
 
       closeModal();
@@ -2954,7 +3637,6 @@ document.addEventListener(
     }
 
   }
-
 );
 
 </script>
