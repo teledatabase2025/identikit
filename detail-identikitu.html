@@ -479,14 +479,13 @@
 
     .face-target {
       position: absolute;
-
       z-index: 12;
 
-      left: 28%;
-      top: 13%;
+      left: 22.5%;
+      top: 15.5%;
 
-      width: 44%;
-      height: 61%;
+      width: 55%;
+      height: 64%;
 
       opacity: 0;
 
@@ -663,11 +662,11 @@
     .face-detail-image img {
       position: absolute;
 
-      width: 220%;
-      height: 220%;
+      width: 235%;
+      height: 235%;
 
-      left: -60%;
-      top: -22%;
+      left: -67%;
+      top: -30%;
 
       object-fit: contain;
 
@@ -929,10 +928,6 @@
       background:
         #e3eaf1;
     }
-
-    /*
-       PROCENTA JSOU PŘÍMO NA FOTCE
-    */
 
     .match-percent {
       position: absolute;
@@ -1491,17 +1486,13 @@
 
 <body>
 
-
 <header class="topbar">
-
   <div class="topbar-inner">
-
     <div class="emblem">
       ISID
     </div>
 
     <div>
-
       <div class="system-title">
         Interní systém identifikace a identikitů
       </div>
@@ -1509,16 +1500,11 @@
       <div class="system-subtitle">
         Porovnání obrazové rekonstrukce s databází
       </div>
-
     </div>
-
   </div>
-
 </header>
 
-
 <main>
-
   <a
     class="back-link"
     href="identikity.html"
@@ -1526,19 +1512,14 @@
     ← Zpět na vyhledávání
   </a>
 
-
   <section class="panel">
-
     <div class="panel-header">
-
       <div>
-
         <h1>
           Detail identikitu
         </h1>
 
         <div class="meta">
-
           <span>
             <strong>Autorka:</strong>
             Tamara Vrbová
@@ -1548,30 +1529,23 @@
             <strong>Datum vytvoření:</strong>
             11. 6. 2026
           </span>
-
         </div>
-
       </div>
 
       <div class="status">
         Přístupný
       </div>
-
     </div>
 
-
     <div class="detail-grid">
-
 
       <!-- IDENTIKIT -->
 
       <div class="image-card">
-
         <div
           class="image-stage"
           id="imageStage"
         >
-
           <img
             class="main-image"
             src="identikit.png"
@@ -1583,40 +1557,40 @@
 
           <div class="face-target"></div>
 
-
           <div class="landmark-layer">
+            <!-- oči -->
+            <span class="landmark" style="left:39.5%;top:41.2%;"></span>
+            <span class="landmark" style="left:60.5%;top:41.2%;"></span>
 
-            <span class="landmark" style="left:41%;top:31%;"></span>
-            <span class="landmark" style="left:59%;top:31%;"></span>
-            <span class="landmark" style="left:50%;top:43%;"></span>
-            <span class="landmark" style="left:50%;top:51%;"></span>
-            <span class="landmark" style="left:43%;top:59%;"></span>
-            <span class="landmark" style="left:50%;top:61%;"></span>
-            <span class="landmark" style="left:57%;top:59%;"></span>
-            <span class="landmark" style="left:36%;top:67%;"></span>
-            <span class="landmark" style="left:50%;top:73%;"></span>
-            <span class="landmark" style="left:64%;top:67%;"></span>
+            <!-- kořen nosu / střed -->
+            <span class="landmark" style="left:50%;top:50.2%;"></span>
 
+            <!-- špička nosu -->
+            <span class="landmark" style="left:50.2%;top:58.8%;"></span>
+
+            <!-- koutky úst -->
+            <span class="landmark" style="left:43.6%;top:68.2%;"></span>
+            <span class="landmark" style="left:50%;top:69.7%;"></span>
+            <span class="landmark" style="left:56.4%;top:68.2%;"></span>
+
+            <!-- čelist / tváře -->
+            <span class="landmark" style="left:35.2%;top:77.8%;"></span>
+            <span class="landmark" style="left:50%;top:80.8%;"></span>
+            <span class="landmark" style="left:64.8%;top:77.8%;"></span>
           </div>
 
-
           <div class="face-detail">
-
             <div class="face-detail-label">
               Facial region / detail
             </div>
 
             <div class="face-detail-image">
-
               <img
                 src="identikit.png"
                 alt=""
               >
-
             </div>
-
           </div>
-
 
           <div class="scan-line"></div>
 
@@ -1624,21 +1598,16 @@
           <div class="scanner-corner corner-tr"></div>
           <div class="scanner-corner corner-bl"></div>
           <div class="scanner-corner corner-br"></div>
-
         </div>
-
 
         <div class="image-caption">
           Obrazová rekonstrukce hledané osoby
         </div>
-
       </div>
-
 
       <!-- POROVNÁNÍ -->
 
       <aside class="comparison-card">
-
         <h2>
           Porovnání s databází
         </h2>
@@ -1648,7 +1617,6 @@
           s dostupnými fotografiemi osob vedených v interní evidenci.
         </p>
 
-
         <button
           id="compareBtn"
           class="compare-btn"
@@ -1657,14 +1625,11 @@
           Spustit porovnání
         </button>
 
-
         <div
           id="loadingBox"
           class="loading-box"
         >
-
           <div class="loading-line">
-
             <span id="loadingText">
               Inicializace…
             </span>
@@ -1672,37 +1637,28 @@
             <span id="progressValue">
               0 %
             </span>
-
           </div>
-
 
           <div
             id="loadingDetail"
             class="loading-detail"
           ></div>
 
-
           <div class="progress-track">
-
             <div
               id="progressBar"
               class="progress-bar"
             ></div>
-
           </div>
-
 
           <div
             id="analysisLog"
             class="analysis-log"
           ></div>
-
         </div>
-
       </aside>
 
     </div>
-
 
     <!-- TŘI SHODY -->
 
@@ -1710,9 +1666,7 @@
       id="matchesSection"
       class="matches-section"
     >
-
       <div class="matches-header">
-
         <h2>
           Nejvyšší nalezené shody
         </h2>
@@ -1720,21 +1674,15 @@
         <p>
           Kliknutím na fotografii zobrazíte detail nalezené osoby.
         </p>
-
       </div>
-
 
       <div
         id="matchGrid"
         class="match-grid"
       ></div>
-
     </section>
-
   </section>
-
 </main>
-
 
 <!-- ===========================================================
      MODAL
@@ -1744,9 +1692,7 @@
   id="personModal"
   class="modal"
 >
-
   <div class="modal-dialog">
-
     <button
       id="modalClose"
       class="modal-close"
@@ -1755,45 +1701,33 @@
       ×
     </button>
 
-
     <div class="modal-content">
-
-
       <div class="modal-image-wrap">
-
         <img
           id="modalImage"
           class="modal-image"
           src=""
           alt=""
         >
-
       </div>
 
-
       <div class="modal-info">
-
         <div class="modal-kicker">
           Detail nalezené osoby
         </div>
-
 
         <h2
           id="modalTitle"
           class="modal-title"
         ></h2>
 
-
         <div
           id="modalPercent"
           class="modal-percent"
         ></div>
 
-
         <div class="person-detail-box">
-
           <div class="person-detail-row">
-
             <div class="person-detail-label">
               Věk
             </div>
@@ -1802,12 +1736,9 @@
               id="modalAge"
               class="person-detail-value"
             ></div>
-
           </div>
 
-
           <div class="person-detail-row">
-
             <div class="person-detail-label">
               Bydliště
             </div>
@@ -1816,12 +1747,9 @@
               id="modalAddress"
               class="person-detail-value"
             ></div>
-
           </div>
 
-
           <div class="person-detail-row">
-
             <div class="person-detail-label">
               Důvod evidence
             </div>
@@ -1830,11 +1758,8 @@
               id="modalEvidenceReason"
               class="person-detail-value"
             ></div>
-
           </div>
-
         </div>
-
 
         <button
           id="relationBtn"
@@ -1844,41 +1769,32 @@
           Zjistit souvislost s poškozenou Tamarou Vrbovou
         </button>
 
-
         <div
           id="relationCheck"
           class="relation-check"
         >
-
           <div
             id="relationStatus"
             class="relation-status"
           ></div>
 
-
           <div class="relation-progress-track">
-
             <div
               id="relationProgress"
               class="relation-progress-bar"
             ></div>
-
           </div>
-
 
           <div
             id="relationSmall"
             class="relation-small"
           ></div>
-
         </div>
-
 
         <div
           id="relationResult"
           class="relation-result"
         ></div>
-
 
         <button
           id="chooseBtn"
@@ -1894,19 +1810,13 @@
           </span>
         </button>
 
-
         <div class="modal-note">
           Výběr se uloží v tomto prohlížeči.
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </div>
-
 
 <script>
 
@@ -1957,7 +1867,6 @@ const persons = [
       <strong>Tamara Vrbová</strong>.
     `
   },
-
 
   {
     id: "emilie-horakova",
@@ -2017,7 +1926,6 @@ const persons = [
     `
   },
 
-
   {
     id: "laura-vachova",
 
@@ -2043,7 +1951,7 @@ const persons = [
 
     relationHtml: `
       <div class="relation-result-title">
-        Nalezeny 2 časoprostorové shoda
+        Nalezeny 2 časoprostorové shody
       </div>
 
       <ul class="location-list">
@@ -2052,10 +1960,12 @@ const persons = [
           <strong>5. 6. 2026, 21:36–00:32</strong><br>
           Korunní 428, Praha 2-Vinohrady
         </li>
-  <li>
+
+        <li>
           <strong>8. 6. 2026, 20:05–22:44</strong><br>
           Na Bělidle, Praha 5-Smíchov
         </li>
+
       </ul>
 
       <span class="relation-arrow">↓</span>
@@ -2222,18 +2132,15 @@ function setVisualMode(mode) {
 
   clearAnalysis();
 
-
   if (
     mode === "final"
   ) {
     return;
   }
 
-
   imageStage.classList.add(
     "analyzing"
   );
-
 
   if (
     mode === "scan"
@@ -2244,7 +2151,6 @@ function setVisualMode(mode) {
     );
 
   }
-
 
   if (
     mode === "pixel"
@@ -2257,7 +2163,6 @@ function setVisualMode(mode) {
 
   }
 
-
   if (
     mode === "face"
   ) {
@@ -2269,7 +2174,6 @@ function setVisualMode(mode) {
 
   }
 
-
   if (
     mode === "landmarks"
   ) {
@@ -2280,7 +2184,6 @@ function setVisualMode(mode) {
     );
 
   }
-
 
   if (
     mode === "detail"
@@ -2307,18 +2210,14 @@ async function runComparison() {
   compareBtn.disabled =
     true;
 
-
   compareBtn.textContent =
     "Probíhá porovnání…";
-
 
   loadingBox.style.display =
     "block";
 
-
   let from =
     0;
-
 
   for (
     const step of analysisSteps
@@ -2332,27 +2231,21 @@ async function runComparison() {
       visual
     ] = step;
 
-
     loadingText.textContent =
       title;
 
-
     loadingDetail.textContent =
       detail;
-
 
     setVisualMode(
       visual
     );
 
-
     analysisLog.innerHTML +=
       `&gt; ${title}<br>`;
 
-
     const increments =
       15;
-
 
     for (
       let i = 1;
@@ -2370,14 +2263,11 @@ async function runComparison() {
           increments
         );
 
-
       progressBar.style.width =
         value + "%";
 
-
       progressValue.textContent =
         Math.round(value) + " %";
-
 
       await wait(
         duration /
@@ -2386,43 +2276,30 @@ async function runComparison() {
 
     }
 
-
     from =
       target;
 
   }
 
-
-  /*
-    PO DOKONČENÍ VŠECHNY EFEKTY PRYČ
-  */
-
   clearAnalysis();
-
 
   loadingText.textContent =
     "Porovnání dokončeno";
 
-
   loadingDetail.textContent =
     "Nalezeny tři záznamy s nejvyšší mírou podobnosti.";
-
 
   compareBtn.textContent =
     "Porovnání dokončeno";
 
-
   renderMatches();
-
 
   await wait(
     800
   );
 
-
   matchesSection.style.display =
     "block";
-
 
   matchesSection.scrollIntoView({
     behavior:
@@ -2437,7 +2314,7 @@ async function runComparison() {
 
    OPRAVDU JEN:
    FOTO
-   PROCENTA
+   PROCENTO
    JMÉNO
    ============================================================= */
 
@@ -2446,7 +2323,6 @@ function renderMatches() {
   matchGrid.innerHTML =
     "";
 
-
   persons.forEach(person => {
 
     const card =
@@ -2454,17 +2330,8 @@ function renderMatches() {
         "article"
       );
 
-
     card.className =
       "match-card";
-
-
-    /*
-      TADY UŽ NENÍ VĚK,
-      BYDLIŠTĚ,
-      DŮVOD EVIDENCE,
-      TLAČÍTKO ANI POPISEK.
-    */
 
     card.innerHTML = `
 
@@ -2487,13 +2354,11 @@ function renderMatches() {
 
     `;
 
-
     card.addEventListener(
       "click",
       () =>
         openPerson(person)
     );
-
 
     matchGrid.appendChild(
       card
@@ -2513,64 +2378,49 @@ function openPerson(person) {
   currentPerson =
     person;
 
-
   modalImage.src =
     person.image;
-
 
   modalTitle.textContent =
     person.name;
 
-
   modalPercent.textContent =
     `${person.match} % shoda`;
-
 
   modalAge.textContent =
     `${person.age} let`;
 
-
   modalAddress.textContent =
     person.address;
 
-
   modalEvidenceReason.textContent =
     person.evidenceReason;
-
 
   relationCheck.classList.remove(
     "visible"
   );
 
-
   relationResult.className =
     "relation-result";
-
 
   relationResult.innerHTML =
     "";
 
-
   relationProgress.style.width =
     "0%";
-
 
   relationBtn.disabled =
     false;
 
-
   relationBtn.textContent =
     "Zjistit souvislost s poškozenou Tamarou Vrbovou";
-
 
   chooseBtn.disabled =
     false;
 
-
   chooseBtn.classList.remove(
     "chosen"
   );
-
 
   chooseBtn.innerHTML = `
     <span class="choose-main">
@@ -2582,11 +2432,9 @@ function openPerson(person) {
     </span>
   `;
 
-
   modal.classList.add(
     "open"
   );
-
 
   document.body.style.overflow =
     "hidden";
@@ -2606,23 +2454,18 @@ async function runRelationCheck() {
     return;
   }
 
-
   relationBtn.disabled =
     true;
 
-
   relationBtn.textContent =
     "Prověřování souvislostí…";
-
 
   relationCheck.classList.add(
     "visible"
   );
 
-
   relationResult.className =
     "relation-result";
-
 
   const stages = [
 
@@ -2664,10 +2507,8 @@ async function runRelationCheck() {
 
   ];
 
-
   let from =
     0;
-
 
   for (
     const stage of stages
@@ -2679,18 +2520,14 @@ async function runRelationCheck() {
       log
     ] = stage;
 
-
     relationStatus.textContent =
       text;
-
 
     relationSmall.textContent =
       log;
 
-
     const steps =
       12;
-
 
     for (
       let i = 1;
@@ -2708,10 +2545,8 @@ async function runRelationCheck() {
           steps
         );
 
-
       relationProgress.style.width =
         value + "%";
-
 
       await wait(
         90
@@ -2719,30 +2554,24 @@ async function runRelationCheck() {
 
     }
 
-
     from =
       target;
 
   }
 
-
   await wait(
     500
   );
-
 
   relationCheck.classList.remove(
     "visible"
   );
 
-
   relationResult.className =
     `relation-result ${currentPerson.relationClass} visible`;
 
-
   relationResult.innerHTML =
     currentPerson.relationHtml;
-
 
   relationBtn.textContent =
     "Souvislost prověřena";
@@ -2760,10 +2589,8 @@ function closeModal() {
     "open"
   );
 
-
   document.body.style.overflow =
     "";
-
 
   currentPerson =
     null;
@@ -2779,18 +2606,10 @@ function selectPerson() {
     return;
   }
 
-
   localStorage.setItem(
     "isid-selected-person",
     currentPerson.id
   );
-
-
-  /*
-    Po označení osoby se vrátíme přesně zpět
-    do policejní databáze s identifikátorem
-    vybrané osoby v URL.
-  */
 
   window.location.href =
     currentPerson.returnUrl;
@@ -2817,51 +2636,39 @@ function applyPreloadedResultsFromUrl() {
       window.location.search
     );
 
-
   if (
     params.get("results") !== "1"
   ) {
     return;
   }
 
-
   clearAnalysis();
-
 
   loadingBox.style.display =
     "block";
 
-
   loadingText.textContent =
     "Porovnání dokončeno";
-
 
   loadingDetail.textContent =
     "Nalezeny tři záznamy s nejvyšší mírou podobnosti.";
 
-
   progressBar.style.width =
     "100%";
-
 
   progressValue.textContent =
     "100 %";
 
-
   analysisLog.innerHTML =
     "&gt; Porovnání již dokončeno<br>&gt; 3 výsledky načteny";
-
 
   compareBtn.disabled =
     true;
 
-
   compareBtn.textContent =
     "Porovnání dokončeno";
 
-
   renderMatches();
-
 
   matchesSection.style.display =
     "block";
@@ -2878,24 +2685,20 @@ compareBtn.addEventListener(
   runComparison
 );
 
-
 relationBtn.addEventListener(
   "click",
   runRelationCheck
 );
-
 
 chooseBtn.addEventListener(
   "click",
   selectPerson
 );
 
-
 modalClose.addEventListener(
   "click",
   closeModal
 );
-
 
 modal.addEventListener(
   "click",
@@ -2912,7 +2715,6 @@ modal.addEventListener(
   }
 );
 
-
 document.addEventListener(
   "keydown",
   event => {
@@ -2927,12 +2729,6 @@ document.addEventListener(
 
   }
 );
-
-
-/*
-  Načtení případného režimu:
-  ?results=1
-*/
 
 applyPreloadedResultsFromUrl();
 
