@@ -474,19 +474,18 @@
     }
 
     /* =========================================================
-       OBLIČEJ
+       OBLAST OBLIČEJE
        ========================================================= */
 
     .face-target {
       position: absolute;
-
       z-index: 12;
 
-      left: 28%;
-      top: 13%;
+      left: 27%;
+      top: 20%;
 
-      width: 44%;
-      height: 61%;
+      width: 46%;
+      height: 64.8%;
 
       opacity: 0;
 
@@ -663,11 +662,11 @@
     .face-detail-image img {
       position: absolute;
 
-      width: 220%;
-      height: 220%;
+      width: 210%;
+      height: 210%;
 
-      left: -60%;
-      top: -22%;
+      left: -55%;
+      top: -31%;
 
       object-fit: contain;
 
@@ -839,11 +838,6 @@
 
     /* =========================================================
        TŘI KARTY
-
-       POUZE:
-       FOTKA
-       PROCENTO
-       JMÉNO
        ========================================================= */
 
     .matches-section {
@@ -929,10 +923,6 @@
       background:
         #e3eaf1;
     }
-
-    /*
-       PROCENTA JSOU PŘÍMO NA FOTCE
-    */
 
     .match-percent {
       position: absolute;
@@ -1127,7 +1117,7 @@
     }
 
     /* =========================================================
-       ÚDAJE JSOU POUZE V MODALU
+       ÚDAJE OSOBY
        ========================================================= */
 
     .person-detail-box {
@@ -1394,7 +1384,7 @@
     }
 
     /* =========================================================
-       VÝBĚR OSOBY – JEN V MODALU
+       VÝBĚR OSOBY
        ========================================================= */
 
     .choose-btn {
@@ -1491,7 +1481,6 @@
 
 <body>
 
-
 <header class="topbar">
 
   <div class="topbar-inner">
@@ -1516,7 +1505,6 @@
 
 </header>
 
-
 <main>
 
   <a
@@ -1525,7 +1513,6 @@
   >
     ← Zpět na vyhledávání
   </a>
-
 
   <section class="panel">
 
@@ -1559,9 +1546,7 @@
 
     </div>
 
-
     <div class="detail-grid">
-
 
       <!-- IDENTIKIT -->
 
@@ -1583,22 +1568,151 @@
 
           <div class="face-target"></div>
 
+          <!--
+             BIOMETRICKÉ BODY UPRAVENÉ
+             PRO KONKRÉTNÍ IDENTIKIT.PNG
+          -->
 
           <div class="landmark-layer">
 
-            <span class="landmark" style="left:41%;top:31%;"></span>
-            <span class="landmark" style="left:59%;top:31%;"></span>
-            <span class="landmark" style="left:50%;top:43%;"></span>
-            <span class="landmark" style="left:50%;top:51%;"></span>
-            <span class="landmark" style="left:43%;top:59%;"></span>
-            <span class="landmark" style="left:50%;top:61%;"></span>
-            <span class="landmark" style="left:57%;top:59%;"></span>
-            <span class="landmark" style="left:36%;top:67%;"></span>
-            <span class="landmark" style="left:50%;top:73%;"></span>
-            <span class="landmark" style="left:64%;top:67%;"></span>
+            <!-- OBOČÍ -->
+
+            <span
+              class="landmark"
+              style="left:31.8%;top:42.3%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:44.2%;top:41.5%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:55.8%;top:41.5%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:68.2%;top:42.3%;"
+            ></span>
+
+
+            <!-- LEVÉ OKO -->
+
+            <span
+              class="landmark"
+              style="left:33.2%;top:46.8%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:39.1%;top:46.8%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:44.5%;top:46.8%;"
+            ></span>
+
+
+            <!-- PRAVÉ OKO -->
+
+            <span
+              class="landmark"
+              style="left:55.5%;top:46.8%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:60.5%;top:46.8%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:66.8%;top:46.8%;"
+            ></span>
+
+
+            <!-- NOS -->
+
+            <span
+              class="landmark"
+              style="left:50%;top:49.2%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:50%;top:55%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:45%;top:61.2%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:50%;top:62.3%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:55%;top:61.2%;"
+            ></span>
+
+
+            <!-- ÚSTA -->
+
+            <span
+              class="landmark"
+              style="left:41.4%;top:69.9%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:50%;top:68.8%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:58.6%;top:69.9%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:50%;top:72%;"
+            ></span>
+
+
+            <!-- ČELIST -->
+
+            <span
+              class="landmark"
+              style="left:34.8%;top:77.8%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:41.8%;top:82%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:50%;top:84.6%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:58.2%;top:82%;"
+            ></span>
+
+            <span
+              class="landmark"
+              style="left:65.2%;top:77.8%;"
+            ></span>
 
           </div>
-
 
           <div class="face-detail">
 
@@ -1617,7 +1731,6 @@
 
           </div>
 
-
           <div class="scan-line"></div>
 
           <div class="scanner-corner corner-tl"></div>
@@ -1627,13 +1740,11 @@
 
         </div>
 
-
         <div class="image-caption">
           Obrazová rekonstrukce hledané osoby
         </div>
 
       </div>
-
 
       <!-- POROVNÁNÍ -->
 
@@ -1648,7 +1759,6 @@
           s dostupnými fotografiemi osob vedených v interní evidenci.
         </p>
 
-
         <button
           id="compareBtn"
           class="compare-btn"
@@ -1656,7 +1766,6 @@
         >
           Spustit porovnání
         </button>
-
 
         <div
           id="loadingBox"
@@ -1675,12 +1784,10 @@
 
           </div>
 
-
           <div
             id="loadingDetail"
             class="loading-detail"
           ></div>
-
 
           <div class="progress-track">
 
@@ -1690,7 +1797,6 @@
             ></div>
 
           </div>
-
 
           <div
             id="analysisLog"
@@ -1702,7 +1808,6 @@
       </aside>
 
     </div>
-
 
     <!-- TŘI SHODY -->
 
@@ -1723,7 +1828,6 @@
 
       </div>
 
-
       <div
         id="matchGrid"
         class="match-grid"
@@ -1734,7 +1838,6 @@
   </section>
 
 </main>
-
 
 <!-- ===========================================================
      MODAL
@@ -1755,9 +1858,7 @@
       ×
     </button>
 
-
     <div class="modal-content">
-
 
       <div class="modal-image-wrap">
 
@@ -1770,25 +1871,21 @@
 
       </div>
 
-
       <div class="modal-info">
 
         <div class="modal-kicker">
           Detail nalezené osoby
         </div>
 
-
         <h2
           id="modalTitle"
           class="modal-title"
         ></h2>
 
-
         <div
           id="modalPercent"
           class="modal-percent"
         ></div>
-
 
         <div class="person-detail-box">
 
@@ -1805,7 +1902,6 @@
 
           </div>
 
-
           <div class="person-detail-row">
 
             <div class="person-detail-label">
@@ -1818,7 +1914,6 @@
             ></div>
 
           </div>
-
 
           <div class="person-detail-row">
 
@@ -1835,7 +1930,6 @@
 
         </div>
 
-
         <button
           id="relationBtn"
           class="relation-btn"
@@ -1843,7 +1937,6 @@
         >
           Zjistit souvislost s poškozenou Tamarou Vrbovou
         </button>
-
 
         <div
           id="relationCheck"
@@ -1855,7 +1948,6 @@
             class="relation-status"
           ></div>
 
-
           <div class="relation-progress-track">
 
             <div
@@ -1865,7 +1957,6 @@
 
           </div>
 
-
           <div
             id="relationSmall"
             class="relation-small"
@@ -1873,18 +1964,17 @@
 
         </div>
 
-
         <div
           id="relationResult"
           class="relation-result"
         ></div>
-
 
         <button
           id="chooseBtn"
           class="choose-btn"
           type="button"
         >
+
           <span class="choose-main">
             OZNAČIT JAKO HLEDANOU OSOBU
           </span>
@@ -1892,8 +1982,8 @@
           <span class="choose-subtext">
             a vrátit se do policejní databáze
           </span>
-        </button>
 
+        </button>
 
         <div class="modal-note">
           Výběr se uloží v tomto prohlížeči.
@@ -1906,7 +1996,6 @@
   </div>
 
 </div>
-
 
 <script>
 
@@ -1957,7 +2046,6 @@ const persons = [
       <strong>Tamara Vrbová</strong>.
     `
   },
-
 
   {
     id: "emilie-horakova",
@@ -2017,7 +2105,6 @@ const persons = [
     `
   },
 
-
   {
     id: "laura-vachova",
 
@@ -2043,7 +2130,7 @@ const persons = [
 
     relationHtml: `
       <div class="relation-result-title">
-        Nalezeny 2 časoprostorové shoda
+        Nalezeny 2 časoprostorové shody
       </div>
 
       <ul class="location-list">
@@ -2052,10 +2139,12 @@ const persons = [
           <strong>5. 6. 2026, 21:36–00:32</strong><br>
           Korunní 428, Praha 2-Vinohrady
         </li>
-  <li>
+
+        <li>
           <strong>8. 6. 2026, 20:05–22:44</strong><br>
           Na Bělidle, Praha 5-Smíchov
         </li>
+
       </ul>
 
       <span class="relation-arrow">↓</span>
@@ -2083,7 +2172,7 @@ const analysisSteps = [
 
   [31,1700,"Lokalizace obličeje…","Stanovení oblasti obličeje.","face"],
 
-  [41,1800,"Detekce referenčních bodů…","Oči, nos, ústa a čelist.","landmarks"],
+  [41,1800,"Detekce referenčních bodů…","Oči, obočí, nos, ústa a čelist.","landmarks"],
 
   [51,1700,"Analýza geometrie obličeje…","Výpočet proporcí obličeje.","detail"],
 
@@ -2350,6 +2439,10 @@ async function runComparison() {
       `&gt; ${title}<br>`;
 
 
+    analysisLog.scrollTop =
+      analysisLog.scrollHeight;
+
+
     const increments =
       15;
 
@@ -2393,10 +2486,6 @@ async function runComparison() {
   }
 
 
-  /*
-    PO DOKONČENÍ VŠECHNY EFEKTY PRYČ
-  */
-
   clearAnalysis();
 
 
@@ -2434,11 +2523,6 @@ async function runComparison() {
 
 /* =============================================================
    KARTY
-
-   OPRAVDU JEN:
-   FOTO
-   PROCENTA
-   JMÉNO
    ============================================================= */
 
 function renderMatches() {
@@ -2458,13 +2542,6 @@ function renderMatches() {
     card.className =
       "match-card";
 
-
-    /*
-      TADY UŽ NENÍ VĚK,
-      BYDLIŠTĚ,
-      DŮVOD EVIDENCE,
-      TLAČÍTKO ANI POPISEK.
-    */
 
     card.innerHTML = `
 
@@ -2786,12 +2863,6 @@ function selectPerson() {
   );
 
 
-  /*
-    Po označení osoby se vrátíme přesně zpět
-    do policejní databáze s identifikátorem
-    vybrané osoby v URL.
-  */
-
   window.location.href =
     currentPerson.returnUrl;
 
@@ -2800,14 +2871,6 @@ function selectPerson() {
 
 /* =============================================================
    PŘEDNAČTENÉ VÝSLEDKY PŘES URL
-   =============================================================
-
-   Pokud se stránka otevře například jako:
-
-   detail-identikitu.html?id=tamara-vrbova&results=1
-
-   přeskočí se biometrická animace a rovnou se zobrazí
-   již dokončené porovnání se třemi výsledky.
    ============================================================= */
 
 function applyPreloadedResultsFromUrl() {
